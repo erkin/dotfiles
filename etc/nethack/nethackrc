@@ -1,0 +1,184 @@
+# -*- conf -*-
+
+options=checkpoint,!checkspace,clicklook
+options=fixinv,help,herecmd_menu,cmdassist,sortpack
+options=!implicit_uncursed,mention_walls
+
+options=pickup_thrown,pushweapon
+options=pickup_types:$?!/(,pickup_burden:unencumbered
+options=autodig,autoopen,autopickup,autoquiver
+
+options=time,use_darkgray,mouse_support
+options=legacy,mail,news
+options=confirm,safe_pet
+
+options=hilite_pet,hilite_pile,lit_corridor,menucolors,extmenu
+options=hitpointbar,showexp,showscore
+options=sparkle,tombstone,color,DECgraphics
+
+options=catname:Kitter,dogname:Pupper,horsename:Horsey
+options=fruit:ananas
+options=menustyle:full
+options=number_pad:1
+options=paranoid_confirmation:die pray Remove
+options=sortloot:full
+options=boulder:0
+
+# empty wands
+autopickup_exception=":0¥)"
+autopickup_exception="> named empty"
+
+# cursed/blessed
+autopickup_exception=">cursed"
+autopickup_exception="<blessed"
+
+# heal
+autopickup_exception="<*full healing"
+autopickup_exception="<*extra healing"
+autopickup_exception="<*potion of healing"
+autopickup_exception="<*gain level"
+
+# annoying
+autopickup_exception=">*Amulet of Yendor"
+autopickup_exception="<*Amulet of Yendor named ?*"
+autopickup_exception=">*scroll of scare monster"
+autopickup_exception=">*scroll called scare monster"
+autopickup_exception="*:0)*"
+autopickup_exception=">*chest*"
+
+# people food
+autopickup_exception=">a corpse[^<]*$"
+autopickup_exception=">b corpse[^<]*$"
+autopickup_exception=">c corpse[^<]*$"
+
+# lizards, but not wizards or guards or lords
+autopickup_exception="<lizard corpse"
+autopickup_exception=">[^r]d corpse[^<]*$"
+autopickup_exception=">[^a]rd corpse[^<]*$"
+autopickup_exception=">[^z]ard corpse[^<]*$"
+autopickup_exception=">[^l]izard corpse[^<]*$"
+
+# floating eye
+autopickup_exception="<floating eye corpse"
+autopickup_exception=">[^y]e corpse[^<]*$"
+
+autopickup_exception=">f corpse[^<]*$"
+autopickup_exception=">g corpse[^<]*$"
+
+# wraiths, but not ixoth or death
+autopickup_exception="<wraith corpse"
+autopickup_exception=">[^t]h corpse[^<]*$"
+autopickup_exception=">[^i]th corpse[^<]*$"
+
+autopickup_exception=">i corpse[^<]*$"
+autopickup_exception=">k corpse[^<]*$"
+autopickup_exception=">l corpse[^<]*$"
+autopickup_exception=">m corpse[^<]*$"
+
+# lichen corpse, but not all that other en stuff
+autopickup_exception="<lichen corpse"
+autopickup_exception=">[^e]n corpse[^<]*$"
+autopickup_exception=">[^h]en corpse[^<]*$"
+
+autopickup_exception=">o corpse[^<]*$"
+autopickup_exception=">p corpse[^<]*$"
+autopickup_exception=">r corpse[^<]*$"
+autopickup_exception=">s corpse[^<]*$"
+
+# newt
+autopickup_exception="<newt corpse"
+autopickup_exception=">[^w]t corpse[^<]*$"
+autopickup_exception=">u corpse[^<]*$"
+autopickup_exception=">v corpse[^<]*$"
+autopickup_exception=">x corpse[^<]*$"
+autopickup_exception=">y corpse[^<]*$"
+autopickup_exception=">' corpse[^<]*$"
+
+# too good to skip out on
+autopickup_exception="<*wand called poly"
+autopickup_exception="<*wand called tele"
+autopickup_exception="<*wand called wish"
+autopickup_exception="<*wand of create monster"
+autopickup_exception="<*wand of death"
+autopickup_exception="<*wand of fire"
+autopickup_exception="<*wand of lightning"
+autopickup_exception="<*wand of polymorph"
+autopickup_exception="<*wand of teleportation"
+autopickup_exception="<*wand of wishing"
+autopickup_exception="<wand called poly"
+autopickup_exception="<wand called tele"
+autopickup_exception="<wand called wish"
+autopickup_exception="<wand of create monster"
+autopickup_exception="<wand of death"
+autopickup_exception="<wand of fire"
+autopickup_exception="<wand of lightning"
+autopickup_exception="<wand of polymorph"
+autopickup_exception="<wand of teleportation"
+autopickup_exception="<wand of wishing"
+
+# cold is used for juiblex swamp, etc.
+autopickup_exception=">wand of cold[^<]*$"
+autopickup_exception="<magic marker"
+autopickup_exception="< lamp"
+autopickup_exception="> oil lamp [^<]*$"
+autopickup_exception="> lamp called oil[^<]*$"
+autopickup_exception="<*d lamp"
+autopickup_exception="<amulet of life saving"
+autopickup_exception="<amulet called life"
+autopickup_exception="<athame"
+
+# loadstones
+autopickup_exception="< luckstone"
+autopickup_exception="< touchstone"
+autopickup_exception="<stone called luck"
+autopickup_exception="> heavy iron ball[^<]*$"
+autopickup_exception="> loadstone[^<]*$"
+autopickup_exception="> rock[^<]*$"
+autopickup_exception=">*gray stone"
+autopickup_exception=">*heavy iron ball*"
+autopickup_exception=">*loadstone named *"
+autopickup_exception=">*loadstone"
+autopickup_exception=">*sed stone"
+autopickup_exception=">*stone called loa*"
+autopickup_exception=">stone"
+# blind: glass/gems show up as gem, all else as stone.
+autopickup_exception="> stone[^<]*$"
+
+
+# displacing pets
+msgtype=hide "You displaced *"
+
+# items on floor
+msgtype=norep "You see here a *"
+msgtype=norep "You see here an *"
+
+# delayed instadeaths
+msgtype=stop "The couatl swings itself around you!"
+msgtype=stop "The electric eel swings itself around you!"
+msgtype=stop "The giant eel swings itself around you!"
+msgtype=stop "The kraken swings itself around you!"
+msgtype=stop "The python grabs you!"
+msgtype=stop "You don't feel very well."
+msgtype=stop "You are turning a little green."
+msgtype=stop "Your limbs are getting oozy."
+msgtype=stop "Your skin begins to peel away."
+msgtype=stop "You are turning into a green slime."
+msgtype=stop "You are slowing down."
+msgtype=stop "Your limbs are stiffening."
+msgtype=stop "It constricts your throat!"
+msgtype=stop "You find it hard to breathe."
+msgtype=stop "You're gasping for air."
+msgtype=stop "Your blood is having trouble reaching your brain."
+msgtype=stop "You can no longer breathe."
+msgtype=stop "You're turning blue."
+msgtype=stop "Your consciousness is fading."
+msgtype=stop "You feel deathly sick."
+msgtype=stop "You feel much worse."
+msgtype=stop "You feel even worse."
+msgtype=stop "You fail to cast the spell correctly."
+msgtype=stop "You see here a cockatrice corpse."
+msgtype=stop "You see here a chickatrice corpse."
+msgtype=stop "You are beginning to feel weak."
+msgtype=stop "You feel a strange vibration under your *."
+msgtype=stop "You feel a strange vibration beneath you."
+

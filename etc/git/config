@@ -1,0 +1,21 @@
+[user]
+	name = erkin
+	email = <my-mail>
+[github]
+	user = erkin
+	token = <my-token>
+[credential]
+	helper = cache
+[push]
+	default = simple
+[color]
+	ui = true
+	branch = true
+	diff = true
+	grep = always
+	interactive = true
+	pager = true
+	showBranch = true
+	status = true
+[core]
+	editor = "emacsclient -c"

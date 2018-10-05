@@ -1,0 +1,10 @@
+# -*- sh -*-
+
+export XDG_DESKTOP_DIR="$HOME/tmp"
+export XDG_DOWNLOAD_DIR="$HOME/tmp"
+export XDG_TEMPLATES_DIR="$HOME/doc"
+export XDG_PUBLICSHARE_DIR="$HOME/var/public"
+export XDG_DOCUMENTS_DIR="$HOME/doc"
+export XDG_MUSIC_DIR="$HOME/media/music"
+export XDG_PICTURES_DIR="$HOME/media/image"
+export XDG_VIDEOS_DIR="$HOME/media/video"

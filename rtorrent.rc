@@ -1,0 +1,31 @@
+throttle.max_peers.normal.set        = 50
+throttle.max_peers.seed.set          = 50
+throttle.max_uploads.global.set      = 250
+throttle.max_downloads.global.set    = 250
+
+throttle.global_up.max_rate.set_kb   = 100
+throttle.global_down.max_rate.set_kb = 1000
+
+network.port_range.set               = 36767-36767
+network.port_random.set              = no
+network.http.ssl_verify_peer.set     = no
+network.http.dns_cache_timeout.set   = 25
+network.xmlrpc.size_limit.set        = 2M
+
+file.prioritize_toc           = 1
+pieces.hash.on_completion.set = no
+system.umask.set              = 0027
+system.file.allocate.set      = yes
+dht.mode.set                  = auto
+protocol.pex.set              = no
+protocol.encryption.set       = allow_incoming,try_outgoing,enable_retry
+
+directory.default.set   = /media/store
+session.path.set        = $XDG_CACHE_HOME/rtorrent/
+network.scgi.open_local = $XDG_CACHE_HOME/rtorrent/rtorrent.sock
+
+log.open_file = "rtorrent", $XDG_CACHE_HOME/rtorrent/logs/rtorrent.log
+log.add_output = "warn", "rtorrent"
+
+schedule = low_diskspace,5,60,close_low_diskspace=200M
+schedule = watch_directory,5,5,"load.start=~/media/torrents/*.torrent,d.delete_tied="

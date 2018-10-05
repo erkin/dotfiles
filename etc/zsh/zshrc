@@ -1,0 +1,279 @@
+# -*- coding: utf-8-unix; mode: sh -*-
+
+# emacs doesn't like zle
+[[ $EMACS = t ]] && unsetopt zle
+
+# env vars
+HISTFILE="$XDG_DATA_HOME/zsh/history"
+COMPDUMPFILE="$XDG_DATA_HOME/zsh/compdump"
+HISTSIZE=5000
+SAVEHIST=5000
+PATH="$XDG_DATA_HOME/bin:$XDG_DATA_HOME/cargo/bin:$XDG_DATA_HOME/perl5/bin:$HOME/usr/bin:$PATH"
+
+fpath=(~/etc/zsh/site-functions $fpath)
+
+
+# zcompdump
+zstyle :compinstall filename '$XDG_CONFIG_HOME/zsh/.zshrc'
+autoload -U compinit
+compinit
+
+# opam
+. $XDG_DATA_HOME/opam/opam-init/variables.sh > /dev/null 2>&1     || true
+if tty -s >/dev/null 2>&1; then
+  . $XDG_CONFIG_HOME/exercism/exercism_completion.zsh > /dev/null 2>&1    || true
+  . $XDG_DATA_HOME/opam/opam-init/complete.zsh > /dev/null 2>&1   || true
+  . $XDG_DATA_HOME/opam/opam-init/switch_eval.sh > /dev/null 2>&1 || true
+fi
+eval $(opam config env --shell=zsh)
+
+# proper history lookup
+zle -N up-line-or-beginning-search
+zle -N down-line-or-beginning-search
+autoload up-line-or-beginning-search
+autoload down-line-or-beginning-search
+
+# proper word-kill
+autoload -U select-word-style
+select-word-style bash
+
+# edit in emacs
+autoload -z edit-command-line
+zle -N edit-command-line
+bindkey "^X^E" edit-command-line
+
+# all them options
+setopt autocd autopushd pushdignoredups pushdtohome pushdminus
+setopt automenu completealiases completeinword hashlistall \
+       listtypes rcexpandparam
+setopt extendedglob markdirs multibyte warncreateglobal warnnestedvar
+setopt banghist histexpiredupsfirst histignorespace histlexwords \
+       histreduceblanks
+setopt noclobber correct dvorak flowcontrol interactivecomments
+setopt emacs nohup prompt_subst
+
+
+# keys
+bindkey "\e[1~" beginning-of-line
+bindkey "\e[2~" overwrite-mode
+bindkey "\e[3~" delete-char
+bindkey "\e[4~" end-of-line
+bindkey "\e[5~" beginning-of-history
+bindkey "\e[6~" end-of-history
+bindkey "\e[7~" beginning-of-line
+bindkey "\e[8~" end-of-line
+
+bindkey "\e[5C" emacs-forward-word
+bindkey "\e[5D" emacs-backward-word
+
+bindkey "\e\e[C" emacs-forward-word
+bindkey "\e\e[D" emacs-backward-word
+
+bindkey "^[[A" history-search-backward
+bindkey "^[[B" history-search-forward
+
+bindkey '\eOA' up-line-or-beginning-search
+bindkey '\eOB' down-line-or-beginning-search
+bindkey '\eOC' forward-char
+bindkey '\eOD' backward-char
+
+bindkey "\eOc" emacs-forward-word
+bindkey "\eOd" emacs-backward-word
+
+bindkey "\eOF" end-of-line
+bindkey "\eOH" beginning-of-line
+
+bindkey '\e[A' up-line-or-beginning-search
+bindkey '\e[B' down-line-or-beginning-search
+bindkey '\e[C' forward-char
+bindkey '\e[D' backward-char
+
+bindkey "\e[F" end-of-line
+bindkey "\e[H" beginning-of-line
+bindkey "\e[Z" reverse-menu-complete
+
+bindkey '^h' backward-delete-char
+bindkey '^[h' backward-kill-word
+bindkey '^i' expand-or-complete-prefix
+bindkey '^p' up-line-or-beginning-search
+bindkey '^n' down-line-or-beginning-search
+
+
+# various completion options
+zstyle ':completion:*' completer _complete _match _approximate
+zstyle ':completion:*' file-sort modification reverse
+zstyle ':completion:*' ignore-parents parent pwd
+zstyle ':completion:*' insert-tab false
+zstyle ':completion:*' list-colors "=(#b) #([0-9]#)*=36=31"
+zstyle ':completion:*' verbose yes
+zstyle ':completion:*:approximate:*' max-errors 'reply=(  $((  ($#PREFIX+$#SUFFIX)/3  ))  )'
+zstyle ':completion:*:approximate:*' max-errors 1 numeric
+zstyle ':completion::approximate*:*' prefix-needed false
+zstyle ':completion:*:cd:*' ignore-parents parent pwd
+zstyle ':completion::complete:*' gain-privileges 1
+zstyle ':completion:*:corrections' format '%B%d (errors %e)%b'
+zstyle ':completion:*:default' list-prompt '%S%M matches%s'
+zstyle ':completion:*:default' menu 'select=0'
+zstyle ':completion:*:descriptions' format '-~- %U%d%u -~-'
+zstyle ':completion:*:expand:*' tag-order all-expansions
+zstyle ':completion:*:*:kill:*' menu yes select
+zstyle ':completion:*:kill:*' force-list always
+zstyle ':completion:*:manuals' separate-sections true
+zstyle ':completion:*:match:*' original only
+zstyle ':completion:*:windows' menu on=0
+
+# prompt
+export PS1="$(print '%{\e[0;31m%}%1~%{\e[0m%} %{\e[1;32m%}%%%{\e[0m%}') "
+export PS2="$(print '%{\e[1;33m%}-->%{\e[0m%}')"
+
+
+## aliases
+# systemctl
+alias usys="systemctl --user"
+
+# dir
+alias ls='ls -F --color=auto --group-directories-first --dereference-command-line-symlink-to-dir'
+alias no='exa -bF --color=auto --git --group-directories-first'
+#alias dir='no -Ahl'
+alias dir='no -@aghl'
+alias ll='dir'
+alias mc='/usr/lib/mc/mc-wrapper.sh'
+
+# files
+alias mkdir='mkdir -p'
+alias rm='rm -v'
+alias mv='mv -v'
+alias cp='cp -v'
+
+# heh heh
+alias apt='sl'
+
+# colouring
+alias dmesg='dmesg -H'
+alias diff='diff --color'
+alias tree='tree -CF --dirsfirst'
+alias pactree='pactree -c'
+alias grep='grep --color'
+alias fgrep='grep -F --color'
+alias egrep='grep -E --color'
+
+# editors
+alias kille='emacsclient -e "(kill-emacs)"'
+alias se='sudo -e'
+alias edit='emacsclient -t'
+alias sedit='sudo emacs -Q -nw'
+alias visudo='sudo SUDO_EDITOR="emacs -Q -nw" visudo'
+alias vi='e3vi'
+alias vim='e3vi'
+alias nano='e3pi'
+alias pico='e3pi'
+alias ed='rlwrap ed -lvp\>\ '
+
+# repls
+alias csi_='csi -wq $XDG_CONFIG_HOME/chicken/csirc'
+alias dc='rlwrap dc -f $XDG_CONFIG_HOME/dc/dcrc -'
+
+# pacman
+alias p='powerpill'
+alias sp='sudo powerpill'
+alias b='bauerbill'
+alias sb='bb-wrapper --aur --build-dir /tmp/pacbuild'
+
+# other
+alias 2hu='ffmpeg -f x11grab -r 40 -s 1920x1080 -i :0.0 -f pulse -i default\
+      -acodec libvorbis -vcodec libx264 -tune touhou -preset ultrafast\
+      ~/media/video/screencast_$(date +%F_%H%M%S_%N).mkv'
+alias gitlog='git log --decorate=full --color=always --oneline --graph --pickaxe-all --full-diff'
+alias pastebin="curl -F 'c=@-' https://ptpb.pw"
+alias wm='dtach -A /tmp/dvtm -r winch dvtm'
+alias wget='wget --hsts-file ~/etc/wget/hsts'
+# alias skype="LD_PRELOAD=/usr/lib32/libv4l/v4l1compat.so skype &2>/dev/null"
+
+
+## functions
+
+function which
+{
+    # (doesn't work on Debian)
+    (alias; declare -f) | \
+	/usr/bin/which --tty-only --read-alias --read-functions --show-dot --show-tilde $@
+}
+# emacs server daemon
+function edae
+{
+    pushd ~ > /dev/null
+    env GTK_IM_MODULE=xim XMODIFIERS=@im=none dbus-launch --sh-syntax emacs --daemon
+    popd > /dev/null
+}
+
+# emacsclient but short
+function e
+{
+    (emacsclient -c $@ 2>&1 > /dev/null )
+}
+
+# tail ll
+function lt
+{
+    ls -Fltrsa --color "$@" | tail
+}
+
+# print raw man :^)
+function manopt
+{
+    man $1 | sed 's/.\x08//g' | sed -n "/^\s\+-\+$2\b/,/^\s*$/p" | sed '$d;'
+}
+
+# wttr
+function weather
+{
+    curl "http://wttr.in/$1"
+}
+
+# grab window
+function scrsht
+{
+	activeWinLine=$(xprop -root | grep "_NET_ACTIVE_WINDOW(WINDOW)")
+	activeWinId=${activeWinLine:40}
+	import -window "$activeWinId" \
+	       ~/media/image/screen/$(date +%Y)/$(date +%F_%H%M%S_%N).png
+}
+
+# useless clock
+function clocc
+{
+    (while true
+     do
+	 echo -ne "\e[s\e[0;$((COLUMNS-27))H$(date)\e[u"
+	 sleep 1
+     done &!) 2> /dev/null
+}
+
+# zsh_stats, partially stolen from oh_my_zsh
+function zsh_stats
+{    
+    fc -l 1 | awk '{ CMD[$2]++; count++; }
+	END { for (a in CMD) print CMD[a] " " CMD[a] / count * 100 "% " a; }'\
+	    | grep -v "./" | column -c3 -s " " -t | sort -nr | nl | sed ${@:-10}q
+}
+
+
+## internal functions go here
+# window title
+function chpwd
+{
+    [[ -t 1 ]] || return
+    print -Pn "\e]2;%~\a"
+}
+
+# pip zsh completion
+function _pip_completion
+{
+  local words cword
+  read -Ac words
+  read -cn cword
+  reply=( $(COMP_WORDS="$words[*]" \
+            COMP_CWORD=$((cword-1)) \
+            PIP_AUTO_COMPLETE=1 $words[1]))
+}
+compctl -K _pip_completion pip

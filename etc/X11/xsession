@@ -1,0 +1,4 @@
+#!/bin/sh
+systemctl --user import-environment PATH DBUS_SESSION_BUS_ADDRESS XAUTHORITY DISPLAY
+systemctl --no-block --user start xsession.target
+/bin/bash --login -i $XDG_CONFIG_HOME/X11/xinitrc

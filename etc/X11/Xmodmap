@@ -1,0 +1,5 @@
+clear shift
+clear mod3
+clear mod4
+keycode 62 = Hyper_L Hyper_R
+add Mod3 = Hyper_L Hyper_R

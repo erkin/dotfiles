@@ -1,0 +1,136 @@
+# -*- coding: utf-8; mode: sh -*-
+setopt allexport
+
+# audio
+QEMU_AUDIO_DRV="pulse"
+#PULSE_LATENCY_MSEC=60
+
+# emacs
+EDITOR="emacsclient"
+ALTERNATE_EDITOR="emacs"
+SUDO_EDITOR="emacsclient"
+GIT_EDITOR="emacsclient -t"
+VISUAL="emacs"
+
+# rxvt
+RXVT_SOCKET="$XDG_RUNTIME_DIR/urxvtd"
+
+# Xorg
+XCOMPOSEFILE="$XDG_CONFIG_HOME/X11/XCompose"
+XINITRC="$XDG_CONFIG_HOME/X11/xinitrc"
+XSERVERRC="$XDG_CONFIG_HOME/X11/xserverrc"
+# does not play well with ssh
+XAUTHORITY="$XDG_RUNTIME_DIR/Xauthority"
+
+WLC_LIBINPUT=1
+XKB_DEFAULT_MODEL="logitech_base"
+XKB_DEFAULT_LAYOUT="meow"
+#XKB_DEFAULT_VARIANT=""
+XKB_DEFAULT_OPTIONS="compose:caps,terminate:ctrl_alt_bksp"
+
+# GTK & Qt
+GTK_RC_FILES="$XDG_CONFIG_HOME/gtk-1.0/gtkrc"
+GTK2_RC_FILES="$XDG_CONFIG_HOME/gtk-2.0/gtkrc"
+QT_QPA_PLATFORMTHEME="gtk2"
+QT_QPA_PLATFORMTHEME="qt5ct"
+XMODIFIERS="@im=fcitx"
+GTK_IM_MODULE="fcitx"
+QT_IM_MODULE="fcitx"
+
+# SDL
+SDL_VIDEO_FULLSCREEN_HEAD=1
+SDL_VIDEO_MINIMIZE_ON_FOCUS_LOSS=0
+SDL_VIDEO_X11_DGAMOUSE=0
+
+# mc
+MC_XDG_OPEN="$HOME/usr/bin/nohup-open"
+
+# mu
+MU_HOME="$XDG_CACHE_HOME/mu"
+
+# MySQL
+MYSQL_HISTFILE="$XDG_DATA_HOME/mysql/history"
+
+# wine
+WINEDLLOVERRIDES="mscoree,mshtml="
+WINEPREFIX="$XDG_DATA_HOME/wine/default"
+
+
+# Carp
+CARP_DIR="$HOME/dev/repos/Carp"
+
+# Haskell
+STACK_ROOT="$XDG_DATA_HOME/stack"
+
+# Java
+_JAVA_OPTIONS="-Djava.util.prefs.userRoot=\"$XDG_CONFIG_HOME/java\""
+
+# Perl
+PERL5LIB="$XDG_DATA_HOME/perl5/lib/perl5:$PERL5LIB"
+PERL_LOCAL_LIB_ROOT="$XDG_DATA_HOME/perl5:$PERL_LOCAL_LIB_ROOT"
+PERL_MB_OPT="--install_base \"$XDG_DATA_HOME/perl5\""
+PERL_MM_OPT="INSTALL_BASE=$XDG_DATA_HOME/perl5"
+
+# Python
+PYLINTHOME="$XDG_CACHE_HOME/pylint"
+WORKON_HOME="$HOME/dev/envs"
+PYTHONDONTWRITEBYTECODE=1
+
+# Racket
+PLT_PKG_SSL_NO_VERIFY=1 # ugh
+
+# Ruby
+GEM_HOME="$XDG_DATA_HOME/gem"
+GEM_SPEC_CACHE="$XDG_CACHE_HOME/gem"
+BUNDLE_USER_CONFIG="$XDG_CONFIG_HOME/bundle"
+BUNDLE_USER_CACHE="$XDG_CACHE_HOME/bundle"
+BUNDLE_USER_PLUGIN="$XDG_DATA_HOME/bundle"
+
+# Rust
+CARGO_HOME="$XDG_DATA_HOME/cargo"
+RUSTUP_HOME="$XDG_DATA_HOME/rustup"
+RUST_SRC_PATH="$HOME/dev/repos/rust/src"
+
+# less
+PAGER="less"
+LESS="-FJMQSReis"
+LESSOPEN="| src-hilite-lesspipe.sh %s"
+LESS_TERMCAP_mb=$(printf "\e[1;31m")
+LESS_TERMCAP_md=$(printf "\e[1;31m")
+LESS_TERMCAP_me=$(printf "\e[0m")
+LESS_TERMCAP_se=$(printf "\e[0m")
+LESS_TERMCAP_so=$(printf "\e[1;44;33m")
+LESS_TERMCAP_ue=$(printf "\e[0m")
+LESS_TERMCAP_us=$(printf "\e[1;32m")
+LESS_ADVANCED_PREPROCESSOR=1
+LESSHISTFILE="$XDG_CACHE_HOME/less/history"
+LESSKEY="$XDG_CONFIG_HOME/less/lesskey"
+
+# rlwrap
+RLWRAP_HOME="$XDG_CONFIG_HOME/rlwrap"
+RLWRAP_EDITOR="emacsclient -c +%L:%C %F"
+
+# locale
+LANG="en_DK.UTF-8"
+TZ="TRT-3"
+
+# misc
+ARCH="x86_64"
+ARCHFLAGS="-arch ${ARCH}"
+
+BROWSER="firefox"
+CRAWL_DIR="$XDG_DATA_HOME/crawl/"
+CUDA_CACHE_PATH="$XDG_CACHE_HOME/nv"
+GNUPGHOME="$XDG_CONFIG_HOME/gnupg"
+GCC_COLORS="error=01;31:warning=01;35:note=01;36:range1=32:range2=34:locus=01:\
+            quote=01:fixit-insert=32:fixit-delete=31:type-diff=01;3:\
+            diff-filename=01:diff-hunk=32:diff-delete=31:diff-insert=32:"
+GREP_COLOR="1;32"
+INPUTRC="$XDG_CONFIG_HOME/readline/inputrc"
+MPLAYER_HOME="$XDG_CONFIG_HOME/mplayer"
+NETHACKOPTIONS="@$XDG_CONFIG_HOME/nethack/nethackrc"
+SSH_KEY_PATH="~/.ssh/rsa_id"
+
+unsetopt allexport
+
+export PATH="$CARGO_HOME/bin:$PATH"

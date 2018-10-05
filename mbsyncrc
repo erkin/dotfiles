@@ -1,0 +1,61 @@
+# -*- conf-space -*-
+
+IMAPAccount mailbox
+Host imap.mailbox.org
+User <address-goes-here>
+PassCmd "gpg2 -q --for-your-eyes-only --no-tty -d ~/etc/gnupg/shared/.mailbox.gpg"
+Port 993
+SSLType IMAPS
+AuthMechs Login
+CertificateFile /etc/ssl/certs/ca-certificates.crt
+
+IMAPStore mailbox-remote
+Account mailbox
+
+MaildirStore mailbox-local
+Path ~/var/mail/mailbox
+Inbox ~/var/mail/mailbox/INBOX
+
+Channel mailbox-inbox
+Master :mailbox-remote:"Inbox"
+Slave :mailbox-local:INBOX
+Create Both
+Expunge Both
+
+Channel mailbox-archive
+Master :mailbox-remote:"Archive"
+Slave :mailbox-local:archive
+Create Both
+Expunge Both
+
+Channel mailbox-drafts
+Master :mailbox-remote:"Drafts"
+Slave :mailbox-local:drafts
+Create Both
+Expunge Both
+
+Channel mailbox-sent
+Master :mailbox-remote:"Sent"
+Slave :mailbox-local:sent
+Create Both
+Expunge Both
+
+Channel mailbox-trash
+Master :mailbox-remote:"Trash"
+Slave :mailbox-local:trash
+Create Both
+Expunge Both
+
+Channel mailbox-junk
+Master :mailbox-remote:"Junk"
+Slave :mailbox-local:junk
+Create Both
+Expunge Both
+
+Group mailbox
+Channel mailbox-inbox
+Channel mailbox-archive
+Channel mailbox-drafts
+Channel mailbox-sent
+Channel mailbox-trash
+Channel mailbox-junk

@@ -1,0 +1,158 @@
+!!
+!! colour
+!!
+
+*background: #131313
+*foreground: #ffffff
+
+! Default
+! 0: black
+*color0:  #121212
+*color8:  #121212
+! 1: red
+*color1:  #ff7848
+*color9:  #ff4848
+! 2: green
+*color2:  #1fcb4a
+*color10: #1fcb4a
+! 3: yellow
+*color3:  #dfe32d
+*color11: #dfe32d
+! 4: blue
+*color4:  #2966b8
+*color12: #2966b8
+! 5: magenta
+*color5:  #f900f9
+*color13: #f900f9
+! 6: cyan
+*color6:  #62d0ff
+*color14: #62d0ff
+! 7: white
+*color7:  #ffffff
+*color15: #ffffff
+
+URxvt.background:      rgba:2300/2b00/2b00/d000
+!URxvt.background: #232B2B
+URxvt.foreground: #DDDDDD
+URxvt.colorBD:    #CFCFCF
+URxvt.colorUL:    #A0A0A0
+URxvt.colorIT:    #686868
+URxvt.color0:     #303030
+URxvt.color8:     #686868
+URxvt.color9:     #FFA7DA
+URxvt.color1:     #D370A3
+URxvt.color10:    #A3D572
+URxvt.color2:     #6D9E3F
+URxvt.color12:    #98CBFE
+URxvt.color4:     #6095C5
+URxvt.color11:    #EFBD8B
+URxvt.color3:     #B58858
+URxvt.color14:    #75DAA9
+URxvt.color6:     #3BA275
+URxvt.color13:    #E5B0FF
+URxvt.color5:     #AC7BDE
+URxvt.color7:     #CFCFCF
+URxvt.color15:    #FFFFFF
+
+
+!!
+!! urxvt
+!!
+
+URxvt.font:             xft:Fira Code Retina:size=10
+URxvt.boldfont:         xft:Fira Code Retina:bold:size=10
+URxvt*scrollTtyOutput:      false
+URxvt*scrollWithBuffer:     true
+URxvt*scrollTtyKeypress:    true
+URxvt*scrollBar:        true
+URxvt*scrollBar_right: true
+URxvt.scrollstyle:     plain ! plain, next, xterm, rxvt
+URxvt*scrollColor:     #AAABBB
+
+URxvt*transparent:     false
+URxvt*shading:         75
+URxvt.depth:           32
+URxvt.buffered:        true
+URxvt.fadeColor:       red
+URxvt.fading:          2%
+
+URxvt*perl-lib:			/usr/lib/urxvt/perl
+URxvt.perl-ext-common:  default,matcher,clipboard,vtwheel
+!,selection-autotransform,keyboard-select
+
+URxvt.keysym.M-Escape:  perl:keyboard-select:activate
+URxvt.keysym.M-s:       perl:keyboard-select:search
+URxvt.keysym.M-c:       perl:clipboard:copy
+URxvt.keysym.M-v:       perl:clipboard:paste
+URxvt.keysym.M-C-v:     perl:clipboard:paste_escaped
+URxvt.keysym.M-u:       perl:url-select:select_next
+
+URxvt.url-select.autocopy:  true
+URxvt.url-select.underline: true
+URxvt.url-select.launcher: /usr/bin/xdg-open
+URxvt.url-launcher:      /usr/bin/xdg-open
+URxvt.urllauncher:      /usr/bin/xdg-open
+URxvt.matcher.button:   1
+
+
+!!
+!! dzen2
+!!
+
+! dzen2.font:       xft:Inconsolata:size=12:antialias=true
+! dzen2.foreground: #22EE11
+! dzen2.background: black
+
+
+!!
+!! xcursor
+!!
+
+Xcursor.theme: Hackneyed
+! Xcursor.size:  22
+
+
+!!
+!! Xft
+!!
+
+Xft.dpi:        102
+Xft.antialias:  true
+Xft.rgba:       rgb
+Xft.hinting:    true
+Xft.hintstyle:  hintfull
+
+
+!!
+!! emacs
+!!
+
+!emacs*Background:   DarkSlateGray
+!emacs*Foreground:   Wheat
+!emacs*pointerColor: Orchid
+!emacs*cursorColor:  Orchid
+emacs*bitmapIcon:   on
+!emacs*font:         fixed
+!emacs*font:         xft:Fira Code:antialias=true:style=Retina,Regular:size=11
+!emacs.geometry:     80x30
+
+
+!!
+!! Xfig/Xpdf
+!!
+
+xfig*enableFreetype:    yes
+xfig*antialias:         yes
+! xfig*foreground:        white
+! xfig*background:        black
+xfig*urlCommand:        /usr/bin/xdg-open %s
+
+
+!!
+!! rofi
+!!
+
+rofi.modi:		combi,run,ssh,keys,drun
+rofi.combi-modi:	run,drun,ssh
+rofi.theme:		Arc-Dark
+rofi.font:		Fira Code 11
