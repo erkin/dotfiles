@@ -8,7 +8,9 @@ use of [[https://standards.freedesktop.org/basedir-spec/basedir-spec-latest.html
 As you can see in [[file:etc/other-dirs.dirs]], I defined
 =$XDG_CONFIG_HOME= (=~/.config= by default) to be =~/etc= and
 =$XDG_DATA_HOME= (=~/.local/share= by default) to be =~/usr/share=, so
-as to resemble =hier(7)= a bit.
+as to resemble =hier(7)= a bit. (Note that some odd applications
+actually hardcode =~/.config= or =~/.local/share= for some godforsaken
+reason.)
 
 These definitions are sourced in [[file:etc/zsh/zshenv]] and I try to
 force programs to use these dirs as much as possible with either
@@ -33,8 +35,7 @@ told where the =$ZDOTDIR= is in =.zshenv=, but there're zero (0) zsh
 related files in =$HOME=. The solution is a little hack where you
 export =$ZDOTDIR= as =$HOME/etc/zsh= in =/etc/zsh/zshenv=.
 It works perfectly for me, but your mileage may vary.
-
-(Note that zsh dotfiles *must* begin with a =.= regardless of your
+(zsh dotfiles *must* begin with a =.= regardless of your
 =$ZDOTDIR=.)
 
 And no, I don't use =oh-my-zsh=.
@@ -43,3 +44,7 @@ And no, I don't use =oh-my-zsh=.
 People actually asked me this for some reason, and my answer is:
 Absolutely, go nuts. I don't even want attribution for this mess. In
 fact, I stole a portion of these from others myself to begin with.
+
+** Acknowledgements
+I would like to thank =grawity= from Arch Linux IRC channel
+for convincing me to strive for a cleaner =$HOME=.

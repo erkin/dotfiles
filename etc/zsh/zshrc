@@ -184,7 +184,9 @@ alias sb='bb-wrapper --aur --build-dir /tmp/pacbuild'
 alias 2hu='ffmpeg -f x11grab -r 40 -s 1920x1080 -i :0.0 -f pulse -i default\
       -acodec libvorbis -vcodec libx264 -tune touhou -preset ultrafast\
       ~/media/video/screencast_$(date +%F_%H%M%S_%N).mkv'
+alias claws-mail="claws-mail --alternative-config-dir $XDG_DATA_HOME/claws"
 alias gitlog='git log --decorate=full --color=always --oneline --graph --pickaxe-all --full-diff'
+alias startx="startx $XINITRC"
 alias pastebin="curl -F 'c=@-' https://ptpb.pw"
 alias wm='dtach -A /tmp/dvtm -r winch dvtm'
 alias wget='wget --hsts-file ~/etc/wget/hsts'

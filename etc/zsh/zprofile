@@ -1,9 +1,9 @@
 # -*- coding: utf-8; mode: sh -*-
 setopt allexport
 
-# audio
-QEMU_AUDIO_DRV="pulse"
-#PULSE_LATENCY_MSEC=60
+# me
+NAME="Erkin Batu Altunbaş"
+ORGANIZATION=""
 
 # emacs
 EDITOR="emacsclient"
@@ -19,8 +19,11 @@ RXVT_SOCKET="$XDG_RUNTIME_DIR/urxvtd"
 XCOMPOSEFILE="$XDG_CONFIG_HOME/X11/XCompose"
 XINITRC="$XDG_CONFIG_HOME/X11/xinitrc"
 XSERVERRC="$XDG_CONFIG_HOME/X11/xserverrc"
+XCURSOR_THEME="Hackneyed"
+XMODIFIERS="@im=fcitx"
 # does not play well with ssh
 XAUTHORITY="$XDG_RUNTIME_DIR/Xauthority"
+ICEAUTHORITY="$XDG_RUNTIME_DIR/ICEauthority"
 
 WLC_LIBINPUT=1
 XKB_DEFAULT_MODEL="logitech_base"
@@ -31,16 +34,17 @@ XKB_DEFAULT_OPTIONS="compose:caps,terminate:ctrl_alt_bksp"
 # GTK & Qt
 GTK_RC_FILES="$XDG_CONFIG_HOME/gtk-1.0/gtkrc"
 GTK2_RC_FILES="$XDG_CONFIG_HOME/gtk-2.0/gtkrc"
-QT_QPA_PLATFORMTHEME="gtk2"
-QT_QPA_PLATFORMTHEME="qt5ct"
-XMODIFIERS="@im=fcitx"
 GTK_IM_MODULE="fcitx"
 QT_IM_MODULE="fcitx"
+QT_QPA_PLATFORMTHEME="gtk2"
+QT_QPA_PLATFORMTHEME="qt5ct"
+QT_STYLE_OVERRIDE="gtk2"
 
 # SDL
 SDL_VIDEO_FULLSCREEN_HEAD=1
 SDL_VIDEO_MINIMIZE_ON_FOCUS_LOSS=0
 SDL_VIDEO_X11_DGAMOUSE=0
+SDL_AUDIO_DRIVER="pulse"
 
 # mc
 MC_XDG_OPEN="$HOME/usr/bin/nohup-open"
@@ -63,6 +67,7 @@ CARP_DIR="$HOME/dev/repos/Carp"
 
 # Haskell
 STACK_ROOT="$XDG_DATA_HOME/stack"
+CABAL_CONFIG="$XDG_CONFIG_HOME/cabal/config"
 
 # Java
 _JAVA_OPTIONS="-Djava.util.prefs.userRoot=\"$XDG_CONFIG_HOME/java\""
@@ -97,6 +102,9 @@ CARGO_HOME="$XDG_DATA_HOME/cargo"
 RUSTUP_HOME="$XDG_DATA_HOME/rustup"
 RUST_SRC_PATH="$HOME/dev/repos/rust/src"
 
+
+## Misc
+
 # less
 PAGER="less"
 LESS="-FJMQSReis"
@@ -112,30 +120,50 @@ LESS_ADVANCED_PREPROCESSOR=1
 LESSHISTFILE="$XDG_CACHE_HOME/less/history"
 LESSKEY="$XDG_CONFIG_HOME/less/lesskey"
 
+# mailcap
+MAILCAP="$XDG_CONFIG_HOME/mailcap"
+MAILCAPS="$MAILCAP"
+
 # readline
 INPUTRC="$XDG_CONFIG_HOME/readline/inputrc"
 RLWRAP_HOME="$XDG_CONFIG_HOME/rlwrap"
 RLWRAP_EDITOR="emacsclient -c +%L:%C %F"
 
+# ssh
+SSH_KEY_PATH="$HOME/.ssh/rsa_id" # Sad!
+SSH_AUTH_SOCK="$(gpgconf --list-dirs agent-ssh-socket)"
+
+
+# other home/config location
+CRAWL_DIR="$XDG_DATA_HOME/crawl/"
+CUDA_CACHE_PATH="$XDG_CACHE_HOME/nv"
+CVS_PASSFILE="$XDG_DATA_HOME/cvspass"
+ELINKS_CONFDIR="$XDG_CONFIG_HOME/elinks"
+GNUPGHOME="$XDG_CONFIG_HOME/gnupg"
+GRAMPSHOME="$XDG_DATA_HOME/gramps"
+LYNX_CFG="$XDG_CONFIG_HOME/lynx/lynx.cfg"
+MBOX="$HOME/var/mbox"
+MPLAYER_HOME="$XDG_CONFIG_HOME/mplayer"
+NETHACKOPTIONS="@$XDG_CONFIG_HOME/nethack/nethackrc"
+WGETRC="$XDG_CONFIG_HOME/wgetrc"
+
 # locale
 LANG="en_DK.UTF-8"
 TZ="TRT-3"
 
-# misc
+# others
 ARCH="x86_64"
-ARCHFLAGS="-arch ${ARCH}"
-
+ARCHFLAGS="-arch $ARCH"
 BROWSER="firefox"
-CRAWL_DIR="$XDG_DATA_HOME/crawl/"
-CUDA_CACHE_PATH="$XDG_CACHE_HOME/nv"
-GNUPGHOME="$XDG_CONFIG_HOME/gnupg"
+COLORTERM=1
+QEMU_AUDIO_DRV="pulse"
+#PULSE_LATENCY_MSEC=60
+WWW_HOME="https://start.duckduckgo.com/lite"
+
 GCC_COLORS="error=01;31:warning=01;35:note=01;36:range1=32:range2=34:locus=01:\
             quote=01:fixit-insert=32:fixit-delete=31:type-diff=01;3:\
             diff-filename=01:diff-hunk=32:diff-delete=31:diff-insert=32:"
 GREP_COLOR="1;32"
-MPLAYER_HOME="$XDG_CONFIG_HOME/mplayer"
-NETHACKOPTIONS="@$XDG_CONFIG_HOME/nethack/nethackrc"
-SSH_KEY_PATH="~/.ssh/rsa_id"
 
 unsetopt allexport
 
