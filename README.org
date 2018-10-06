@@ -34,10 +34,12 @@ related files in =$HOME=. The solution is a little hack where you
 export =$ZDOTDIR= as =$HOME/etc/zsh= in =/etc/zsh/zshenv=.
 It works perfectly for me, but your mileage may vary.
 
-**** Note
-zsh dotfiles *must* begin with a =.= regardless of your =$ZDOTDIR=.
+(Note that zsh dotfiles *must* begin with a =.= regardless of your
+=$ZDOTDIR=.)
+
+And no, I don't use =oh-my-zsh=.
 
 ** Can I steal these?
-People actually asked me this, and my answer is: Absolutely, go
-nuts. I don't even want attribution for this mess. In fact, I stole
-a portion of these from others myself to begin with.
+People actually asked me this for some reason, and my answer is:
+Absolutely, go nuts. I don't even want attribution for this mess. In
+fact, I stole a portion of these from others myself to begin with.

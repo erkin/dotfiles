@@ -56,6 +56,8 @@ WINEDLLOVERRIDES="mscoree,mshtml="
 WINEPREFIX="$XDG_DATA_HOME/wine/default"
 
 
+## Language specific config
+
 # Carp
 CARP_DIR="$HOME/dev/repos/Carp"
 
@@ -64,6 +66,10 @@ STACK_ROOT="$XDG_DATA_HOME/stack"
 
 # Java
 _JAVA_OPTIONS="-Djava.util.prefs.userRoot=\"$XDG_CONFIG_HOME/java\""
+
+# Octave
+OCTAVE_HISTFILE="$XDG_CONFIG_HOME/octave/octave_hist"
+OCTAVE_SITE_INITFILE="$XDG_CONFIG_HOME/octave/octaverc"
 
 # Perl
 PERL5LIB="$XDG_DATA_HOME/perl5/lib/perl5:$PERL5LIB"
@@ -106,7 +112,8 @@ LESS_ADVANCED_PREPROCESSOR=1
 LESSHISTFILE="$XDG_CACHE_HOME/less/history"
 LESSKEY="$XDG_CONFIG_HOME/less/lesskey"
 
-# rlwrap
+# readline
+INPUTRC="$XDG_CONFIG_HOME/readline/inputrc"
 RLWRAP_HOME="$XDG_CONFIG_HOME/rlwrap"
 RLWRAP_EDITOR="emacsclient -c +%L:%C %F"
 
@@ -126,7 +133,6 @@ GCC_COLORS="error=01;31:warning=01;35:note=01;36:range1=32:range2=34:locus=01:\
             quote=01:fixit-insert=32:fixit-delete=31:type-diff=01;3:\
             diff-filename=01:diff-hunk=32:diff-delete=31:diff-insert=32:"
 GREP_COLOR="1;32"
-INPUTRC="$XDG_CONFIG_HOME/readline/inputrc"
 MPLAYER_HOME="$XDG_CONFIG_HOME/mplayer"
 NETHACKOPTIONS="@$XDG_CONFIG_HOME/nethack/nethackrc"
 SSH_KEY_PATH="~/.ssh/rsa_id"
