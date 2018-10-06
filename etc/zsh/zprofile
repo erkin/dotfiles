@@ -133,4 +133,3 @@ SSH_KEY_PATH="~/.ssh/rsa_id"
 
 unsetopt allexport
 
-export PATH="$CARGO_HOME/bin:$PATH"

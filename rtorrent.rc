@@ -21,10 +21,10 @@ protocol.pex.set              = no
 protocol.encryption.set       = allow_incoming,try_outgoing,enable_retry
 
 directory.default.set   = /media/store
-session.path.set        = $XDG_CACHE_HOME/rtorrent/
-network.scgi.open_local = $XDG_CACHE_HOME/rtorrent/rtorrent.sock
+session.path.set        = "~/var/cache/rtorrent/"
+network.scgi.open_local = "~/var/cache/rtorrent/rtorrent.sock"
 
-log.open_file = "rtorrent", $XDG_CACHE_HOME/rtorrent/logs/rtorrent.log
+log.open_file = "rtorrent", "~/var/cache/rtorrent/logs/rtorrent.log"
 log.add_output = "warn", "rtorrent"
 
 schedule = low_diskspace,5,60,close_low_diskspace=200M

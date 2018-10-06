@@ -8,7 +8,7 @@ HISTFILE="$XDG_DATA_HOME/zsh/history"
 COMPDUMPFILE="$XDG_DATA_HOME/zsh/compdump"
 HISTSIZE=5000
 SAVEHIST=5000
-PATH="$XDG_DATA_HOME/bin:$XDG_DATA_HOME/cargo/bin:$XDG_DATA_HOME/perl5/bin:$HOME/usr/bin:$PATH"
+PATH="$XDG_DATA_HOME/bin:$CARGO_HOME/bin:$XDG_DATA_HOME/perl5/bin:$HOME/usr/bin:$PATH"
 
 fpath=(~/etc/zsh/site-functions $fpath)
 
@@ -19,12 +19,13 @@ autoload -U compinit
 compinit
 
 # opam
-. $XDG_DATA_HOME/opam/opam-init/variables.sh > /dev/null 2>&1     || true
+. "$XDG_DATA_HOME/opam/opam-init/variables.sh" > /dev/null 2>&1     || true
 if tty -s >/dev/null 2>&1; then
-  . $XDG_CONFIG_HOME/exercism/exercism_completion.zsh > /dev/null 2>&1    || true
-  . $XDG_DATA_HOME/opam/opam-init/complete.zsh > /dev/null 2>&1   || true
-  . $XDG_DATA_HOME/opam/opam-init/switch_eval.sh > /dev/null 2>&1 || true
+  . "$XDG_CONFIG_HOME/exercism/exercism_completion.zsh" > /dev/null 2>&1    || true
+  . "$XDG_DATA_HOME/opam/opam-init/complete.zsh" > /dev/null 2>&1   || true
+  . "$XDG_DATA_HOME/opam/opam-init/switch_eval.sh" > /dev/null 2>&1 || true
 fi
+
 eval $(opam config env --shell=zsh)
 
 # proper history lookup
