@@ -72,12 +72,18 @@ CABAL_CONFIG="$XDG_CONFIG_HOME/cabal/config"
 # Java
 _JAVA_OPTIONS="-Djava.util.prefs.userRoot=\"$XDG_CONFIG_HOME/java\""
 
+# OCaml
+OPAMROOT="$XDG_DATA_HOME/opam"
+OPAM_SWITCH_PREFIX="$OPAMROOT/system"
+OCAML_TOPLEVEL_PATH="$OPAM_SWITCH_PREFIX/lib/toplevel"
+CAML_LD_LIBRARY_PATH="$OPAM_SWITCH_PREFIX/lib/stublibs:/usr/lib/ocaml/stublibs"
+
 # Octave
 OCTAVE_HISTFILE="$XDG_CONFIG_HOME/octave/octave_hist"
 OCTAVE_SITE_INITFILE="$XDG_CONFIG_HOME/octave/octaverc"
 
 # Perl
-PERL5LIB="$XDG_DATA_HOME/perl5/lib/perl5:$PERL5LIB"
+PERL5LIB="$XDG_DATA_HOME/perl5/lib/perl5:$OPAM_SWITCH_PREFIX/lib/perl5:$PERL5LIB"
 PERL_LOCAL_LIB_ROOT="$XDG_DATA_HOME/perl5:$PERL_LOCAL_LIB_ROOT"
 PERL_MB_OPT="--install_base \"$XDG_DATA_HOME/perl5\""
 PERL_MM_OPT="INSTALL_BASE=$XDG_DATA_HOME/perl5"
@@ -151,11 +157,16 @@ WGETRC="$XDG_CONFIG_HOME/wgetrc"
 LANG="en_DK.UTF-8"
 TZ="TRT-3"
 
+# paths
+MANPATH="$XDG_DATA_HOME/man:$OPAM_SWITCH_PREFIX/man"
+PATH="$HOME/usr/bin:$OPAM_SWITCH_PREFIX/bin:$CARGO_HOME/bin:$XDG_DATA_HOME/perl5/bin:$PATH"
+
 # others
 ARCH="x86_64"
 ARCHFLAGS="-arch $ARCH"
+BAT_THEME="1337"
 BROWSER="firefox"
-COLORTERM=1
+COLORTERM="truecolor"
 QEMU_AUDIO_DRV="pulse"
 #PULSE_LATENCY_MSEC=60
 WWW_HOME="https://start.duckduckgo.com/lite"

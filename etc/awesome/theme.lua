@@ -3,7 +3,7 @@ theme = {}
 
 theme.font          = "Unifont 11"
 
-theme.wallpaper = "/home/erkin/media/image/wall/tile.png"
+theme.wallpaper = "/home/erkin/media/image/wall/happy-sad.png"
 
 -- [taglist|tasklist]_[bg|fg]_[focus|urgent]
 -- titlebar_[bg|fg]_[normal|focus]
