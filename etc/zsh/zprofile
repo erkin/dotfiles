@@ -150,7 +150,8 @@ GRAMPSHOME="$XDG_DATA_HOME/gramps"
 LYNX_CFG="$XDG_CONFIG_HOME/lynx/lynx.cfg"
 MBOX="$HOME/var/mbox"
 MPLAYER_HOME="$XDG_CONFIG_HOME/mplayer"
-NETHACKOPTIONS="@$XDG_CONFIG_HOME/nethack/nethackrc"
+NETHACKOPTIONS="@$XDG_CONFIG_HOME/nethack/nethackrc" # @ is mandatory
+PARALLEL_HOME="$XDG_CONFIG_HOME/parallel"
 WGETRC="$XDG_CONFIG_HOME/wgetrc"
 
 # locale

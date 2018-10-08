@@ -59,3 +59,5 @@ Channel mailbox-drafts
 Channel mailbox-sent
 Channel mailbox-trash
 Channel mailbox-junk
+
+SyncState ~/usr/share/isync/mbsyncstate
