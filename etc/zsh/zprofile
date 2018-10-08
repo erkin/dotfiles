@@ -158,7 +158,7 @@ LANG="en_DK.UTF-8"
 TZ="TRT-3"
 
 # paths
-MANPATH="$XDG_DATA_HOME/man:$OPAM_SWITCH_PREFIX/man"
+MANPATH="$XDG_DATA_HOME/man:$OPAM_SWITCH_PREFIX/man:/usr/local/share/man:/usr/share/man"
 PATH="$HOME/usr/bin:$OPAM_SWITCH_PREFIX/bin:$CARGO_HOME/bin:$XDG_DATA_HOME/perl5/bin:$PATH"
 
 # others

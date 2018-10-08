@@ -8,7 +8,7 @@
 # 	fi
 # }
 
-# Xorg stuff
+## Xorg stuff
 xsetroot -cursor_name left_ptr
 xset -dpms; xset s off
 xset +fp $XDG_DATA_HOME/fonts/bitmap
@@ -19,6 +19,7 @@ setxkbmap -layout meow -option compose:caps,terminate:ctrl_alt_bksp
 [[ -f ~/etc/X11/Xmodmap ]] && xmodmap $XDG_CONFIG_HOME/X11/Xmodmap
 # g610-led -p ~/src/profile &
 
+## Make sure Emacs daemon is launched only once
 pidof emacs >& /dev/null
 if [ $? -ne 0 ];
 then
@@ -31,5 +32,9 @@ autocutsel -selection PRIMARY -fork &
 # compton --paint-on-overlay --unredir-if-possible --backend xr_glx_hybrid\
 #	--vsync opengl-mswc --glx-swap-method -1 --glx-no-stencil -b
 xcompmgr -FfCc -D 3 2>/dev/null &
+
+## Generate a randomly tiled wallpaper
+SUIKA="~/media/image/suika"
+montage $(no -1 $SUIKA/*1200.jpg | sort -R) -mode concatenate -tile 8x5 $SUIKA/result.jpg && feh --bg-tile $SUIKA/result.jpg
 
 exec dbus-launch --exit-with-session --sh-syntax awesome
