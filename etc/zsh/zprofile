@@ -89,6 +89,7 @@ PERL_MB_OPT="--install_base \"$XDG_DATA_HOME/perl5\""
 PERL_MM_OPT="INSTALL_BASE=$XDG_DATA_HOME/perl5"
 
 # Python
+PYTHONSTARTUP="$XDG_CONFIG_HOME/python/startup.py"
 PYLINTHOME="$XDG_CACHE_HOME/pylint"
 WORKON_HOME="$HOME/dev/envs"
 PYTHONDONTWRITEBYTECODE=1
@@ -132,7 +133,7 @@ MAILCAPS="$MAILCAP"
 
 # readline
 INPUTRC="$XDG_CONFIG_HOME/readline/inputrc"
-RLWRAP_HOME="$XDG_CONFIG_HOME/rlwrap"
+RLWRAP_HOME="$XDG_CONFIG_HOME/readline/hist"
 RLWRAP_EDITOR="emacsclient -c +%L:%C %F"
 
 # ssh

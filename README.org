@@ -21,7 +21,9 @@ avoid the latter solution, as it leads to dangerous amounts of kludge.
 I hard linked my config files wherever possible (I just copied over
 those carrying private info and edited away the sensitive parts) for
 convenience and preserved the hierarchy within my =$HOME= except for
-removing the =.= prefix from filenames in top-level for clarity.
+removing the =.= prefix from filenames in top-level for clarity. Only 
+=.git=, =README.org= and =.dir-locals.el= don't actually exist at my
+=$HOME=.
 
 Due to the immense amount of cruft in my config files (some of which
 weren't altered since early 2011), I try to keep a bare workable
