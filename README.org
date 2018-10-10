@@ -12,10 +12,10 @@
    bit. (Note that some odd applications actually hardcode =~/.config=
    or =~/.local/share= for some godforsaken reason.)
 
-   These definitions are sourced [[file:etc/zsh/zshenv#L11][in =zshenv=]]
-   and I try to force programs to use these dirs as much as
-   possible with either environment variables (see: [[file:etc/zsh/zprofile][=zprofile=]]), or
-   with command-line options (see: [[file:etc/zsh/zshrc][=zshrc=]]); although I try to avoid
+   These definitions are sourced [[file:etc/zsh/zshenv#L11][in =zshenv= ]] and I try to force
+   programs to use these dirs as much as possible with either
+   environment variables (see: [[file:etc/zsh/zprofile][ =zprofile= ]]), or with command-line
+   options (see: [[file:etc/zsh/zshrc][ =zshrc= ]]); although I try to avoid
    the latter solution, as it leads to dangerous amounts of kludge.
 
    I hard linked my config files wherever possible (I just copied over
