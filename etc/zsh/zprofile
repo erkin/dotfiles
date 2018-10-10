@@ -1,44 +1,131 @@
 # -*- coding: utf-8; mode: sh -*-
 setopt allexport
 
+
 # me
 NAME="Erkin Batu Altunbaş"
+EMAIL="$(base64 --decode <<< 'bWVAZXJraW4ucGFydHkK')"
 ORGANIZATION=""
 
-# emacs
-EDITOR="emacsclient"
+# editor
+EDITOR="emacsclient -c"
 ALTERNATE_EDITOR="emacs"
-SUDO_EDITOR="emacsclient"
-GIT_EDITOR="emacsclient -t"
-VISUAL="emacs"
+SUDO_EDITOR="emacsclient -t"
+VISUAL="emacsclient -c"
 
-# rxvt
-RXVT_SOCKET="$XDG_RUNTIME_DIR/urxvtd"
+# locale
+LANG="en_DK.UTF-8"
+TZ="TRT-3"
 
-# Xorg
-XCOMPOSEFILE="$XDG_CONFIG_HOME/X11/XCompose"
-XINITRC="$XDG_CONFIG_HOME/X11/xinitrc"
-XSERVERRC="$XDG_CONFIG_HOME/X11/xserverrc"
-XCURSOR_THEME="Hackneyed"
-XMODIFIERS="@im=fcitx"
-# does not play well with ssh
-XAUTHORITY="$XDG_RUNTIME_DIR/Xauthority"
-ICEAUTHORITY="$XDG_RUNTIME_DIR/ICEauthority"
+# paths
+COWPATH="/usr/share/cowsay/cows/:$XDG_DATA_HOME/cows"
+MANPATH="$XDG_DATA_HOME/man:$OPAM_SWITCH_PREFIX/man:/usr/local/share/man:/usr/share/man"
+PATH="$HOME/usr/bin:$OPAM_SWITCH_PREFIX/bin:$CARGO_HOME/bin:$XDG_DATA_HOME/perl5/bin:$PATH"
 
-WLC_LIBINPUT=1
-XKB_DEFAULT_MODEL="logitech_base"
-XKB_DEFAULT_LAYOUT="meow"
-#XKB_DEFAULT_VARIANT=""
-XKB_DEFAULT_OPTIONS="compose:caps,terminate:ctrl_alt_bksp"
+# misc
+ARCH="x86_64"
+ARCHFLAGS="-arch $ARCH"
+BROWSER="firefox"
+WWW_HOME="https://start.duckduckgo.com/lite"
+COLORTERM="truecolor"
+PAGER="less"
 
-# GTK & Qt
+
+## Application-specific config
+
+# bat
+BAT_THEME="1337"
+
+# ccache
+CCACHE_CONFIG_PATH="$XDG_CONFIG_HOME/ccache/ccache.conf"
+CCACHE_DIR="$XDG_CACHE_HOME/ccache"
+
+# CVS
+CVS_PASSFILE="$XDG_DATA_HOME/cvspass"
+
+# elinks
+ELINKS_CONFDIR="$XDG_CONFIG_HOME/elinks"
+
+# gcc
+GCC_COLORS="error=01;31:warning=01;35:note=01;36:range1=32:range2=34:locus=01:\
+            quote=01:fixit-insert=32:fixit-delete=31:type-diff=01;3:\
+            diff-filename=01:diff-hunk=32:diff-delete=31:diff-insert=32:"
+
+# grep
+GREP_COLOR="1;32"
+
+# git
+GIT_EDITOR="$SUDO_EDITOR"
+GIT_PAGER="$PAGER"
+
+# gpg
+GNUPGHOME="$XDG_CONFIG_HOME/gnupg"
+
+# gramps
+GRAMPSHOME="$XDG_DATA_HOME/gramps"
+
+# GTK+
 GTK_RC_FILES="$XDG_CONFIG_HOME/gtk-1.0/gtkrc"
 GTK2_RC_FILES="$XDG_CONFIG_HOME/gtk-2.0/gtkrc"
 GTK_IM_MODULE="fcitx"
+
+# less
+LESS="-FJMQSReis"
+LESSOPEN="| src-hilite-lesspipe.sh %s"
+LESS_TERMCAP_mb=$(printf "\e[1;31m")
+LESS_TERMCAP_md=$(printf "\e[1;31m")
+LESS_TERMCAP_me=$(printf "\e[0m")
+LESS_TERMCAP_se=$(printf "\e[0m")
+LESS_TERMCAP_so=$(printf "\e[1;44;33m")
+LESS_TERMCAP_ue=$(printf "\e[0m")
+LESS_TERMCAP_us=$(printf "\e[1;32m")
+LESS_ADVANCED_PREPROCESSOR=1
+LESSHISTFILE="$XDG_CACHE_HOME/less/history"
+LESSKEY="$XDG_CONFIG_HOME/less/lesskey"
+
+# lynx
+LYNX_CFG="$XDG_CONFIG_HOME/lynx/lynx.cfg"
+
+# mail
+MAILCAP="$XDG_CONFIG_HOME/mailcap"
+MAILCAPS="$MAILCAP"
+MBOX="$HOME/var/mbox"
+MU_HOME="$XDG_CACHE_HOME/mu"
+
+# mc
+MC_XDG_OPEN="$HOME/usr/bin/nohup-open"
+
+# mplayer
+MPLAYER_HOME="$XDG_CONFIG_HOME/mplayer"
+
+# MySQL
+MYSQL_HISTFILE="$XDG_DATA_HOME/mysql/history"
+
+# NVIDIA
+CUDA_CACHE_PATH="$XDG_CACHE_HOME/nv"
+
+# parallel
+PARALLEL_HOME="$XDG_CONFIG_HOME/parallel"
+
+# PulseAudio
+#PULSE_LATENCY_MSEC=60
+
+# Qemu
+QEMU_AUDIO_DRV="pulse"
+
+# Qt
 QT_IM_MODULE="fcitx"
 QT_QPA_PLATFORMTHEME="gtk2"
 QT_QPA_PLATFORMTHEME="qt5ct"
 QT_STYLE_OVERRIDE="gtk2"
+
+# readline
+INPUTRC="$XDG_CONFIG_HOME/readline/inputrc"
+RLWRAP_HOME="$XDG_CONFIG_HOME/readline/hist"
+RLWRAP_EDITOR="emacsclient -c +%L:%C %F"
+
+# rxvt
+#RXVT_SOCKET="$XDG_RUNTIME_DIR/urxvtd"
 
 # SDL
 SDL_VIDEO_FULLSCREEN_HEAD=1
@@ -46,21 +133,35 @@ SDL_VIDEO_MINIMIZE_ON_FOCUS_LOSS=0
 SDL_VIDEO_X11_DGAMOUSE=0
 SDL_AUDIO_DRIVER="pulse"
 
-# mc
-MC_XDG_OPEN="$HOME/usr/bin/nohup-open"
+# ssh
+SSH_KEY_PATH="$HOME/.ssh/rsa_id" # Sad!
+SSH_AUTH_SOCK="$(gpgconf --list-dirs agent-ssh-socket)"
 
-# mu
-MU_HOME="$XDG_CACHE_HOME/mu"
+# Subversion
+SVN_I_LOVE_PANGALACTIC_GARGLE_BLASTERS=1
 
-# MySQL
-MYSQL_HISTFILE="$XDG_DATA_HOME/mysql/history"
+# wget
+WGETRC="$XDG_CONFIG_HOME/wgetrc"
 
 # wine
 WINEDLLOVERRIDES="mscoree,mshtml="
 WINEPREFIX="$XDG_DATA_HOME/wine/default"
 
+# Xorg
+XCOMPOSEFILE="$XDG_CONFIG_HOME/X11/XCompose"
+XINITRC="$XDG_CONFIG_HOME/X11/xinitrc"
+XSERVERRC="$XDG_CONFIG_HOME/X11/xserverrc"
+XCURSOR_THEME="Hackneyed"
+XMODIFIERS="@im=fcitx"
+XAUTHORITY="$XDG_RUNTIME_DIR/Xauthority"
+ICEAUTHORITY="$XDG_RUNTIME_DIR/ICEauthority"
+XKB_DEFAULT_MODEL="logitech_base"
+XKB_DEFAULT_LAYOUT="meow"
+#XKB_DEFAULT_VARIANT=""
+XKB_DEFAULT_OPTIONS="compose:caps,terminate:ctrl_alt_bksp"
 
-## Language specific config
+
+## Language-specific config
 
 # Carp
 CARP_DIR="$HOME/dev/repos/Carp"
@@ -110,73 +211,14 @@ RUSTUP_HOME="$XDG_DATA_HOME/rustup"
 RUST_SRC_PATH="$HOME/dev/repos/rust/src"
 
 
-## Misc
+## Game-specific config
 
-# less
-PAGER="less"
-LESS="-FJMQSReis"
-LESSOPEN="| src-hilite-lesspipe.sh %s"
-LESS_TERMCAP_mb=$(printf "\e[1;31m")
-LESS_TERMCAP_md=$(printf "\e[1;31m")
-LESS_TERMCAP_me=$(printf "\e[0m")
-LESS_TERMCAP_se=$(printf "\e[0m")
-LESS_TERMCAP_so=$(printf "\e[1;44;33m")
-LESS_TERMCAP_ue=$(printf "\e[0m")
-LESS_TERMCAP_us=$(printf "\e[1;32m")
-LESS_ADVANCED_PREPROCESSOR=1
-LESSHISTFILE="$XDG_CACHE_HOME/less/history"
-LESSKEY="$XDG_CONFIG_HOME/less/lesskey"
-
-# mailcap
-MAILCAP="$XDG_CONFIG_HOME/mailcap"
-MAILCAPS="$MAILCAP"
-
-# readline
-INPUTRC="$XDG_CONFIG_HOME/readline/inputrc"
-RLWRAP_HOME="$XDG_CONFIG_HOME/readline/hist"
-RLWRAP_EDITOR="emacsclient -c +%L:%C %F"
-
-# ssh
-SSH_KEY_PATH="$HOME/.ssh/rsa_id" # Sad!
-SSH_AUTH_SOCK="$(gpgconf --list-dirs agent-ssh-socket)"
-
-
-# other home/config location
+# Dungeon Crawl
 CRAWL_DIR="$XDG_DATA_HOME/crawl/"
-CUDA_CACHE_PATH="$XDG_CACHE_HOME/nv"
-CVS_PASSFILE="$XDG_DATA_HOME/cvspass"
-ELINKS_CONFDIR="$XDG_CONFIG_HOME/elinks"
-GNUPGHOME="$XDG_CONFIG_HOME/gnupg"
-GRAMPSHOME="$XDG_DATA_HOME/gramps"
-LYNX_CFG="$XDG_CONFIG_HOME/lynx/lynx.cfg"
-MBOX="$HOME/var/mbox"
-MPLAYER_HOME="$XDG_CONFIG_HOME/mplayer"
+
+# nethack
 NETHACKOPTIONS="@$XDG_CONFIG_HOME/nethack/nethackrc" # @ is mandatory
-PARALLEL_HOME="$XDG_CONFIG_HOME/parallel"
-WGETRC="$XDG_CONFIG_HOME/wgetrc"
 
-# locale
-LANG="en_DK.UTF-8"
-TZ="TRT-3"
-
-# paths
-MANPATH="$XDG_DATA_HOME/man:$OPAM_SWITCH_PREFIX/man:/usr/local/share/man:/usr/share/man"
-PATH="$HOME/usr/bin:$OPAM_SWITCH_PREFIX/bin:$CARGO_HOME/bin:$XDG_DATA_HOME/perl5/bin:$PATH"
-
-# others
-ARCH="x86_64"
-ARCHFLAGS="-arch $ARCH"
-BAT_THEME="1337"
-BROWSER="firefox"
-COLORTERM="truecolor"
-QEMU_AUDIO_DRV="pulse"
-#PULSE_LATENCY_MSEC=60
-WWW_HOME="https://start.duckduckgo.com/lite"
-
-GCC_COLORS="error=01;31:warning=01;35:note=01;36:range1=32:range2=34:locus=01:\
-            quote=01:fixit-insert=32:fixit-delete=31:type-diff=01;3:\
-            diff-filename=01:diff-hunk=32:diff-delete=31:diff-insert=32:"
-GREP_COLOR="1;32"
 
 unsetopt allexport
 
