@@ -9,18 +9,13 @@ ORGANIZATION=""
 
 # editor
 EDITOR="emacsclient -c"
-ALTERNATE_EDITOR="emacs"
+ALTERNATE_EDITOR="emacsclient -t"
 SUDO_EDITOR="emacsclient -t"
 VISUAL="emacsclient -c"
 
 # locale
 LANG="en_DK.UTF-8"
 TZ="TRT-3"
-
-# paths
-COWPATH="/usr/share/cowsay/cows/:$XDG_DATA_HOME/cows"
-MANPATH="$XDG_DATA_HOME/man:$OPAM_SWITCH_PREFIX/man:/usr/local/share/man:/usr/share/man"
-PATH="$HOME/usr/bin:$OPAM_SWITCH_PREFIX/bin:$CARGO_HOME/bin:$XDG_DATA_HOME/perl5/bin:$PATH"
 
 # misc
 ARCH="x86_64"
@@ -71,7 +66,6 @@ GTK_IM_MODULE="fcitx"
 
 # less
 LESS="-FJMQSReis"
-LESSOPEN="| src-hilite-lesspipe.sh %s"
 LESS_TERMCAP_mb=$(printf "\e[1;31m")
 LESS_TERMCAP_md=$(printf "\e[1;31m")
 LESS_TERMCAP_me=$(printf "\e[0m")
@@ -79,9 +73,12 @@ LESS_TERMCAP_se=$(printf "\e[0m")
 LESS_TERMCAP_so=$(printf "\e[1;44;33m")
 LESS_TERMCAP_ue=$(printf "\e[0m")
 LESS_TERMCAP_us=$(printf "\e[1;32m")
-LESS_ADVANCED_PREPROCESSOR=1
-LESSHISTFILE="$XDG_CACHE_HOME/less/history"
+LESSHISTFILE="$XDG_CONFIG_HOME/less/history"
 LESSKEY="$XDG_CONFIG_HOME/less/lesskey"
+LESSEDIT="$ALTERNATE_EDITOR ?lm+%lm. %f"
+#LESSSECURE=0
+#LESSOPEN="| src-hilite-lesspipe.sh %s"
+#LESS_ADVANCED_PREPROCESSOR=1
 
 # lynx
 LYNX_CFG="$XDG_CONFIG_HOME/lynx/lynx.cfg"
@@ -91,6 +88,10 @@ MAILCAP="$XDG_CONFIG_HOME/mailcap"
 MAILCAPS="$MAILCAP"
 MBOX="$HOME/var/mbox"
 MU_HOME="$XDG_CACHE_HOME/mu"
+
+# man
+MANPAGER="$PAGER"
+MANLESS='\ \$MAN_PN\ ?ltL%lt?L/%L.:B%bB?B/%B..?e\ E:?pB\ %pB\%..'
 
 # mc
 MC_XDG_OPEN="$HOME/usr/bin/nohup-open"
