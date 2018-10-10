@@ -1,4 +1,4 @@
-# -*- coding: utf-8-unix; mode: sh -*-
+# -*- sh -*-
 
 # emacs doesn't like zle
 [[ $EMACS = t ]] && unsetopt zle
@@ -6,8 +6,8 @@
 # env vars
 HISTFILE="$XDG_DATA_HOME/zsh/history"
 COMPDUMPFILE="$XDG_DATA_HOME/zsh/compdump"
-HISTSIZE=5000
-SAVEHIST=5000
+HISTSIZE=8192
+SAVEHIST=8192
 
 fpath=(~/etc/zsh/site-functions $fpath)
 
@@ -48,7 +48,7 @@ setopt noclobber correct dvorak flowcontrol interactivecomments
 setopt emacs nohup prompt_subst
 
 
-# keys
+## keys
 bindkey "\e[1~" beginning-of-line
 bindkey "\e[2~" overwrite-mode
 bindkey "\e[3~" delete-char
@@ -130,13 +130,14 @@ alias usys="systemctl --user"
 alias ls='ls -F --color=auto --group-directories-first --dereference-command-line-symlink-to-dir'
 alias no='exa -bF --color=auto --git --group-directories-first'
 #alias dir='no -Ahl'
-alias dir='no -@aghl'
+alias dir='no -@aghlF'
 alias ll='dir'
+alias cwd="chdir"
 alias mc='/usr/lib/mc/mc-wrapper.sh'
 
 # files
 alias mkdir='mkdir -p'
-alias rm='rm -v'
+alias rm='rm -vI'
 alias mv='mv -v'
 alias cp='cp -v'
 
@@ -148,12 +149,14 @@ alias dmesg='dmesg -H'
 alias diff='diff --color'
 alias tree='tree -CF --dirsfirst'
 alias pactree='pactree -c'
-alias grep='grep --color'
-alias fgrep='grep -F --color'
-alias egrep='grep -E --color'
+alias grep='grep --color --exclude-dir={.bzr,CVS,.git,.hg,.svn}'
+alias fgrep='grep -F --color --exclude-dir={.bzr,CVS,.git,.hg,.svn}'
+alias egrep='grep -E --color --exclude-dir={.bzr,CVS,.git,.hg,.svn}'
+alias ping='prettyping --nolegend'
+alias ncdu="ncdu --color dark -rr -x --exclude .git"
 
 # editors
-alias kille='emacsclient -e "(kill-emacs)"'
+alias ekill='emacsclient -e "(kill-emacs)"'
 alias se='sudo -e'
 alias edit='emacsclient -t'
 alias sedit='sudo emacs -Q -nw'
@@ -183,9 +186,9 @@ alias gitlog='git log --decorate=full --color=always --oneline --graph --pickaxe
 alias mbsync="mbsync -c $XDG_CONFIG_HOME/isync/mbsyncrc"
 alias startx="startx $XINITRC"
 alias pastebin="curl -F 'c=@-' https://ptpb.pw"
-alias wm='dtach -A /tmp/dvtm -r winch dvtm'
+alias svn="svn --config-dir $XDG_CONFIG_HOME/subversion"
+alias wm='dtach -A /tmp/dvtm -r winch dvtm -M'
 alias wget='wget --hsts-file ~/etc/wget/hsts'
-# alias skype="LD_PRELOAD=/usr/lib32/libv4l/v4l1compat.so skype &2>/dev/null"
 
 
 ## functions
@@ -235,6 +238,12 @@ function scrsht
 	activeWinId=${activeWinLine:40}
 	import -window "$activeWinId" \
 	       ~/media/image/screen/$(date +%Y)/$(date +%F_%H%M%S_%N).png
+}
+
+# dictionary lookup
+function define
+{
+    dict $@ | colorit | bat
 }
 
 # useless clock

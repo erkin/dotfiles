@@ -1,0 +1,35 @@
+#!/bin/bash
+
+# ∰✯
+# ➩➪➫➬➭➮➯➱➔
+bspc monitor HDMI-2 -n ➀ -d ☢ ☣ ☤ ☃ ☕ ☯ ⛓
+bspc monitor eDP-1  -n ➁ -d ⛧ ⛺ ✇
+bspc wm --reorder-monitors ➀ ➁
+
+bspc config border_width         2
+bspc config window_gap          12
+
+bspc config split_ratio          0.52
+bspc config borderless_monocle   true
+bspc config gapless_monocle      true
+
+bspc rule -a Gimp desktop='^8' state=floating follow=on
+bspc rule -a Firefox desktop='^1'
+bspc rule -a Slack desktop='^2'
+bspc rule -a Ripcord desktop='^3'
+bspc rule -a claws-mail desktop='^7'
+bspc rule -a mplayer2 state=floating
+bspc rule -a Kupfer.py focus=on
+bspc rule -a Screenkey manage=off
+bspc rule -a Emacs state=tiled
+
+sxhkd &
+
+panel 0 1366 0 &
+panel 1 1920 1366 &
+
+stalonetray &
+xdo above -t "$(xdo id -N bspwm -n root | sort | head -n 1)" "$(xdo id -a stalonetray)"
+
+slack &
+firefox &
