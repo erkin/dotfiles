@@ -32,7 +32,7 @@
 
 *** zsh
     As you probably noticed above, zsh config is neatly tucked into
-    [[file:etc/zsh]]. This shouldn't be possible, as zsh itself needs to
+    [[file:etc/zsh][ =etc/zsh= ]]. This shouldn't be possible, as zsh itself needs to
     be told where the =$ZDOTDIR= is in =.zshenv=, but there're zero
     (0) profile related files in =$HOME= at the top-level. The
     solution is a little hack where you export =$ZDOTDIR= as
