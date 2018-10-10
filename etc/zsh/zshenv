@@ -1,10 +1,11 @@
-# -*- coding: utf-8; mode: sh -*-
-# [[ $TERM = linux ]] && fbset -g 1920 1080 1920 1080 32
+# -*- sh -*-
+
+#[[ $TERM = linux ]] && fbset -g 1920 1080 1920 1080 32
 
 setopt allexport
 
 # this shit leaks dbus-daemon processes like crazy
-# export $(dbus-launch)
+#export $(dbus-launch)
 
 eval $(dircolors -b)
 source $HOME/etc/user-dirs.dirs
