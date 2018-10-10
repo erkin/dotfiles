@@ -1,52 +1,61 @@
 * my dotfiles
-People insisted that I make one of these, so here we are.
+  People insisted that I make one of these, so here we are.
 
 ** Structure
-I try to keep the dot clutter at a minimum within =$HOME=, so I make
-use of [[https://standards.freedesktop.org/basedir-spec/basedir-spec-latest.html][XDG base directory specs]] to shove away config files elsewhere.
+   I try to keep the dot clutter at a minimum within =$HOME=, so I
+   make use of [[https://standards.freedesktop.org/basedir-spec/basedir-spec-latest.html][XDG base directory specs]] to shove away config files
+   elsewhere.
+   
+   As you can see in [[file:etc/other-dirs.dirs]] I defined
+   =$XDG_CONFIG_HOME= (=~/.config= by default) to be =~/etc= and
+   =$XDG_DATA_HOME= (=~/.local/share= by default) to be =~/usr/share=,
+   so as to resemble =hier(7)= a bit. (Note that some odd applications
+   actually hardcode =~/.config= or =~/.local/share= for some
+   godforsaken reason.)
 
-As you can see in [[file:etc/other-dirs.dirs]], I defined
-=$XDG_CONFIG_HOME= (=~/.config= by default) to be =~/etc= and
-=$XDG_DATA_HOME= (=~/.local/share= by default) to be =~/usr/share=, so
-as to resemble =hier(7)= a bit. (Note that some odd applications
-actually hardcode =~/.config= or =~/.local/share= for some godforsaken
-reason.)
+   These definitions are sourced in [[file:etc/zsh/zshenv]] and I try to
+   force programs to use these dirs as much as possible with either
+   environment variables (see: [[file:etc/zsh/zprofile]]), or with
+   command-line options (see: [[file:etc/zsh/zshrc]]); although I try to
+   avoid the latter solution, as it leads to dangerous amounts of
+   kludge.
 
-These definitions are sourced in [[file:etc/zsh/zshenv]] and I try to
-force programs to use these dirs as much as possible with either
-environment variables (see: [[file:etc/zsh/zprofile]]), or with
-command-line options (see: [[file:etc/zsh/zshrc]]); although I try to
-avoid the latter solution, as it leads to dangerous amounts of kludge.
+   I hard linked my config files wherever possible (I just copied over
+   those carrying private info and edited away the sensitive parts)
+   for convenience and preserved the hierarchy within my =$HOME=
+   except for removing the =.= prefix from filenames in top-level for
+   clarity. Only =.git=, =README.org= and =.dir-locals.el= don't
+   actually exist in my =$HOME=.
 
-I hard linked my config files wherever possible (I just copied over
-those carrying private info and edited away the sensitive parts) for
-convenience and preserved the hierarchy within my =$HOME= except for
-removing the =.= prefix from filenames in top-level for clarity. Only 
-=.git=, =README.org= and =.dir-locals.el= don't actually exist at my
-=$HOME=.
-
-Due to the immense amount of cruft in my config files (some of which
-weren't altered since early 2011), I try to keep a bare workable
-minimum here. Send me a patch if you know how to (cleanly) move one of
-the top-level dotfiles into a config directory.
+   Due to the immense amount of cruft in my config files (some of
+   which weren't altered since early 2011), I try to keep a bare
+   workable minimum here. Send me a patch if you know how to (cleanly)
+   move one of the top-level dotfiles into a config directory.
 
 *** zsh
-As you probably noticed above, zsh config is neatly tucked into
-[[file:etc/zsh]]. This shouldn't be possible, as zsh itself needs to be
-told where the =$ZDOTDIR= is in =.zshenv=, but there're zero (0) zsh
-related files in =$HOME=. The solution is a little hack where you
-export =$ZDOTDIR= as =$HOME/etc/zsh= in =/etc/zsh/zshenv=.
-It works perfectly for me, but your mileage may vary.
-(zsh dotfiles *must* begin with a =.= regardless of your
-=$ZDOTDIR=.)
+    As you probably noticed above, zsh config is neatly tucked into
+    [[file:etc/zsh]]. This shouldn't be possible, as zsh itself needs to
+    be told where the =$ZDOTDIR= is in =.zshenv=, but there're zero
+    (0) profile related files in =$HOME= at the top-level. The
+    solution is a little hack where you export =$ZDOTDIR= as
+    =$HOME/etc/zsh= in =/etc/zsh/zshenv=. It works perfectly for me,
+    but your mileage may vary.
 
-And no, I don't use =oh-my-zsh=.
+    (zsh dotfiles *must* begin with a =.= regardless of your
+    =$ZDOTDIR=.)
+
+    And no, I don't use /oh-my-zsh/.
+
+** What's [[file:etc/X11/xinitrc#L19][this]] XKB layout?
+   Standard Dvorak with loads of level3/level4 keys.
+   You can find it [[https://erkin.party/files/layout][here]].
 
 ** Can I steal these?
-People actually asked me this for some reason, and my answer is:
-Absolutely, go nuts. I don't even want attribution for this mess. In
-fact, I stole a portion of these from others myself to begin with.
+   People actually asked me this for some reason, and my answer is:
+   Absolutely, go nuts. I don't even want attribution for this
+   mess. In fact, I stole a portion of these from others myself to
+   begin with.
 
 ** Acknowledgements
-I would like to thank =grawity= from Arch Linux IRC channel
-for convincing me to strive for a cleaner =$HOME=.
+   I would like to thank =grawity= from Arch Linux IRC channel
+   for convincing me to strive for a cleaner =$HOME=.

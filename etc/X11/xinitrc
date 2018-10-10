@@ -13,8 +13,10 @@ xsetroot -cursor_name left_ptr
 xset -dpms; xset s off
 xset +fp $XDG_DATA_HOME/fonts/bitmap
 xinput --set-prop "ImExPS/2 Generic Explorer Mouse" "libinput Accel Speed" -0.5
+
+## fcitx must be started before keyboard settings because it overwrites them
 fcitx -d
-setxkbmap -layout meow -option compose:caps,terminate:ctrl_alt_bksp
+setxkbmap -layout meow -option lv3:ralt_switch,compose:caps,terminate:ctrl_alt_bksp
 [[ -f ~/etc/X11/Xresources ]] && xrdb -merge -I$HOME $XDG_CONFIG_HOME/X11/Xresources
 [[ -f ~/etc/X11/Xmodmap ]] && xmodmap $XDG_CONFIG_HOME/X11/Xmodmap
 # g610-led -p ~/src/profile &
