@@ -35,9 +35,4 @@ autocutsel -selection PRIMARY -fork &
 #	--vsync opengl-mswc --glx-swap-method -1 --glx-no-stencil -b
 xcompmgr -FfCc -D 3 2>/dev/null &
 
-## Generate a randomly tiled wallpaper
-SUIKA="$HOME/media/image/suika"
-montage $(no -1 $SUIKA/*1200.jpg | sort -R) -mode concatenate -tile 8x5 $SUIKA/result.jpg \
-    && feh --bg-tile --no-xinerama $SUIKA/result.jpg
-
 exec dbus-launch --exit-with-session --sh-syntax awesome

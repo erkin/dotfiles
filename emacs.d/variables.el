@@ -12,8 +12,8 @@
 
 ;;; Backup
 (setq backup-by-copying-when-linked t
-      kept-new-versions 6
-      kept-old-versions 2
+      kept-new-versions 2
+      kept-old-versions 1
       version-control t
       delete-old-versions t
       vc-make-backup-files t

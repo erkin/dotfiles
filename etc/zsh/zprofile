@@ -9,7 +9,7 @@ ORGANIZATION=""
 
 # editor
 EDITOR="emacsclient -c"
-ALTERNATE_EDITOR="emacsclient -t"
+ALTERNATE_EDITOR="emacs"
 SUDO_EDITOR="emacsclient -t"
 VISUAL="emacsclient -c"
 
@@ -32,6 +32,7 @@ PAGER="less"
 BAT_THEME="1337"
 
 # ccache
+CCACHE_PATH="/usr/bin"
 CCACHE_CONFIG_PATH="$XDG_CONFIG_HOME/ccache/ccache.conf"
 CCACHE_DIR="$XDG_CACHE_HOME/ccache"
 
@@ -75,7 +76,7 @@ LESS_TERMCAP_ue=$(printf "\e[0m")
 LESS_TERMCAP_us=$(printf "\e[1;32m")
 LESSHISTFILE="$XDG_CONFIG_HOME/less/history"
 LESSKEY="$XDG_CONFIG_HOME/less/lesskey"
-LESSEDIT="$ALTERNATE_EDITOR ?lm+%lm. %f"
+LESSEDIT="$SUDO_EDITOR ?lm+%lm. %f"
 #LESSSECURE=0
 #LESSOPEN="| src-hilite-lesspipe.sh %s"
 #LESS_ADVANCED_PREPROCESSOR=1

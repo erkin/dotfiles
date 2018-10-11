@@ -14,9 +14,8 @@ MANPATH="$XDG_DATA_HOME/man:$OPAM_SWITCH_PREFIX/man:/usr/local/share/man:/usr/sh
 
 LOCAL_PATHS="$HOME/usr/bin:$OPAM_SWITCH_PREFIX/bin:$CARGO_HOME/bin:$XDG_DATA_HOME/perl5/bin"
 PERL_PATHS="/usr/bin/core_perl:/usr/bin/site_perl:/usr/bin/vendor_perl"
-JAVA_PATHS="/usr/lib/jvm/default/bin"
 
-PATH="$LOCAL_PATHS:$PERL_PATHS:$JAVA_PATHS:/usr/local/sbin:/usr/local/bin:/usr/bin"
+PATH="$LOCAL_PATHS:$PERL_PATHS:/usr/lib/jvm/default/bin:/usr/lib/ccache/bin:/usr/local/sbin:/usr/local/bin:/usr/bin"
 COWPATH="/usr/share/cowsay/cows/:$XDG_DATA_HOME/cows"
 
 fpath=(~/etc/zsh/site-functions $fpath)

@@ -1,0 +1,21 @@
+# Stable
+wrap_comments = true
+normalize_comments = true
+
+# Unstable
+unstable_features = true
+
+condense_wildcard_suffixes = true
+brace_style = "AlwaysNextLine"
+control_brace_style = "AlwaysNextLine"
+fn_single_line = true
+format_strings = true
+imports_indent = "Block"
+match_block_trailing_comma = true
+force_multiline_blocks = true
+#remove_nested_parens = true
+reorder_impl_items = true
+struct_field_align_threshold = 20
+trailing_comma = "Never"
+match_arm_blocks = false
+color = "Always"
