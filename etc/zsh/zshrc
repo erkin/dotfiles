@@ -195,6 +195,9 @@ alias gitlog='git log --decorate=full --color=always --oneline --graph --pickaxe
 alias mbsync="mbsync -c $XDG_CONFIG_HOME/isync/mbsyncrc"
 alias startx="startx $XINITRC"
 alias pastebin="curl -F 'c=@-' https://ptpb.pw"
+alias psync='rclone sync --checksum --verbose \
+      --exclude "emacs.d/backup/**" --exclude "emacs.d/auto-save-list/**" \
+      ~/opt/pcloud peec:/home'
 alias svn="svn --config-dir $XDG_CONFIG_HOME/subversion"
 alias wm='dtach -A /tmp/dvtm -r winch dvtm -M'
 alias wget='wget --hsts-file ~/etc/wget/hsts'
