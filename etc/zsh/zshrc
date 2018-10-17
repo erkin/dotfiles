@@ -25,10 +25,12 @@ zstyle :compinstall filename '$XDG_CONFIG_HOME/zsh/.zshrc'
 autoload -U compinit
 compinit
 
-if tty -s >/dev/null 2>&1; then
-  . "$XDG_CONFIG_HOME/exercism/exercism_completion.zsh" > /dev/null 2>&1    || true
-  . "$XDG_DATA_HOME/opam/opam-init/complete.zsh" > /dev/null 2>&1   || true
-  . "$XDG_DATA_HOME/opam/opam-init/switch_eval.sh" > /dev/null 2>&1 || true
+# don't source anything in interactive mode
+if tty -s &> /dev/null
+then
+  source "$XDG_CONFIG_HOME/exercism/exercism_completion.zsh"
+  source "$XDG_DATA_HOME/opam/opam-init/complete.zsh"
+  source "$XDG_DATA_HOME/opam/opam-init/switch_eval.sh"
 fi
 
 # proper history lookup
@@ -170,11 +172,11 @@ alias se='sudo -e'
 alias edit='emacsclient -t'
 alias sedit='sudo emacs -Q -nw'
 alias visudo='sudo SUDO_EDITOR="emacs -Q -nw" visudo'
+alias ed='rlwrap ed -lvp\>\ '
 alias vi='e3vi'
 alias vim='e3vi'
 alias nano='e3pi'
 alias pico='e3pi'
-alias ed='rlwrap ed -lvp\>\ '
 
 # repls
 alias csi_='csi -wq $XDG_CONFIG_HOME/chicken/csirc'
