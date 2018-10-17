@@ -186,43 +186,64 @@ alias sp='sudo powerpill'
 alias b='bauerbill'
 alias sb='bb-wrapper --aur --build-dir /tmp/pacbuild'
 
+# force proper homes
+alias claws-mail="claws-mail --alternate-config-dir $XDG_DATA_HOME/claws"
+alias mbsync="mbsync -c $XDG_CONFIG_HOME/isync/mbsyncrc"
+alias startx="startx $XINITRC"
+alias svn="svn --config-dir $XDG_CONFIG_HOME/subversion"
+alias wget='wget --hsts-file ~/etc/wget/hsts'
+
 # other
 alias 2hu='ffmpeg -f x11grab -r 40 -s 1920x1080 -i :0.0 -f pulse -i default\
       -acodec libvorbis -vcodec libx264 -tune touhou -preset ultrafast\
       ~/media/video/screencast_$(date +%F_%H%M%S_%N).mkv'
-alias claws-mail="claws-mail --alternative-config-dir $XDG_DATA_HOME/claws"
 alias gitlog='git log --decorate=full --color=always --oneline --graph --pickaxe-all --full-diff'
-alias mbsync="mbsync -c $XDG_CONFIG_HOME/isync/mbsyncrc"
-alias startx="startx $XINITRC"
 alias pastebin="curl -F 'c=@-' https://ptpb.pw"
-alias psync='rclone sync --checksum --verbose \
+alias ppush='rclone sync --checksum --verbose \
       --exclude "emacs.d/backup/**" --exclude "emacs.d/auto-save-list/**" \
       ~/opt/pcloud peec:/home'
-alias svn="svn --config-dir $XDG_CONFIG_HOME/subversion"
+alias ppull='rclone sync --checksum --verbose \
+      --exclude "emacs.d/backup/** --exclude "emacs.d/auto-save-list/**" \
+      peec:/home ~/opt/pcloud'
 alias wm='dtach -A /tmp/dvtm -r winch dvtm -M'
-alias wget='wget --hsts-file ~/etc/wget/hsts'
+
+# kittens!
+alias c="kitty +kitten clipboard"
+alias d="kitty +kitten diff"
+alias i="kitty +kitten icat --align left"
+alias l="kitty +kitten clipboard --get-clipboard"
 
 
 ## functions
-
+# cheesy
+function pprint
+{
+    echo -en "\033[0;32;40m"; (cat $@ | beep -c -f 400 -D 50 -l 10) ; echo -en "\033[0m"
+}
+# which (doesn't work on Debian)
 function which
 {
-    # (doesn't work on Debian)
     (alias; declare -f) | \
 	/usr/bin/which --tty-only --read-alias --read-functions --show-dot --show-tilde $@
 }
-# emacs server daemon
-function edae
-{
-    pushd ~ > /dev/null
-    env GTK_IM_MODULE=xim XMODIFIERS=@im=none dbus-launch --sh-syntax emacs --daemon
-    popd > /dev/null
-}
 
-# emacsclient but short
+# emacsclient but smarter
 function e
 {
-    (emacsclient -c $@ 2>&1 > /dev/null )
+    if [ -z ${DISPLAY+1} ]
+    then # in a TTY
+        XMODIFIERS=@im=none emacsclient -t "$@"
+    else # on X
+        XMODIFIERS=@im=none emacsclient -c "$@" &> /dev/null &!
+    fi
+}
+
+# emacs server daemon  
+function edae
+{
+    pushd ~ &> /dev/null
+    XMODIFIERS=@im=none emacs --daemon
+    popd &> /dev/null
 }
 
 # tail ll
@@ -265,7 +286,7 @@ function clocc
      do
 	 echo -ne "\e[s\e[0;$((COLUMNS-27))H$(date)\e[u"
 	 sleep 1
-     done &!) 2> /dev/null
+     done &)
 }
 
 # zsh_stats, partially stolen from oh_my_zsh
