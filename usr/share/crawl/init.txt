@@ -1,0 +1,388 @@
+# -*- mode: conf -*-
+##### Crawl Init file ###############################################
+# For descriptions of all options, as well as some more in-depth information
+# on setting them, consult the file
+#    options_guide.txt
+# in your /docs directory. If you can't find it, the file is also available
+# online at:
+# https://github.com/crawl/crawl/blob/master/crawl-ref/docs/options_guide.txt
+#
+# Crawl uses the first file of the following list as its option file:
+#  * init.txt in the -rcdir directory (if specified)
+#  * .crawlrc in the -rcdir directory (if specified)
+#  * init.txt (in the Crawl directory)
+#  * ~/.crawl/init.txt (Unix only)
+#  * ~/.crawlrc (Unix only)
+#  * ~/init.txt (Unix only)
+#  * settings/init.txt (in the Crawl directory)
+
+##### Some basic explanation of option syntax #######################
+# Lines beginning with '#' are comments. The basic syntax is:
+#
+# field = value         or      field.subfield = value
+#
+# Only one specification is allowed per line.
+#
+# The terms are typically case-insensitive except in the fairly obvious
+# cases (the character's name and specifying files or directories when
+# on a system that has case-sensitive filenames).
+#
+# White space is stripped from the beginning and end of the line, as
+# well as immediately before and after the '='. If the option allows
+# multiple comma/semicolon-separated terms (such as
+# autopickup_exceptions), all whitespace around the separator is also
+# trimmed. All other whitespace is left intact.
+#
+# There are three broad types of Crawl options: true/false values (booleans),
+# arbitrary values, and lists of values. The first two types use only the
+# simple =, with later options - which includes your options that are different
+# from the defaults - overriding earlier ones. List options allow using +=, ^=,
+# -=, and = to append, prepend, remove, and reset, respectively. Usually you will
+# want to use += to add to a list option. Lastly, there is := which you can use
+# to create an alias, like so:
+#   ae := autopickup_exceptions
+# From there on, 'ae' will be treated as if it you typed autopickup_exceptions,
+# so you can save time typing it.
+#
+
+##### Other files ###################################################
+# You can include other files from your options file using the 'include'
+# option. Crawl will treat it as if you copied the whole text of that file
+# into your options file in that spot. You can uncomment some of the following
+# lines by removing the beginning '#' to include some of the other files in
+# this folder.
+
+# Some useful, more advanced options, implemented in LUA.
+# include = advanced_optioneering.txt
+
+# Alternative vi bindings for Dvorak users.
+# include = dvorak_command_keys.txt
+
+# Alternative vi bindings for Colemak users.
+# include = colemak_command_keys.txt
+
+# Override the vi movement keys with a non-command.
+# include = no_vi_command_keys.txt
+
+# Turn the shift-vi keys into safe move, instead of run.
+# include = safe_move_shift.txt
+
+##### Ancient versions ##############################################
+# If you're used to the interface of ancient versions of Crawl, you may
+# get back parts of it by uncommenting the following options:
+
+# include                 = 034_command_keys.txt
+
+# And to revert monster glyph and colouring changes:
+
+# include                 = 052_monster_glyphs.txt
+# include                 = 060_monster_glyphs.txt
+# include                 = 071_monster_glyphs.txt
+# include                 = 080_monster_glyphs.txt
+# include                 = 0.9_monster_glyphs.txt
+# include                 = 0.12_monster_glyphs.txt
+# include                 = 0.13_monster_glyphs.txt
+# include                 = 0.14_monster_glyphs.txt
+
+allow_extend_colours = true
+
+: if you.gourmand() then
+  auto_butcher = very full
+: else
+  auto_butcher = hungry
+: end
+
+auto_eat_chunks = true
+
+autofight_stop = 50
+autofight_hunger_stop = 1
+
+autofight_throw = true
+#automagic_enable = true
+#automagic_fight = true
+
+autofight_caught = true
+
+autopickup_starting_ammo = true
+
+easy_eat_chunks        = true
+easy_eat_contaminated  = true
+easy_eat_gourmand      = true
+
+easy_exit_menu = true
+
+explore_delay = 10
+
+hp_warning = 15
+
+# force_more_message = Agnes comes into view.
+
+mouse_input = true
+
+tile_tag_pref = named
+
+travel_delay = 10
+
+always_show_exclusions = true
+
+view_max_height = 71
+view_max_width = 81
+
+: if you.race() == "Deep Dwarf" then
+  fake_lang = dwarven
+: elseif you.god() == "Trog" then
+  fake_lang = grunt
+: else
+  fake_lang =
+: end
+
+
+wiz_mode = never
+explore_mode = never
+
+
+### functions
+
+# For players who are prone to leave labyrinths without picking up the
+# loot, here is a way to avoid that: put the following snippet in your
+# options file (init.txt or .crawlrc) and then macro the '<' key to
+#  ===safe_upstairs (do it in-game by pressing '~' or Ctrl-D).
+
+{
+function safe_upstairs()
+  if you.branch() == "Lab" then
+     crawl.formatted_mpr("Really leave this labyrinth?", "prompt")
+     local res = crawl.getch()
+     if string.lower(string.char(res)) == "y" then
+       crawl.sendkeys("<")
+     end
+  else
+     crawl.sendkeys("<")
+  end
+end
+}
+
+######################################################################
+# Add the following to your options file to automatically pick up
+# armour for non-body armour slots (gloves, boots, etc.), if you don't
+# already have an item equipped there.
+
+{
+add_autopickup_func(function(it, name)
+  if it.is_useless then
+    return
+  end
+  if it.class(true) == "armour" then
+    local good_slots = {cloak="Cloak", helmet="Helmet", gloves="Gloves",
+                        boots="Boots"}
+    st, _ = it.subtype()
+    if good_slots[st] ~= nil and items.equipped_at(good_slots[st]) == nil then
+      return true
+    end
+  end
+end)
+}
+
+######################################################################
+# To automatically open the skill menu when starting a new game, add
+# the following to your options file.
+
+{
+local need_skills_opened = true
+function ready()
+  if you.turns() == 0 and need_skills_opened then
+    need_skills_opened = false
+    crawl.sendkeys("m")
+  end
+end
+}
+
+# Keybindings to override the vi movement keys.
+# CMD_NO_CMD_DEFAULT results in "Unknown command."
+# See docs/keybind.txt for other commands.
+
+# bindkey = [h] CMD_NO_CMD_DEFAULT
+# bindkey = [j] CMD_NO_CMD_DEFAULT
+# bindkey = [k] CMD_NO_CMD_DEFAULT
+# bindkey = [l] CMD_NO_CMD_DEFAULT
+# bindkey = [y] CMD_NO_CMD_DEFAULT
+# bindkey = [u] CMD_NO_CMD_DEFAULT
+# bindkey = [b] CMD_NO_CMD_DEFAULT
+# bindkey = [n] CMD_NO_CMD_DEFAULT
+
+bindkey = [H] CMD_SAFE_MOVE_LEFT      
+bindkey = [J] CMD_SAFE_MOVE_DOWN      
+bindkey = [K] CMD_SAFE_MOVE_UP	      
+bindkey = [L] CMD_SAFE_MOVE_RIGHT     
+bindkey = [Y] CMD_SAFE_MOVE_UP_LEFT   
+bindkey = [U] CMD_SAFE_MOVE_UP_RIGHT  
+bindkey = [B] CMD_SAFE_MOVE_DOWN_LEFT 
+bindkey = [N] CMD_SAFE_MOVE_DOWN_RIGHT
+
+bindkey = [^H] CMD_SAFE_MOVE_LEFT      
+bindkey = [^J] CMD_SAFE_MOVE_DOWN      
+bindkey = [^K] CMD_SAFE_MOVE_UP	      
+bindkey = [^L] CMD_SAFE_MOVE_RIGHT     
+bindkey = [^Y] CMD_SAFE_MOVE_UP_LEFT   
+bindkey = [^U] CMD_SAFE_MOVE_UP_RIGHT  
+bindkey = [^B] CMD_SAFE_MOVE_DOWN_LEFT 
+bindkey = [^N] CMD_SAFE_MOVE_DOWN_RIGHT
+
+
+#### glyphs ####
+
+# available: ♪, ♫, ☹, ☺, ☻, ♀, ♂, ⌨
+#            ♥, ⬅, ⬆, ⬇, ⌐, ℮, €
+#            ∑, ∂, ∆, ÷, ℓ, Å
+
+
+## generic
+
+# display_char = altar:_
+# display_char = altar:▄
+display_char = altar:π
+
+# display_char = arch:¶
+display_char = arch:∩
+
+# display_char = cloud:#
+display_char = cloud:§
+
+# display_char = door_closed:┼
+display_char = door_closed:◼
+
+# display_char = door_open:'
+# display_char = door_open:▀
+display_char = door_open:▔
+
+# display_char = fired_burst:+
+# display_char = fired_burst:÷
+display_char = fired_burst:≡
+
+#display_char = fired_debug:X
+display_char = fired_debug:⌧
+
+# display_char = fired_missile:`
+display_char = fired_missile:√
+
+display_char = fired_zap:∫
+
+# display_char = fired_bolt:#
+display_char = fired_bolt:✓
+
+# display_char = explosion:*
+display_char = explosion:☼
+
+
+## floor & wall
+
+# display_char = wall:▒
+# display_char = wall:▒
+display_char = wall:▒
+
+# display_char = permawall:▓
+display_char = permawall:█
+
+# display_char = wall_magic:♦
+display_char = wall_magic:░
+
+# display_char = wavy:»
+display_char = wavy:≈
+
+# display_char = tree:7
+display_char = tree:♣
+
+# display_char = floor:∙
+# display_char = floor:•
+display_char = floor:·
+
+# display_char = floor_magic::
+# display_char = floor_magic:·
+# display_char = floor_magic:♦
+display_char = floor_magic:◦
+
+# display_char = fountain:§
+display_char = fountain:⌠
+
+
+## frame
+
+# display_char = frame_bottom_left:└
+# display_char = frame_bottom_right:┘
+# display_char = frame_horiz:─
+# display_char = frame_top_left:┌
+# display_char = frame_top_right:┐
+# display_char = frame_vert:│
+
+display_char = frame_bottom_left:╚
+display_char = frame_bottom_right:╝
+display_char = frame_horiz:═
+display_char = frame_top_left:╔
+display_char = frame_top_right:╗
+display_char = frame_vert:║
+
+display_char = grate:#
+
+# display_char = invis_exposed:{
+display_char = invis_exposed:↕
+
+# display_char = item_amulet:"
+display_char = item_amulet:Ω
+
+## items
+
+display_char = item_armour:[
+
+# display_char = item_book::
+display_char = item_book:∞
+
+display_char = item_corpse:%
+
+# display_char = item_detected:{
+# display_char = item_detected:¨
+# display_char = item_detected:∆
+display_char = item_detected:⌂
+
+display_char = item_food:%
+
+# display_char = item_gold:$
+display_char = item_gold:¢
+
+# display_char = item_miscellany:}
+display_char = item_miscellany:&
+
+# display_char = item_orb:0
+display_char = item_orb:Ø
+
+display_char = item_potion:!
+
+display_char = item_ring:=
+
+display_char = item_rod:|
+display_char = item_staff:\
+display_char = item_wand:/
+
+# display_char = item_rune:}
+display_char = item_rune:φ
+
+display_char = item_scroll:?
+
+# display_char = item_skeleton:%
+display_char = item_skeleton:☠
+
+display_char = item_weapon:†
+
+display_char = item_missile:‡
+
+display_char = stairs_down:>
+display_char = stairs_up:<
+
+# display_char = statue:8
+display_char = statue:♠
+
+# display_char = teleporter:^
+# display_char = teleporter:©
+# display_char = teleporter:Ω
+display_char = teleporter:⇪
+
+display_char = trap:^
