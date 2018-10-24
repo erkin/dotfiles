@@ -132,6 +132,7 @@ Xft.hintstyle:  hintfull
 !emacs*pointerColor: Orchid
 !emacs*cursorColor:  Orchid
 emacs*bitmapIcon:   on
+emacs*UseXIM:	false
 !emacs*font:         fixed
 !emacs*font:         xft:Fira Code:antialias=true:style=Retina,Regular:size=11
 !emacs.geometry:     80x30

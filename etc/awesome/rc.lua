@@ -551,16 +551,16 @@ volume.bar:buttons(awful.util.table.join(
         awful.spawn("pavucontrol")
     end),
     awful.button({}, 3, function() -- right click
-        os.execute(string.format("pactl set-sink-mute %d toggle", volume.device))
-        volume.update()
+          os.execute("pactl set-sink-mute " .. volume.device .. " toggle")
+          volume.update()
     end),
     awful.button({}, 4, function() -- scroll up
-        os.execute(string.format("pactl set-sink-volume %d +2%%", volume.device))
-        volume.update()
+          os.execute("pactl set-sink-volume " .. volume.device .. " +2%")
+          volume.update()
     end),
     awful.button({}, 5, function() -- scroll down
-        os.execute(string.format("pactl set-sink-volume %d -2%%", volume.device))
-        volume.update()
+          os.execute("pactl set-sink-volume ".. volume.device .." -2%")
+          volume.update()
     end)
 ))
 
@@ -687,10 +687,9 @@ beautiful.useless_gap = 4
 
 awful.spawn("xscreensaver -no-splash")
 -- awful.spawn("dropbox-cli start > /dev/null")
-awful.spawn(os.getenv("HOME") .. "/src/tile.sh")
 
+run_discord()
 run_hexchat()
--- run_discord()
 run_firefox()
 run_rtorrent()
 

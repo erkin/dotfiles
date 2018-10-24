@@ -30,6 +30,10 @@
 (setq tramp-default-method "ssh"
       tramp-terminal-type "tramp")
 
+;;; mozc
+(setq default-input-method "japanese-mozc"
+      mozc-candidate-style 'overlay)
+
 ;;; Calendar
 (setq calendar-latitude +41
       calendar-longitude +29
