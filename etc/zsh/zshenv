@@ -4,9 +4,6 @@
 
 setopt allexport
 
-# this shit leaks dbus-daemon processes like crazy
-#export $(dbus-launch)
-
 eval $(dircolors -b)
 source $HOME/etc/user-dirs.dirs
 source $HOME/etc/other-dirs.dirs

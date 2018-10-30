@@ -25,7 +25,7 @@ setxkbmap -layout meow -option lv3:ralt_switch,compose:caps,terminate:ctrl_alt_b
 pidof emacs >& /dev/null
 if [ $? -ne 0 ];
 then
-    env GTK_IM_MODULE=xim XMODIFIERS=@im=none \
+    env XMODIFIERS=@im=none \
 	dbus-launch --sh-syntax emacs --daemon &!
 fi
 

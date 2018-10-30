@@ -3,7 +3,7 @@ throttle.max_peers.seed.set          = 50
 throttle.max_uploads.global.set      = 250
 throttle.max_downloads.global.set    = 250
 
-throttle.global_up.max_rate.set_kb   = 100
+throttle.global_up.max_rate.set_kb   = 300
 throttle.global_down.max_rate.set_kb = 1000
 
 network.port_range.set               = 36767-36767

@@ -172,7 +172,7 @@ alias se='sudo -e'
 alias edit='emacsclient -t'
 alias sedit='sudo emacs -Q -nw'
 alias visudo='sudo SUDO_EDITOR="emacs -Q -nw" visudo'
-alias ed='rlwrap ed -lvp\>\ '
+alias ed='rlwrap -pGreen ed -lvp\>\ '
 alias vi='e3vi'
 alias vim='e3vi'
 alias nano='e3pi'
@@ -205,9 +205,10 @@ alias ppush='rclone sync --checksum --verbose \
       --exclude "emacs.d/backup/**" --exclude "emacs.d/auto-save-list/**" \
       ~/opt/pcloud peec:/home'
 alias ppull='rclone sync --checksum --verbose \
-      --exclude "emacs.d/backup/** --exclude "emacs.d/auto-save-list/**" \
+      --exclude "emacs.d/backup/**" --exclude "emacs.d/auto-save-list/**" \
       peec:/home ~/opt/pcloud'
 alias wm='dtach -A /tmp/dvtm -r winch dvtm -M'
+alias wp='feh --no-fehbg --force-aliasing --no-xinerama --bg-tile'
 
 # kittens!
 alias c="kitty +kitten clipboard"
@@ -263,7 +264,7 @@ function manopt
 # wttr
 function weather
 {
-    curl "http://wttr.in/$1"
+    curl "https://wttr.in/$1"
 }
 
 # grab window

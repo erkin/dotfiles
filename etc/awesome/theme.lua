@@ -9,22 +9,22 @@ theme.wallpaper = "/home/erkin/media/image/wall/happy-sad.png"
 -- titlebar_[bg|fg]_[normal|focus]
 -- tooltip_[font|opacity|fg_color|bg_color|border_width|border_color]
 -- mouse_finder_[color|timeout|animate_timeout|radius|factor]
-theme.bg_normal     = "#162656"
-theme.bg_focus      = "#364676"
+theme.bg_normal     = "#061646"
+theme.bg_focus      = "#263666"
 
-theme.bg_urgent     = "#362656"
-theme.bg_minimize   = "#464666"
-theme.bg_systray    = "#162656"
+theme.bg_urgent     = "#261646"
+theme.bg_minimize   = "#363656"
+theme.bg_systray    = "#061646"
 
-theme.fg_normal     = "#DCDCCC"
-theme.fg_focus      = "#DFC0C0"
-theme.fg_urgent     = "#D03000"
-theme.fg_minimize   = "#CCCA0A"
+theme.fg_normal     = "#CCCCBC"
+theme.fg_focus      = "#CFB0B0"
+theme.fg_urgent     = "#C02000"
+theme.fg_minimize   = "#BCBA09"
 
 theme.border_width  = 1
-theme.border_normal = "#2F2F0F"
-theme.border_focus  = "#7F7F5F"
-theme.border_marked = "#CC9393"
+theme.border_normal = "#1F1F0A"
+theme.border_focus  = "#6F6F4F"
+theme.border_marked = "#BC8373"
 
 theme.taglist_squares_sel   = "/usr/share/awesome/themes/default/taglist/squarefw.png"
 theme.taglist_squares_unsel = "/usr/share/awesome/themes/default/taglist/squarew.png"

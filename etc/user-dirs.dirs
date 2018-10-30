@@ -1,6 +1,6 @@
 # -*- sh -*-
 
-export XDG_DESKTOP_DIR="$HOME/tmp/" # trailing slash is mandatory
+export XDG_DESKTOP_DIR="$HOME"
 export XDG_DOWNLOAD_DIR="$HOME/tmp"
 export XDG_TEMPLATES_DIR="$HOME/doc"
 export XDG_PUBLICSHARE_DIR="$HOME/var/public"

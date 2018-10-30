@@ -303,8 +303,8 @@ globalkeys = awful.util.table.join(
 
    awful.key({"Shift"            }, "Menu",
       function() awful.spawn("env emacsclient -c")          end),
-   awful.key({ modkey,           }, "Menu",
-      function() awful.spawn("rofi -show combi")            end),
+   -- awful.key({ modkey,           }, "Menu",
+   --    function() awful.spawn("rofi -show combi")            end),
 
    awful.key({ modkey,           }, "Escape", awful.tag.history.restore),
 
@@ -426,8 +426,8 @@ globalkeys = awful.util.table.join(
    awful.key({ modkey,           }, "d",
       function() run_discord()                             end),
 
-   awful.key({ modkey,           }, "c",
-      function () awful.spawn("rofi -modi 'clipboard:greenclip print' -show clipboard -run-command '{cmd}'") end),
+   -- awful.key({ modkey,           }, "c",
+   --    function () awful.spawn("rofi -modi 'clipboard:greenclip print' -show clipboard -run-command '{cmd}'") end),
    awful.key({ modkey, "Shift"   }, "t",
       function() awful.spawn("thunderbird")                end),
 
@@ -584,6 +584,7 @@ awful.rules.rules = {
            "copyq",
         },
         class = {
+           "feh",
            "Arandr",
            "MPlayer",
            "Gpick",
@@ -688,7 +689,7 @@ beautiful.useless_gap = 4
 awful.spawn("xscreensaver -no-splash")
 -- awful.spawn("dropbox-cli start > /dev/null")
 
-run_discord()
+-- run_discord()
 run_hexchat()
 run_firefox()
 run_rtorrent()

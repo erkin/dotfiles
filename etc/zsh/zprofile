@@ -42,6 +42,9 @@ CVS_PASSFILE="$XDG_DATA_HOME/cvspass"
 # elinks
 ELINKS_CONFDIR="$XDG_CONFIG_HOME/elinks"
 
+# figlet
+FIGLET_FONTDIR="/usr/share/figlet:/usr/share/figlet/fonts:$XDG_DATA_HOME/figlet"
+
 # gcc
 GCC_COLORS="error=01;31:warning=01;35:note=01;36:range1=32:range2=34:locus=01:\
             quote=01:fixit-insert=32:fixit-delete=31:type-diff=01;3:\
@@ -82,7 +85,7 @@ LESSEDIT="$SUDO_EDITOR ?lm+%lm. %f"
 #LESS_ADVANCED_PREPROCESSOR=1
 
 # lynx
-LYNX_CFG="$XDG_CONFIG_HOME/lynx/lynx.cfg"
+LYNX_CFG_PATH="$XDG_CONFIG_HOME/lynx"
 
 # mail
 MAILCAP="$XDG_CONFIG_HOME/mailcap"

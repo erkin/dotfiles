@@ -71,6 +71,11 @@
               cperl-indent-level 4)
 (c-set-offset 'comment-intro 0)
 
+;;; dot
+(setq graphviz-dot-auto-indent-on-newline nil
+      graphviz-dot-auto-indent-on-semi nil
+      graphviz-dot-auto-indent-on-braces t)
+
 ;;; Scheme
 (setq scheme-program-name "csi -wq /home/erkin/etc/chicken/csirc -:c")
 
