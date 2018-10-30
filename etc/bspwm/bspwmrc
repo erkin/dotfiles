@@ -13,15 +13,15 @@ bspc config split_ratio          0.52
 bspc config borderless_monocle   true
 bspc config gapless_monocle      true
 
-bspc rule -a Gimp desktop='^8' state=floating follow=on
-bspc rule -a Firefox desktop='^1'
-bspc rule -a Slack desktop='^2'
-bspc rule -a Ripcord desktop='^3'
-bspc rule -a claws-mail desktop='^7'
-bspc rule -a mplayer2 state=floating
-bspc rule -a Kupfer.py focus=on
-bspc rule -a Screenkey manage=off
-bspc rule -a Emacs state=tiled
+bspc rule -a Gimp desktop='^8' state=floating follow=off
+bspc rule -a Firefox desktop='^1' follow=off
+bspc rule -a Slack desktop='^2' focus=off follow=off
+bspc rule -a Ripcord desktop='^3' follow=off
+bspc rule -a Claws-mail desktop='^7' follow=off
+bspc rule -a mplayer2 state=floating follow=on
+bspc rule -a Kupfer.py focus=on follow=off
+bspc rule -a Screenkey manage=off follow=off
+bspc rule -a Emacs state=tiled follow=off
 
 sxhkd &
 

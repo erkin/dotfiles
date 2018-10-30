@@ -143,3 +143,10 @@ super + alt + shift + {h,t,n,s}
 # move a floating window
 super + {Left,Down,Up,Right}
 	bspc node -v {-20 0,0 20,0 -20,20 0}
+
+# Xf86 media keys
+Audio{Raise,Lower}Volume
+	pactl set-sink-volume 0 {+,-}2%
+
+AudioMute
+	pactl set-sink-mute 0 toggle
