@@ -5,7 +5,5 @@
 setopt allexport
 
 eval $(dircolors -b)
-source $HOME/etc/user-dirs.dirs
-source $HOME/etc/other-dirs.dirs
 
 unsetopt allexport

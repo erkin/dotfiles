@@ -56,5 +56,5 @@
    begin with.
 
 ** Acknowledgements
-   I would like to thank =grawity= from Arch Linux IRC channel
-   for convincing me to strive for a cleaner =$HOME=.
+   I would like to thank =grawity= and =earnestly= from Arch Linux IRC
+   channel for helping me strive for a cleaner =$HOME=.
