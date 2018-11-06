@@ -18,22 +18,17 @@ PERL_PATHS="/usr/bin/core_perl:/usr/bin/site_perl:/usr/bin/vendor_perl"
 PATH="$LOCAL_PATHS:$PERL_PATHS:/usr/lib/jvm/default/bin:/usr/lib/ccache/bin:/usr/local/sbin:/usr/local/bin:/usr/bin"
 COWPATH="/usr/share/cowsay/cows/:$XDG_DATA_HOME/cows"
 
+# site-functions (used internally)
 fpath=(~/etc/zsh/site-functions $fpath)
+# functions
 lpath="$ZDOTDIR/functions"
+# plugins
+ppath="/usr/share/zsh/plugins"
 
 # zcompdump
 zstyle :compinstall filename '$XDG_CONFIG_HOME/zsh/.zshrc'
 autoload -Uz compinit
 compinit
-
-# don't source anything in interactive mode
-if tty -s &> /dev/null
-then
-  source "$lpath/mouse"
-  source "$XDG_CONFIG_HOME/exercism/exercism_completion.zsh"
-  source "$XDG_DATA_HOME/opam/opam-init/complete.zsh"
-  source "$XDG_DATA_HOME/opam/opam-init/switch_eval.sh"
-fi
 
 # proper history lookup
 zle -N up-line-or-beginning-search
@@ -51,13 +46,14 @@ zle -N edit-command-line
 bindkey "^X^E" edit-command-line
 
 # mouse
+source "$lpath/mouse"
 zle-toggle-mouse
 
 # all them options
 setopt autocd autopushd pushdignoredups pushdtohome pushdminus
 setopt automenu completealiases completeinword hashlistall \
        listtypes rcexpandparam
-setopt extendedglob markdirs multibyte warncreateglobal # warnnestedvar
+setopt extendedglob markdirs multibyte # warncreateglobal warnnestedvar
 setopt banghist histexpiredupsfirst histignorespace histlexwords \
        histreduceblanks
 setopt noclobber correct dvorak flowcontrol interactivecomments
@@ -335,8 +331,14 @@ function _pip_completion
 }
 compctl -K _pip_completion pip
 
-# for CLI syntax highlighting
+# Plugins
 if tty -s &> /dev/null
 then
-    source /usr/share/zsh/plugins/zsh-syntax-highlighting/zsh-syntax-highlighting.zsh
+    source "$ppath/zsh-syntax-highlighting/zsh-syntax-highlighting.plugin.zsh"
+    source "$ppath/zsh-autosuggestions/zsh-autosuggestions.plugin.zsh"
+    source "$ppath/zsh-you-should-use/you-should-use.plugin.zsh"
+
+    source "$XDG_CONFIG_HOME/exercism/exercism_completion.zsh"
+    source "$XDG_DATA_HOME/opam/opam-init/complete.zsh"
+    source "$XDG_DATA_HOME/opam/opam-init/switch_eval.sh"
 fi
