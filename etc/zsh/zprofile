@@ -106,6 +106,12 @@ MPLAYER_HOME="$XDG_CONFIG_HOME/mplayer"
 # MySQL
 MYSQL_HISTFILE="$XDG_DATA_HOME/mysql/history"
 
+# nnn
+NNN_USE_EDITOR=1
+NNN_BMS="tmp:~/tmp"
+NNN_COPIER="~/usr/bin/copier.sh"
+NNN_TMPFILE="/tmp/nnn"
+
 # NVIDIA
 CUDA_CACHE_PATH="$XDG_CACHE_HOME/nv"
 

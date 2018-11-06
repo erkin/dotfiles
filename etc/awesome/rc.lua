@@ -606,8 +606,8 @@ awful.rules.rules = {
         }
    }, properties = { floating = true }},
 
-   { rule_any = {type = { "dialog" }
-                }, properties = { titlebars_enabled = true }
+   { rule_any = { type = { "dialog" } },
+     properties = { titlebars_enabled = true }
    },
    { rule = { name = "rtorrent" },
      properties = { screen = 1, tag = "😿" } },

@@ -6,7 +6,8 @@ application/pdf; mupdf %s
 # image/*; curl -Ssf '%s' | convert -resize 80x80 - jpg:/tmp/rtv.jpg && img2xterm /tmp/rtv.jpg; needsterminal; copiousoutput
 image/*; feh -g 640x480 '%s'; test=test -n "$DISPLAY"
 image/*; w3m -o 'ext_image_viewer=off' '%s'; needsterminal
-image/gif; mplayer -loop 0 -fs -zoom "%s"; test=test -n "$DISPLAY"
+#image/gif; mplayer -loop 0 -fs -zoom "%s"; test=test -n "$DISPLAY"
+image/gif; sxiv -abZs f "%s"; test=test -n "$DISPLAY"
 image/x-imgur-album; echo
 image/x-imgur-album; feh -g 640x480 %s; test=test -n "$DISPLAY"
 video/*; mplayer -quiet "%s"; test=test -n "$DISPLAY"
