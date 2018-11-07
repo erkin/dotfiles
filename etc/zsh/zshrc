@@ -46,8 +46,11 @@ zle -N edit-command-line
 bindkey "^X^E" edit-command-line
 
 # mouse
-source "$lpath/mouse"
-zle-toggle-mouse
+if [[ ! -o login ]]
+then
+    source "$lpath/mouse"
+    zle-toggle-mouse
+fi
 
 # all them options
 setopt autocd autopushd pushdignoredups pushdtohome pushdminus
@@ -137,6 +140,7 @@ export PS2="$(print '%{\e[1;33m%}-->%{\e[0m%}')"
 ## aliases
 # systemctl
 alias usys="systemctl --user"
+alias journal="journalctl -elmx"
 
 # dir
 alias ls='ls -F --color=auto --group-directories-first --dereference-command-line-symlink-to-dir'
