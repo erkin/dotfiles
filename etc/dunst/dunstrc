@@ -10,9 +10,9 @@
 	separator_height = 2
 	padding = 8
 	horizontal_padding = 8
-	frame_width = 3
+	frame_width = 0
 	frame_color = "#ddddbb"
-	separator_color = frame
+	separator_color = foreground
 	sort = yes
 	idle_threshold = 120
 	font = Fira Code 11
@@ -57,10 +57,10 @@
 [urgency_low]
 	background = "#222222"
 	foreground = "#cccccc"
-	timeout = 5
+	timeout = 3
 
 [urgency_normal]
-	background = "#406050"
+	background = "#303045"
 	foreground = "#ffffff"
 	timeout = 5
 

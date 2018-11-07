@@ -17,7 +17,7 @@ bspc rule -a Gimp desktop='^8' state=floating follow=off
 bspc rule -a Firefox desktop='^1' follow=off
 bspc rule -a Slack desktop='^2' focus=off follow=off
 bspc rule -a Ripcord desktop='^3' follow=off
-bspc rule -a Claws-mail desktop='^7' follow=off
+bspc rule -a Claws-mail desktop='^8' follow=off
 bspc rule -a mplayer2 state=floating follow=on
 bspc rule -a Kupfer.py focus=on follow=off
 bspc rule -a Screenkey manage=off follow=off
@@ -28,7 +28,7 @@ sxhkd &
 panel 0 1366 0 &
 panel 1 1920 1366 &
 
-stalonetray &
+stalonetray -c ~/etc/stalonetray/rc &
 xdo above -t "$(xdo id -N bspwm -n root | sort | head -n 1)" "$(xdo id -a stalonetray)"
 
 slack &
