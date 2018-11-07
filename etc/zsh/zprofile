@@ -1,6 +1,7 @@
 # -*- sh -*-
 setopt allexport
 
+## General config
 
 # me
 NAME="Erkin Batu Altunbaş"
@@ -29,7 +30,7 @@ PAGER="less"
 XDG_CONFIG_HOME="$HOME/etc"
 XDG_DATA_HOME="$HOME/usr/share"
 XDG_CACHE_HOME="$HOME/var/cache"
-# XDG_RUNTIME_DIR="$HOME/var/run"
+#XDG_RUNTIME_DIR="$HOME/var/run"
 XDG_RUNTIME_DIR="/run/user/$(id -u)"
 
 
@@ -158,6 +159,9 @@ SSH_AUTH_SOCK="$(gpgconf --list-dirs agent-ssh-socket)"
 # Subversion
 SVN_I_LOVE_PANGALACTIC_GARGLE_BLASTERS=1
 
+# systemd
+SYSTEMD_PAGER="bat"
+
 # wget
 WGETRC="$XDG_CONFIG_HOME/wgetrc"
 
@@ -180,7 +184,7 @@ XKB_DEFAULT_OPTIONS="compose:caps,terminate:ctrl_alt_bksp"
 
 # zsh
 YSU_MESSAGE_FORMAT="\e[31m%alias_type for %command: %alias\e[0m"
-ZSH_AUTOSUGGEST_HIGHLIGHT_STYLE="bg=0"
+ZSH_AUTOSUGGEST_HIGHLIGHT_STYLE="fg=8"
 ZSH_AUTOSUGGEST_BUFFER_MAX_SIZE=20
 ZSH_AUTOSUGGEST_USE_ASYNC=1
 ZSH_HIGHLIGHT_HIGHLIGHTERS=(main brackets pattern cursor)
@@ -190,12 +194,16 @@ ZSH_HIGHLIGHT_HIGHLIGHTERS=(main brackets pattern cursor)
 # Carp
 CARP_DIR="$HOME/dev/repos/Carp"
 
+# Clojure
+LEIN_HOME="$XDG_DATA_HOME/lein"
+
 # Haskell
 STACK_ROOT="$XDG_DATA_HOME/stack"
 CABAL_CONFIG="$XDG_CONFIG_HOME/cabal/config"
 
 # Java
 _JAVA_OPTIONS="-Djava.util.prefs.userRoot=\"$XDG_CONFIG_HOME/java\""
+_JAVA_AWT_WM_NONREPARENTING=1
 
 # OCaml
 OPAMROOT="$XDG_DATA_HOME/opam"
