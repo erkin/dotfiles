@@ -37,6 +37,15 @@
    workable minimum here. Send me a patch if you know how to (cleanly)
    move one of the top-level dotfiles into a config directory.
 
+   Until then, I'll write up a solution with [[https://github.com/Cloudef/rewritefs][rewritefs]] instead.
+
+*** emacs
+    These files are sourced in [[file:emacs.d/init.el][ =init.el= ]] but aren't included here:
+    - =custom.el=: It's automatically rewritten too often to keep
+      track of. Not like it contains anything of interest.
+    - =private.el=: Only contains stuff like e-mail config and
+      credentials for things like Mastodon.
+
 *** zsh
     As you probably noticed above, zsh config is neatly tucked into
     [[file:etc/zsh][ =etc/zsh= ]]. This shouldn't be possible, as zsh itself needs to
