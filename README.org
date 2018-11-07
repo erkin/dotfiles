@@ -60,15 +60,16 @@
 
     And no, I don't use /oh-my-zsh/.
 
-** What's [[file:etc/X11/xinitrc#L19][this]] XKB layout?
-   Standard Dvorak with loads of level3/level4 keys.
-   You can find it [[https://erkin.party/files/layout][here]].
+** FAQ
+*** What's [[file:etc/X11/xinitrc#L19][this]] XKB layout?
+    Standard Dvorak with loads of level3/level4 keys.
+    You can find it [[https://erkin.party/files/layout][here]].
 
-** Can I steal these?
-   People actually asked me this for some reason, and my answer is:
-   Absolutely, go nuts. I don't even want attribution for this
-   mess. In fact, I stole a portion of these from others myself to
-   begin with.
+*** Can I steal these?
+    People actually asked me this for some reason, and my answer is:
+    Absolutely, go nuts. I don't even want attribution for this
+    mess. In fact, I stole a portion of these from others myself to
+    begin with.
 
 ** Acknowledgements
    I would like to thank =grawity= and =earnestly= from Arch Linux IRC
