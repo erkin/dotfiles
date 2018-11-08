@@ -107,6 +107,10 @@
   (cargo-minor-mode)
   (racer-mode)) ; see above
 
+(defun my/sh-mode-hook ()
+  "heck"
+  (setq indent-tabs-mode nil))
+
 (defun my/xml-mode-hook ()
   "fuck --!"
   (setq-local comment-continue " "))

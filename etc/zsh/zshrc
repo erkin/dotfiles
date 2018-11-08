@@ -276,10 +276,10 @@ function weather
 # grab window
 function scrsht
 {
-	activeWinLine=$(xprop -root | grep "_NET_ACTIVE_WINDOW(WINDOW)")
-	activeWinId=${activeWinLine:40}
-	import -window "$activeWinId" \
-	       ~/media/image/screen/$(date +%Y)/$(date +%F_%H%M%S_%N).png
+    activeWinLine=$(xprop -root | grep "_NET_ACTIVE_WINDOW(WINDOW)")
+    activeWinId=${activeWinLine:40}
+    import -window "$activeWinId" \
+	   ~/media/image/screen/$(date +%Y)/$(date +%F_%H%M%S_%N).png
 }
 
 # dictionary lookup
@@ -293,8 +293,8 @@ function clocc
 {
     (while true
      do
-	 echo -ne "\e[s\e[0;$((COLUMNS-27))H$(date)\e[u"
-	 sleep 1
+         echo -ne "\e[s\e[0;$((COLUMNS-27))H$(date)\e[u"
+         sleep 1
      done &)
 }
 
@@ -308,12 +308,12 @@ function zsh_stats
 
 function nnn
 {
-	/usr/bin/nnn "$@"
-	if [ -f $NNN_TMPFILE ];
-	then
-		. $NNN_TMPFILE
-		rm $NNN_TMPFILE
-	fi
+    /usr/bin/nnn "$@"
+    if [ -f $NNN_TMPFILE ];
+    then
+	. $NNN_TMPFILE
+	rm $NNN_TMPFILE
+    fi
 }
 
 ## internal functions go here
@@ -327,12 +327,12 @@ function chpwd
 # pip zsh completion
 function _pip_completion
 {
-  local words cword
-  read -Ac words
-  read -cn cword
-  reply=( $(COMP_WORDS="$words[*]" \
-            COMP_CWORD=$((cword-1)) \
-            PIP_AUTO_COMPLETE=1 $words[1]))
+    local words cword
+    read -Ac words
+    read -cn cword
+    reply=( $(COMP_WORDS="$words[*]" \
+			COMP_CWORD=$((cword-1)) \
+			PIP_AUTO_COMPLETE=1 $words[1]))
 }
 compctl -K _pip_completion pip
 
