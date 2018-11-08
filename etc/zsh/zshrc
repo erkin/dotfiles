@@ -46,7 +46,7 @@ zle -N edit-command-line
 bindkey "^X^E" edit-command-line
 
 # mouse
-if [[ ! -o login ]]
+if [[ ! -o login ]] && [[ -o interactive ]]
 then
     source "$lpath/mouse"
     zle-toggle-mouse
@@ -177,15 +177,13 @@ alias se='sudo -e'
 alias edit='emacsclient -t'
 alias sedit='sudo emacs -Q -nw'
 alias visudo='sudo SUDO_EDITOR="emacs -Q -nw" visudo'
+alias vipw='sudo EDITOR="emacs -Q -nw" vipw'
+alias vigr='sudo EDITOR="emacs -Q -nw" vigr'
 alias ed='rlwrap -pGreen ed -lvp\>\ '
 alias vi='e3vi'
 alias vim='e3vi'
 alias nano='e3pi'
 alias pico='e3pi'
-
-# repls
-alias csi_='csi -wq $XDG_CONFIG_HOME/chicken/csirc'
-alias dc='rlwrap dc -f $XDG_CONFIG_HOME/dc/dcrc -'
 
 # pacman
 alias p='powerpill'
@@ -195,10 +193,13 @@ alias sb='bb-wrapper --aur --build-dir /tmp/pacbuild'
 
 # force proper homes
 alias claws-mail="claws-mail --alternate-config-dir $XDG_DATA_HOME/claws"
+alias csi_='csi -wq $XDG_CONFIG_HOME/chicken/csirc'
+alias dc='rlwrap dc -f $XDG_CONFIG_HOME/dc/dcrc -'
 alias mbsync="mbsync -c $XDG_CONFIG_HOME/isync/mbsyncrc"
 alias startx="startx $XINITRC"
 alias svn="svn --config-dir $XDG_CONFIG_HOME/subversion"
-alias wget='wget --hsts-file ~/etc/wget/hsts'
+alias w3m="w3m -config $XDG_CONFIG_HOME/w3m/config"
+alias wget="wget --hsts-file $XDG_CONFIG_HOME/wget/hsts -config $XDG_CONFIG_HOME/wget/config"
 
 # other
 alias 2hu='ffmpeg -f x11grab -r 40 -s 1920x1080 -i :0.0 -f pulse -i default\

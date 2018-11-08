@@ -252,6 +252,4 @@ CRAWL_DIR="$XDG_DATA_HOME/crawl/"
 # nethack
 NETHACKOPTIONS="@$XDG_CONFIG_HOME/nethack/nethackrc" # @ is mandatory
 
-
 unsetopt allexport
-
