@@ -12,4 +12,6 @@ XDG_CACHE_HOME="$HOME/var/cache"
 #XDG_RUNTIME_DIR="$HOME/var/run"
 XDG_RUNTIME_DIR="/run/user/$(id -u)"
 
+source "$XDG_CONFIG_HOME/user-dirs.dirs"
+
 unsetopt allexport

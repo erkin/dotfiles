@@ -19,7 +19,7 @@ PATH="$LOCAL_PATHS:$PERL_PATHS:/usr/lib/jvm/default/bin:/usr/lib/ccache/bin:/usr
 COWPATH="/usr/share/cowsay/cows/:$XDG_DATA_HOME/cows"
 
 # site-functions (used internally)
-fpath=(~/etc/zsh/site-functions $fpath)
+fpath=("$ZDOTDIR/site-functions" $fpath)
 # functions
 lpath="$ZDOTDIR/functions"
 # plugins
@@ -204,7 +204,7 @@ alias wget="wget --hsts-file $XDG_CONFIG_HOME/wget/hsts -config $XDG_CONFIG_HOME
 # other
 alias 2hu='ffmpeg -f x11grab -r 40 -s 1920x1080 -i :0.0 -f pulse -i default\
       -acodec libvorbis -vcodec libx264 -tune touhou -preset ultrafast\
-      ~/media/video/screencast_$(date +%F_%H%M%S_%N).mkv'
+      $XDG_VIDEOS_DIR/screencast_$(date +%F_%H%M%S_%N).mkv'
 alias gitlog='git log --decorate=full --color=always --oneline --graph --pickaxe-all --full-diff'
 alias pastebin="curl -F 'c=@-' https://ptpb.pw"
 alias ppush='rclone sync --checksum --verbose \
@@ -279,7 +279,7 @@ function scrsht
     activeWinLine=$(xprop -root | grep "_NET_ACTIVE_WINDOW(WINDOW)")
     activeWinId=${activeWinLine:40}
     import -window "$activeWinId" \
-	   ~/media/image/screen/$(date +%Y)/$(date +%F_%H%M%S_%N).png
+	   "$XDG_PICTURES_DIR/screen/$(date +%Y)/$(date +%F_%H%M%S_%N).png"
 }
 
 # dictionary lookup
