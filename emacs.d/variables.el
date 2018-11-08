@@ -58,6 +58,7 @@
       ag-highlight-search t
       inhibit-compacting-font-caches t)
 
+
 
 ;;;; Language specific config
 ;;; See also: functions.el

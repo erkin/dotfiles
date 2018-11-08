@@ -174,7 +174,6 @@ alias ncdu="ncdu --color dark -rr -x --exclude .git"
 # editors
 alias ekill='emacsclient -e "(kill-emacs)"'
 alias se='sudo -e'
-alias edit='emacsclient -t'
 alias sedit='sudo emacs -Q -nw'
 alias visudo='sudo SUDO_EDITOR="emacs -Q -nw" visudo'
 alias vipw='sudo EDITOR="emacs -Q -nw" vipw'

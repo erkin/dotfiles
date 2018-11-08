@@ -33,6 +33,8 @@
 (autoload 'mu4e "mu4e" "Mail client" t)
 (autoload 'merlin-mode "merlin" "OCaml Merlin" t nil)
 
+
+
 ;;; Chrome and bells, jingles & gongs and all that jive
 ;;; Themes
 (require 'powerline)
@@ -53,6 +55,7 @@
 (set-frame-parameter (selected-frame) 'alpha '(95 . 93))
 (add-to-list 'default-frame-alist   '(alpha . (95 . 93)))
 
+
 
 ;;;; MODES
 ;;; Global major modes
@@ -74,6 +77,7 @@
 (set-keyboard-coding-system 'utf-8-unix)
 (set-terminal-coding-system 'utf-8-unix)
 
+
 
 ;;;; HOOKS
 ;;; My own hooks (in functions.el)
@@ -81,15 +85,17 @@
 (add-hook 'prog-mode-hook #'my/prog-mode-hook)
 (add-hook 'text-mode-hook #'my/text-mode-hook)
 
-(add-hook 'makefile-mode-hook #'my/makefile-mode-hook)
-(add-hook 'python-mode-hook #'my/python-mode-hook)
 (add-hook 'racer-mode-hook #'my/racer-mode-hook)
+
+(add-hook 'c-mode-hook #'my/makefile-mode-hook)
+(add-hook 'makefile-mode-hook #'my/makefile-mode-hook)
+(add-hook 'nxml-mode-hook #'my/nxml-mode-hook)
+(add-hook 'python-mode-hook #'my/python-mode-hook)
 (add-hook 'rust-mode-hook #'my/rust-mode-hook)
 (add-hook 'scheme-mode-hook #'my/scheme-mode-hook)
+(add-hook 'sgml-mode-hook #'my/sgml-mode-hook)
 (add-hook 'tex-mode-hook #'my/tex-mode-hook)
-;; (add-hook 'tuareg-mode-hook '#'my/caml-mode-hook)
 (add-hook 'tuareg-mode-hook #'my/caml-mode-hook)
-(add-hook 'xml-mode-hook #'my/xml-mode-hook)
 
 ;;; I hate Java.
 (dolist (hook '(java-mode-hook

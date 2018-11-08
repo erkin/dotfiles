@@ -17,6 +17,8 @@
 	     "~" (eshell/basename (eshell/pwd))) " "
              (if (= (user-uid) 0) "# " "% "))))
 
+
+
 ;;;; Hooks
 (defun my/mail-mode-hook ()
   "Quality-of-life stuff for mail"
@@ -45,6 +47,12 @@
   (auto-fill-mode)
   (visual-line-mode))
 
+
+
+(defun my/c-mode-hook ()
+  "C stuff"
+  ;; Most stuff you'd see here is already defined in variables.el
+  (page-break-lines-mode))
 
 (defun my/java-mode-hook ()
   "Exceptions for (cc-mode) etc for Java and Java-like languages"
@@ -58,6 +66,7 @@
   (setq indent-tabs-mode nil)
   ;; (eldoc-mode)
   ;; (slime-mode)
+  (page-break-lines-mode)
   (paredit-mode))
 
 (defun my/scheme-mode-hook ()
@@ -111,9 +120,18 @@
   "heck"
   (setq indent-tabs-mode nil))
 
-(defun my/xml-mode-hook ()
+(defun my/sgml-mode-hook ()
+  "HTML stuff"
+  (setq comment-continue " ")
+  (setq indent-tabs-mode nil)
+  (page-break-lines-mode))
+
+(defun my/nxml-mode-hook ()
   "fuck --!"
-  (setq-local comment-continue " "))
+  (setq comment-continue " ")
+  (setq indent-tabs-mode nil))
+
+
 
 ;;;; Functions
 (defun toggle-transparency ()

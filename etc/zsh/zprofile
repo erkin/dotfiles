@@ -6,7 +6,7 @@ setopt allexport
 # me
 NAME="Erkin Batu Altunbaş"
 EMAIL="$(base64 --decode <<< 'bWVAZXJraW4ucGFydHkK')"
-ORGANIZATION=""
+ORGANIZATION="TeamWau Cooperative"
 
 # editor
 EDITOR="emacsclient -c"
