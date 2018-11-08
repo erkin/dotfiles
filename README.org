@@ -6,11 +6,11 @@
    make use of [[https://standards.freedesktop.org/basedir-spec/basedir-spec-latest.html][XDG base directory specs]] to shove away config files
    elsewhere.
    
-   [[file:etc/other-dirs.dirs][As you can see]], I defined =$XDG_CONFIG_HOME= (=~/.config= by
-   default) to be =~/etc= and =$XDG_DATA_HOME= (=~/.local/share= by
-   default) to be =~/usr/share=, so as to resemble =hier(7)= a
-   bit. (Note that some odd applications actually hardcode =~/.config=
-   or =~/.local/share= for some godforsaken reason.)
+   I defined =$XDG_CONFIG_HOME= (=~/.config= by default) to be
+   =~/etc= and =$XDG_DATA_HOME= (=~/.local/share= by default) to be
+   =~/usr/share=, so as to resemble =hier(7)= a bit. (Note that some
+   odd applications actually hardcode =~/.config= or =~/.local/share=
+   for some godforsaken reason.)
 
    =$XDG_DATA_HOME= shouldn't be used to store any config. If it does,
    it's because the program dumps everything into a single directory
@@ -18,7 +18,7 @@
    Similarly, certain programs are guilty of storing data and logs in
    =$XDG_CONFIG_HOME=.
 
-   These definitions are sourced [[file:etc/zsh/zprofile#L29][in =zprofile= ]] and I try to force
+   These definitions are exported [[file:etc/zsh/zshenv#L9][in =zshenv= ]] and I try to force
    programs to use these dirs as much as possible with either
    environment variables or with command-line options, although I try
    to avoid the latter solution, as it leads to dangerous amounts of
@@ -58,7 +58,12 @@
     (zsh dotfiles *must* begin with a =.= regardless of your
     =$ZDOTDIR=.)
 
-    And no, I don't use /oh-my-zsh/.
+**** Plugins
+     - [[https://github.com/zsh-users/zsh-syntax-highlighting][zsh-syntax-highlighting]]
+     - [[https://github.com/zsh-users/zsh-autosuggestions][zsh-autosuggestions]]
+     - [[https://github.com/MichaelAquilina/zsh-you-should-use][zsh-you-should-use]]
+
+     I don't use /oh-my-zsh/.
 
 ** FAQ
 *** What's [[file:etc/X11/xinitrc#L19][this]] XKB layout?

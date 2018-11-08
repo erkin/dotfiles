@@ -6,4 +6,10 @@ setopt allexport
 
 eval $(dircolors -b)
 
+XDG_CONFIG_HOME="$HOME/etc"
+XDG_DATA_HOME="$HOME/usr/share"
+XDG_CACHE_HOME="$HOME/var/cache"
+#XDG_RUNTIME_DIR="$HOME/var/run"
+XDG_RUNTIME_DIR="/run/user/$(id -u)"
+
 unsetopt allexport
