@@ -35,6 +35,8 @@ autocutsel -selection PRIMARY -fork &
 #	--vsync opengl-mswc --glx-swap-method -1 --glx-no-stencil -b
 xcompmgr -FfCc -D 3 2>/dev/null &
 
+xautolock -time 10 -locker slock &
+
 ## Generate a randomly tiled wallpaper
 SUIKA="$HOME/media/image/suika"
 montage $(ls -1 $SUIKA/*1200.jpg | sort -R) -mode concatenate -tile 8x5 $SUIKA/result.jpg \

@@ -348,7 +348,7 @@ globalkeys = awful.util.table.join(
       function() awful.spawn("scrot -e 'mv $f ~/media/image/screen/2018/ 2>/dev/null'") end),
 
    awful.key({ modkey,           }, "Return",
-      function() awful.spawn("slock")                       end),
+      function() awful.spawn("xautolock -locknow")                       end),
 
    awful.key({ modkey, "Shift"   }, "j",
       function() awful.client.swap.byidx(  1)               end),
