@@ -2,8 +2,8 @@
 
 ;;; Navigation
 (windmove-default-keybindings 'meta)
-(global-set-key (kbd "<C-M-prior>") 'backward-page)
-(global-set-key (kbd "<C-M-next>") 'forward-page)
+(global-set-key (kbd "C-c p") #'backward-page)
+(global-set-key (kbd "C-c n") #'forward-page)
 (global-set-key (kbd "M-p") #'backward-paragraph)
 (global-set-key (kbd "M-n") #'forward-paragraph)
 

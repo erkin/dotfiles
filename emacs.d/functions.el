@@ -18,7 +18,6 @@
              (if (= (user-uid) 0) "# " "% "))))
 
 
-
 ;;;; Hooks
 (defun my/mail-mode-hook ()
   "Quality-of-life stuff for mail"
@@ -47,8 +46,14 @@
   (auto-fill-mode)
   (visual-line-mode))
 
-
+(defun my/racer-mode-hook ()
+  "Hooks for racer-mode.el of Rust"
+  (eldoc-mode)
+  (company-mode)
+  (local-set-key [tab] #'company-indent-or-complete-common)
+  (ac-racer-setup))
 
+
 (defun my/c-mode-hook ()
   "C stuff"
   ;; Most stuff you'd see here is already defined in variables.el
@@ -56,12 +61,12 @@
 
 (defun my/java-mode-hook ()
   "Exceptions for (cc-mode) etc for Java and Java-like languages"
-  (setq indent-tabs-mode nil
-        c-basic-offset 2
+  (setq indent-tabs-mode t
+        c-basic-offset 4
         tab-width 4)
-  (c-set-style "java"))
+  (page-break-lines-mode))
 
-(defun my/lisp-mode-hook ()
+(defun my/lisp-mode-hook ( )
   "Collection of Lisp hooks, including Scheme ones"
   (setq indent-tabs-mode nil)
   ;; (eldoc-mode)
@@ -101,13 +106,6 @@
   "Nothing much here yet"
   (setq indent-tabs-mode nil))
 
-(defun my/racer-mode-hook ()
-  "Hooks for racer-mode.el of Rust"
-  (eldoc-mode)
-  (company-mode)
-  (local-set-key [tab] #'company-indent-or-complete-common)
-  (ac-racer-setup))
-
 (defun my/rust-mode-hook ()
   "Helpful modes for autocomplete, also style stuff"
   (setq indent-tabs-mode nil
@@ -132,7 +130,6 @@
   (setq indent-tabs-mode nil))
 
 
-
 ;;;; Functions
 (defun toggle-transparency ()
   "True transparency"

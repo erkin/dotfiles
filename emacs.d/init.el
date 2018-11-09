@@ -34,7 +34,6 @@
 (autoload 'merlin-mode "merlin" "OCaml Merlin" t nil)
 
 
-
 ;;; Chrome and bells, jingles & gongs and all that jive
 ;;; Themes
 (require 'powerline)
@@ -56,7 +55,6 @@
 (add-to-list 'default-frame-alist   '(alpha . (95 . 93)))
 
 
-
 ;;;; MODES
 ;;; Global major modes
 (column-number-mode)
@@ -78,12 +76,12 @@
 (set-terminal-coding-system 'utf-8-unix)
 
 
-
 ;;;; HOOKS
 ;;; My own hooks (in functions.el)
 (add-hook 'mail-mode-hook #'my/mail-mode-hook)
 (add-hook 'prog-mode-hook #'my/prog-mode-hook)
 (add-hook 'text-mode-hook #'my/text-mode-hook)
+(add-hook 'compilation-mode-hook 'page-break-lines-mode)
 
 (add-hook 'racer-mode-hook #'my/racer-mode-hook)
 
