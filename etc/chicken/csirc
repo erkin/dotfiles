@@ -1,6 +1,4 @@
 ;; -*- scheme -*-
-(use readline numbers utf8 irregex)
-(require-extension srfi-1 srfi-13 srfi-69)
-(current-input-port (make-readline-port))
-(install-history-file #f "/etc/chicken/csi.history")
-(parse-and-bind "set editing-mode emacs")
+(import linenoise utf8)
+(import srfi-1 srfi-13 srfi-69)
+(current-input-port (make-linenoise-port))

@@ -187,6 +187,9 @@ ZSH_HIGHLIGHT_HIGHLIGHTERS=(main brackets pattern cursor)
 # Carp
 CARP_DIR="$HOME/dev/repos/Carp"
 
+# CHICKEN
+CHICKEN_EGG_CACHE="$XDG_CACHE_HOME/chicken"
+
 # Clojure
 LEIN_HOME="$XDG_DATA_HOME/lein"
 
