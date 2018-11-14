@@ -34,15 +34,16 @@
 (setq default-input-method "japanese-mozc"
       mozc-candidate-style 'overlay)
 
-;;; Calendar
+
+;;;; Calendar
+;;; Istanbul
 (setq calendar-latitude +41
       calendar-longitude +29
       calendar-mark-holidays-flag t)
 
-(load "~/.emacs.d/holidays.elc")
-
+(load "~/.emacs.d/local/holidays.elc")
 (setq holiday-hebrew-holidays nil
-      holiday-bahai-holidays nil ; sry but idc
+      holiday-bahai-holidays nil        ; sry but idc
       holiday-other-holidays (append holiday-discordian-holydays
                                      holiday-nerd-holidays
                                      holiday-turkish-holidays
@@ -59,7 +60,6 @@
       inhibit-compacting-font-caches t)
 
 
-
 ;;;; Language specific config
 ;;; See also: functions.el
 

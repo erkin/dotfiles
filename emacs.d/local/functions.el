@@ -21,7 +21,7 @@
 ;;;; Hooks
 (defun my/mail-mode-hook ()
   "Quality-of-life stuff for mail"
-  (auto-fill-mode)
+  (my/text-mode-hook)
   (mail-abbrevs-setup)
   (font-lock-add-keywords
    nil
@@ -42,9 +42,11 @@
 
 (defun my/text-mode-hook ()
   "Hooks for viewing and writing plain text"
+  (setq fill-column 80)
   ;; (column-marker-1 80)
   (auto-fill-mode)
-  (visual-line-mode))
+  (visual-line-mode)
+  (page-break-lines-mode))
 
 (defun my/racer-mode-hook ()
   "Hooks for racer-mode.el of Rust"
@@ -59,6 +61,11 @@
   ;; Most stuff you'd see here is already defined in variables.el
   (page-break-lines-mode))
 
+(defun my/clojure-mode-hook ()
+  "Cider and stuff"
+  (my/lisp-mode-hook)
+  (setq cider-auto-mode t))
+
 (defun my/java-mode-hook ()
   "Exceptions for (cc-mode) etc for Java and Java-like languages"
   (setq indent-tabs-mode t
@@ -67,7 +74,7 @@
   (page-break-lines-mode))
 
 (defun my/lisp-mode-hook ( )
-  "Collection of Lisp hooks, including Scheme ones"
+  "Collection of Lisp hooks"
   (setq indent-tabs-mode nil)
   ;; (eldoc-mode)
   ;; (slime-mode)
