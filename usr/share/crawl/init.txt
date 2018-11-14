@@ -88,6 +88,8 @@ allow_extend_colours = true
 
 : if you.gourmand() then
   auto_butcher = very full
+: elseif you.race() == "Ghoul" then
+  auto_butcher = satiated
 : else
   auto_butcher = hungry
 : end

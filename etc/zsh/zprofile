@@ -25,6 +25,7 @@ BROWSER="firefox"
 WWW_HOME="https://start.duckduckgo.com/lite"
 COLORTERM="truecolor"
 PAGER="less"
+SUDO="sudo"
 
 
 ## Application-specific config
