@@ -82,7 +82,7 @@
 (add-hook 'prog-mode-hook #'my/prog-mode-hook)
 (add-hook 'text-mode-hook #'my/text-mode-hook)
 
-(add-hook 'compilation-mode-hook 'page-break-lines-mode)
+(add-hook 'compilation-mode-hook #'page-break-lines-mode)
 (add-hook 'racer-mode-hook #'my/racer-mode-hook)
 
 (add-hook 'c-mode-hook #'my/makefile-mode-hook)

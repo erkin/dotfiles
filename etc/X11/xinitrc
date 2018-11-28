@@ -38,8 +38,9 @@ xcompmgr -FfCc -D 3 2>/dev/null &
 xautolock -time 10 -locker slock &
 
 ## Generate a randomly tiled wallpaper
-SUIKA="$HOME/media/image/suika"
-montage $(ls -1 $SUIKA/*1200.jpg | sort -R) -mode concatenate -tile 8x5 $SUIKA/result.jpg \
-    && feh --bg-tile --no-fehbg --no-xinerama $SUIKA/result.jpg
+# SUIKA="$HOME/media/image/suika"
+# montage $(ls -1 $SUIKA/*1200.jpg | sort -R) -mode concatenate -tile 8x5 $SUIKA/result.jpg \
+#     && feh --bg-tile --no-fehbg --no-xinerama $SUIKA/result.jpg
+feh --bg-tile --no-fehbg --no-xinerama ~/opt/pcloud/wall/pepper1.png
 
 exec dbus-launch --exit-with-session --sh-syntax awesome

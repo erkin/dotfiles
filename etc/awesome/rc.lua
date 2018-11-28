@@ -686,10 +686,10 @@ client.connect_signal("unfocus",
 
 beautiful.useless_gap = 4
 
-awful.spawn("xscreensaver -no-splash")
+-- awful.spawn("xscreensaver -no-splash")
 -- awful.spawn("dropbox-cli start > /dev/null")
 
--- run_discord()
+run_discord()
 run_hexchat()
 run_firefox()
 run_rtorrent()

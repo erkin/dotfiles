@@ -15,7 +15,8 @@ MANPATH="$XDG_DATA_HOME/man:$OPAM_SWITCH_PREFIX/man:/usr/local/share/man:/usr/sh
 LOCAL_PATHS="$HOME/usr/bin:$OPAM_SWITCH_PREFIX/bin:$CARGO_HOME/bin:$XDG_DATA_HOME/perl5/bin"
 PERL_PATHS="/usr/bin/core_perl:/usr/bin/site_perl:/usr/bin/vendor_perl"
 
-PATH="$LOCAL_PATHS:$PERL_PATHS:/usr/lib/jvm/default/bin:/usr/lib/ccache/bin:/usr/local/sbin:/usr/local/bin:/usr/bin"
+# include colorgcc but not ccache
+PATH="$LOCAL_PATHS:$PERL_PATHS:/usr/lib/jvm/default/bin:/usr/lib/colorgcc/bin:/usr/local/sbin:/usr/local/bin:/usr/bin"
 COWPATH="/usr/share/cowsay/cows/:$XDG_DATA_HOME/cows"
 
 # site-functions (used internally)
@@ -143,8 +144,8 @@ alias usys="systemctl --user"
 alias journal="journalctl -elmx"
 
 # dir
-alias ls='ls -F --color=auto --group-directories-first --dereference-command-line-symlink-to-dir'
-alias no='exa -bF --color=auto --git --group-directories-first'
+alias ls='ls --classify --color --group-directories-first --dereference-command-line-symlink-to-dir'
+alias no='exa --colour-scale --binary --classify --color=always --git --group-directories-first'
 #alias dir='no -Ahl'
 alias dir='no -@aghlF'
 alias ll='dir'
@@ -198,7 +199,7 @@ alias mbsync="mbsync -c $XDG_CONFIG_HOME/isync/mbsyncrc"
 alias startx="startx $XINITRC"
 alias svn="svn --config-dir $XDG_CONFIG_HOME/subversion"
 alias w3m="w3m -config $XDG_CONFIG_HOME/w3m/config"
-alias wget="wget --hsts-file $XDG_CONFIG_HOME/wget/hsts -config $XDG_CONFIG_HOME/wget/config"
+alias wget="wget --hsts-file $XDG_CONFIG_HOME/wget/hsts --config $XDG_CONFIG_HOME/wget/wgetrc"
 
 # other
 alias 2hu='ffmpeg -f x11grab -r 40 -s 1920x1080 -i :0.0 -f pulse -i default\
@@ -307,7 +308,7 @@ function zsh_stats
 
 function nnn
 {
-    /usr/bin/nnn "$@"
+    command nnn "$@"
     if [ -f $NNN_TMPFILE ];
     then
 	. $NNN_TMPFILE
@@ -329,9 +330,9 @@ function _pip_completion
     local words cword
     read -Ac words
     read -cn cword
-    reply=( $(COMP_WORDS="$words[*]" \
-			COMP_CWORD=$((cword-1)) \
-			PIP_AUTO_COMPLETE=1 $words[1]))
+    reply=($(COMP_WORDS="$words[*]" \
+		       COMP_CWORD=$((cword-1)) \
+		       PIP_AUTO_COMPLETE=1 $words[1]))
 }
 compctl -K _pip_completion pip
 
@@ -343,6 +344,6 @@ then
     source "$ppath/zsh-you-should-use/you-should-use.plugin.zsh"
 
     source "$XDG_CONFIG_HOME/exercism/exercism_completion.zsh"
-    source "$XDG_DATA_HOME/opam/opam-init/complete.zsh"
-    source "$XDG_DATA_HOME/opam/opam-init/switch_eval.sh"
+    # source "$XDG_DATA_HOME/opam/opam-init/complete.zsh"
+    # source "$XDG_DATA_HOME/opam/opam-init/switch_eval.sh"
 fi

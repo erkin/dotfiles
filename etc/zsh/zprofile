@@ -35,7 +35,7 @@ BAT_THEME="1337"
 
 # ccache
 CCACHE_PATH="/usr/bin"
-CCACHE_CONFIG_PATH="$XDG_CONFIG_HOME/ccache/ccache.conf"
+CCACHE_CONFIGPATH="$XDG_CONFIG_HOME/ccache/ccache.conf"
 CCACHE_DIR="$XDG_CACHE_HOME/ccache"
 
 # CVS
@@ -128,9 +128,8 @@ QEMU_AUDIO_DRV="pulse"
 
 # Qt
 QT_IM_MODULE="fcitx"
-QT_QPA_PLATFORMTHEME="gtk2"
 QT_QPA_PLATFORMTHEME="qt5ct"
-QT_STYLE_OVERRIDE="gtk2"
+#QT_STYLE_OVERRIDE="gtk2"
 
 # readline
 INPUTRC="$XDG_CONFIG_HOME/readline/inputrc"
@@ -157,7 +156,7 @@ SVN_I_LOVE_PANGALACTIC_GARGLE_BLASTERS=1
 SYSTEMD_PAGER="bat"
 
 # wget
-WGETRC="$XDG_CONFIG_HOME/wgetrc"
+WGETRC="$XDG_CONFIG_HOME/wget/wgetrc"
 
 # wine
 WINEDLLOVERRIDES="mscoree,mshtml="
@@ -207,7 +206,7 @@ JAVA_FONTS="/usr/share/fonts/TTF:$XDG_DATA_HOME/fonts"
 OPAMROOT="$XDG_DATA_HOME/opam"
 OPAM_SWITCH_PREFIX="$OPAMROOT/system"
 OCAML_TOPLEVEL_PATH="$OPAM_SWITCH_PREFIX/lib/toplevel"
-CAML_LD_LIBRARY_PATH="$OPAM_SWITCH_PREFIX/lib/stublibs:/usr/lib/ocaml/stublibs"
+CAML_LD_LIBRARY_PATH="$OPAM_SWITCH_PREFIX/lib/stublibs"
 
 # Octave
 OCTAVE_HISTFILE="$XDG_CONFIG_HOME/octave/octave_hist"

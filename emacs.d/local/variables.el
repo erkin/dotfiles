@@ -57,7 +57,8 @@
       show-paren-delay 0
       ;; debug-on-error t
       ag-highlight-search t
-      inhibit-compacting-font-caches t)
+      inhibit-compacting-font-caches t
+      use-dialog-box nil)
 
 
 ;;;; Language specific config
