@@ -207,10 +207,10 @@ alias 2hu='ffmpeg -f x11grab -r 40 -s 1920x1080 -i :0.0 -f pulse -i default\
       $XDG_VIDEOS_DIR/screencast_$(date +%F_%H%M%S_%N).mkv'
 alias gitlog='git log --decorate=full --color=always --oneline --graph --pickaxe-all --full-diff'
 alias pastebin="curl -F 'c=@-' https://ptpb.pw"
-alias ppush='rclone sync --checksum --verbose \
+alias ppush='rclone sync --checksum --verbose --progress --track-renames \
       --exclude "emacs.d/backup/**" --exclude "emacs.d/auto-save-list/**" \
       ~/opt/pcloud peec:/home'
-alias ppull='rclone sync --checksum --verbose \
+alias ppull='rclone sync --checksum --verbose --progress --track-renames \
       --exclude "emacs.d/backup/**" --exclude "emacs.d/auto-save-list/**" \
       peec:/home ~/opt/pcloud'
 alias wm='dtach -A /tmp/dvtm -r winch dvtm -M'
