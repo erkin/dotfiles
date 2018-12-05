@@ -8,6 +8,9 @@
 # 	fi
 # }
 
+# Keyboard backlight
+g610-led -p ~/etc/g610/profile
+
 ## Xorg stuff
 xsetroot -cursor_name left_ptr
 xset -dpms; xset s off
@@ -20,7 +23,6 @@ fcitx -d
 setxkbmap -layout meow -option lv3:ralt_switch,compose:caps,terminate:ctrl_alt_bksp
 [[ -f ~/etc/X11/Xresources ]] && xrdb -merge -I$HOME $XDG_CONFIG_HOME/X11/Xresources
 [[ -f ~/etc/X11/Xmodmap ]] && xmodmap $XDG_CONFIG_HOME/X11/Xmodmap
-g610-led -p ~/src/profile
 
 ## Make sure Emacs daemon is launched only once
 pidof emacs >& /dev/null
@@ -42,6 +44,6 @@ xautolock -time 10 -locker slock &
 # SUIKA="$HOME/media/image/suika"
 # montage $(ls -1 $SUIKA/*1200.jpg | sort -R) -mode concatenate -tile 8x5 $SUIKA/result.jpg \
 #     && feh --bg-tile --no-fehbg --no-xinerama $SUIKA/result.jpg
-feh --bg-tile --no-fehbg --no-xinerama ~/opt/pcloud/wall/pepper1.png
+feh --bg-tile --no-fehbg --no-xinerama ~/opt/pcloud/wall/pepper0.png
 
 exec dbus-launch --exit-with-session --sh-syntax awesome

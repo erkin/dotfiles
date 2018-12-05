@@ -684,7 +684,7 @@ client.connect_signal("focus",
 client.connect_signal("unfocus",
                       function(c) c.border_color = beautiful.border_normal end)
 
-beautiful.useless_gap = 4
+beautiful.useless_gap = 3
 
 -- awful.spawn("xscreensaver -no-splash")
 -- awful.spawn("dropbox-cli start > /dev/null")

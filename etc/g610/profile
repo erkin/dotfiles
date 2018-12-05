@@ -1,11 +1,18 @@
 # -*- conf-space -*-
 
+# a - set all keys
+# g - set group
+# k - set key
+
+# ~n - don't committing
+# c - commit
+
 # reset
 a 00
 
 # special lights
 g logo 40
-g indicators 30
+g indicators 40
 g multimedia ff
 
 # groups
@@ -17,22 +24,27 @@ g arrows 40
 #g keys 00
 
 # home row
-k a f0
-k s f0
-k d f0
-k f f0
-k j f0
-k k f0
-k l f0
-k semicolon f0
+k a 40
+k s 40
+k d 40
+k f 40
+k j 40
+k k 40
+k l 40
+k semicolon 40
 
-# misc keys
-k ctrl_left ff
-k tab ff
-k esc ff
-k space ff
-k backspace 40
-k enter 40
+# numpad
+k numenter 40
+k num0 40
 k num5 40
 
-c # Commit changes
+# misc keys
+k ctrl_left 40
+k tab 40
+k esc 40
+k space 40
+k backspace 40
+k enter 40
+
+# commit changes
+c
