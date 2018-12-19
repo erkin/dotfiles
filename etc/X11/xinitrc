@@ -36,7 +36,8 @@ autocutsel -fork &
 autocutsel -selection PRIMARY -fork &
 # compton --paint-on-overlay --unredir-if-possible --backend xr_glx_hybrid\
 #	--vsync opengl-mswc --glx-swap-method -1 --glx-no-stencil -b
-xcompmgr -FfCc -D 3 2>/dev/null &
+#xcompmgr -FfCc -D 3 2>/dev/null &
+compton -Cbcf -D 3 -l 0 -t 0
 
 xautolock -time 10 -locker slock &
 
@@ -44,6 +45,8 @@ xautolock -time 10 -locker slock &
 # SUIKA="$HOME/media/image/suika"
 # montage $(ls -1 $SUIKA/*1200.jpg | sort -R) -mode concatenate -tile 8x5 $SUIKA/result.jpg \
 #     && feh --bg-tile --no-fehbg --no-xinerama $SUIKA/result.jpg
-feh --bg-tile --no-fehbg --no-xinerama ~/opt/pcloud/wall/pepper0.png
+# feh --bg-tile --no-fehbg --no-xinerama ~/opt/pcloud/wall/pepper0.png
+feh --bg-scale --no-fehbg --force-aliasing \
+    ~/opt/pcloud/wall/not_tile/mtnlake.bmp ~/opt/pcloud/wall/not_tile/navi.jpg
 
 exec dbus-launch --exit-with-session --sh-syntax awesome

@@ -142,6 +142,8 @@ menubar.utils.terminal = terminal
 
 mytextclock = wibox.widget.textclock()
 
+taglist_font = "Noto Color Emoji"
+
 local taglist_buttons = awful.util.table.join(
    awful.button({ }, 1, function(t) t:view_only() end),
    awful.button({ modkey }, 1, function(t)

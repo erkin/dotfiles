@@ -32,7 +32,8 @@
 
 ;;; mozc
 (setq default-input-method "japanese-mozc"
-      mozc-candidate-style 'overlay)
+      mozc-candidate-style 'overlay
+      fcitx-use-dbus t)
 
 
 ;;;; Calendar

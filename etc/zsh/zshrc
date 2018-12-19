@@ -215,6 +215,7 @@ alias ppull='rclone sync --checksum --verbose --progress --track-renames \
       peec:/home ~/opt/pcloud'
 alias wm='dtach -A /tmp/dvtm -r winch dvtm -M'
 alias wp='feh --no-fehbg --force-aliasing --no-xinerama --bg-tile'
+alias s='mosh' # --predict=experimental'
 
 # kittens!
 alias c="kitty +kitten clipboard"
