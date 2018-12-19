@@ -9,22 +9,38 @@ theme.wallpaper = "/home/erkin/media/image/wall/happy-sad.png"
 -- titlebar_[bg|fg]_[normal|focus]
 -- tooltip_[font|opacity|fg_color|bg_color|border_width|border_color]
 -- mouse_finder_[color|timeout|animate_timeout|radius|factor]
-theme.bg_normal     = "#061646"
-theme.bg_focus      = "#263666"
+theme.bg_normal     = "#282a2e"
+theme.bg_focus      = "#373b41"
 
-theme.bg_urgent     = "#261646"
-theme.bg_minimize   = "#363656"
-theme.bg_systray    = "#061646"
+theme.bg_urgent     = "#573b41"
+theme.bg_minimize   = "#373b41"
+theme.bg_systray    = "#2a2d3a"
 
-theme.fg_normal     = "#CCCCBC"
-theme.fg_focus      = "#CFB0B0"
-theme.fg_urgent     = "#C02000"
-theme.fg_minimize   = "#BCBA09"
+theme.fg_normal     = "#e0e0e0"
+theme.fg_focus      = "#7daea9"
+theme.fg_urgent     = "#b77a76"
+theme.fg_minimize   = "#cca072"
 
-theme.border_width  = 1
-theme.border_normal = "#1F1F0A"
-theme.border_focus  = "#6F6F4F"
-theme.border_marked = "#BC8373"
+theme.border_width  = 2
+theme.border_normal = "#373b41"
+theme.border_focus  = "#282a2e"
+theme.border_marked = "#a3685a"
+
+--  "#2a2d3a"
+--  "#282a2e"
+--  "#373b41"
+--  "#656565"
+--  "#949494"
+--  "#c5c8c6"
+--  "#e0e0e0"
+--  "#b77a76"
+--  "#cca072"
+-- A "#cbb079"
+--  "#b4bf86"
+--  "#7daea9"
+-- D "#83a2be"
+-- E "#958090"
+--  "#a3685a"
 
 theme.taglist_squares_sel   = "/usr/share/awesome/themes/default/taglist/squarefw.png"
 theme.taglist_squares_unsel = "/usr/share/awesome/themes/default/taglist/squarew.png"
