@@ -154,9 +154,15 @@ alias mc='/usr/lib/mc/mc-wrapper.sh'
 
 # files
 alias mkdir='mkdir -p'
-alias rm='rm -vI'
 alias mv='mv -v'
 alias cp='cp -v'
+alias rm='rm -vI'
+
+# rm(1) preserves root like a good boy. Why can't you?
+alias chcon="chcon --preserve-root"
+alias chgrp="chgrp --preserve-root"
+alias chmod="chmod --preserve-root"
+alias chown="chown --preserve-root"
 
 # heh heh
 alias apt='sl'
@@ -180,14 +186,17 @@ alias visudo='sudo SUDO_EDITOR="emacs -Q -nw" visudo'
 alias vipw='sudo EDITOR="emacs -Q -nw" vipw'
 alias vigr='sudo EDITOR="emacs -Q -nw" vigr'
 alias ed='rlwrap -pGreen ed -lvp\>\ '
-alias vi='e3vi'
-alias vim='e3vi'
-alias nano='e3pi'
-alias pico='e3pi'
+alias vim='vi'
+# alias vi='e3vi'
+# alias vim='e3vi'
+# alias nano='e3pi'
+# alias pico='e3pi'
 
 # pacman
-alias p='powerpill'
-alias sp='sudo powerpill'
+#alias p='powerpill'
+alias p='pacman'
+#alias sp='sudo powerpill'
+alias sp='sudo pacman'
 alias b='bauerbill'
 alias sb='bb-wrapper --aur --build-dir /tmp/pacbuild'
 
@@ -207,7 +216,7 @@ alias 2hu='ffmpeg -f x11grab -r 40 -s 1920x1080 -i :0.0 -f pulse -i default\
       $XDG_VIDEOS_DIR/screencast_$(date +%F_%H%M%S_%N).mkv'
 alias gitlog='git log --decorate=full --color=always --oneline --graph --pickaxe-all --full-diff'
 alias pastebin="curl -F 'c=@-' https://ptpb.pw"
-alias ppush='rclone sync --checksum --verbose --progress --track-renames \
+alias ppush='rclone sync --checksum --verbose --progress --track-renames --copy-links \
       --exclude "emacs.d/backup/**" --exclude "emacs.d/auto-save-list/**" \
       ~/opt/pcloud peec:/home'
 alias ppull='rclone sync --checksum --verbose --progress --track-renames \

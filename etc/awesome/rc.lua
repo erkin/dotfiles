@@ -347,7 +347,7 @@ globalkeys = awful.util.table.join(
    awful.key({                   }, "Print",
       function() awful.spawn("screensht")                   end),
    awful.key({         "Shift"   }, "Print",
-      function() awful.spawn("scrot -e 'mv $f ~/media/image/screen/2018/ 2>/dev/null'") end),
+      function() awful.spawn("scrot -e 'mv $f ~/media/image/screen/$(date +%Y)/ 2>/dev/null'") end),
 
    awful.key({ modkey,           }, "Return",
       function() awful.spawn("xautolock -locknow")                       end),
@@ -621,6 +621,8 @@ awful.rules.rules = {
      properties = { screen = 1, tag = "🙀" } },
    { rule = { class = "Ripcord" },
      properties = { screen = 1, tag = "🙀" } },
+   { rule = { class = "Audacious" }, -- for Winamp interface
+     properties = { titlebars_enabled = false } },
 }
 
 client.connect_signal(
@@ -686,7 +688,7 @@ client.connect_signal("focus",
 client.connect_signal("unfocus",
                       function(c) c.border_color = beautiful.border_normal end)
 
-beautiful.useless_gap = 3
+beautiful.useless_gap = 0
 
 -- awful.spawn("xscreensaver -no-splash")
 -- awful.spawn("dropbox-cli start > /dev/null")

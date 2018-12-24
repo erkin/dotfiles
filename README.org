@@ -43,7 +43,7 @@
     These files are sourced in [[file:emacs.d/init.el#L21][ =init.el= ]] but aren't included here:
     - =custom.el=: It's automatically rewritten too often to keep
       track of. Not like it contains anything of interest.
-    - =private.el=: Only contains stuff like e-mail config and
+    - =private.el=: Only contains stuff like e-mail/usenet config and
       credentials for things like Mastodon.
 
 *** zsh

@@ -28,7 +28,8 @@
 
 ;;; Tramp
 (setq tramp-default-method "ssh"
-      tramp-terminal-type "tramp")
+      tramp-terminal-type "tramp"
+      tramp-auto-save-directory "~/.emacs.d/backup/tramp/")
 
 ;;; mozc
 (setq default-input-method "japanese-mozc"
@@ -80,7 +81,7 @@
       graphviz-dot-auto-indent-on-braces t)
 
 ;;; Scheme
-(setq scheme-program-name "csi -wq /home/erkin/etc/chicken/csirc -:c")
+;; (setq scheme-program-name "csi -wq /home/erkin/etc/chicken/csirc -:c")
 
 ;;; Rust
 (setq rust-format-on-save t

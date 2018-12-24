@@ -1,6 +1,8 @@
 # -*- sh -*-
 setopt allexport
 
+eval $(dircolors -b)
+
 ## General config
 
 # me
@@ -10,7 +12,7 @@ ORGANIZATION="TeamWau Cooperative"
 
 # editor
 EDITOR="emacsclient -c"
-ALTERNATE_EDITOR="emacs -nw"
+ALTERNATE_EDITOR="emacs"
 SUDO_EDITOR="emacsclient -t"
 VISUAL="emacsclient -c"
 

@@ -4,8 +4,6 @@
 
 setopt allexport
 
-eval $(dircolors -b)
-
 XDG_CONFIG_HOME="$HOME/etc"
 XDG_DATA_HOME="$HOME/usr/share"
 XDG_CACHE_HOME="$HOME/var/cache"

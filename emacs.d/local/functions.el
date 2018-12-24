@@ -32,7 +32,6 @@
 
 (defun my/prog-mode-hook ()
   "Hooks for all prog modes in general"
-  (require 'auto-complete)
   (rainbow-delimiters-mode)
   ;; (column-marker-1 80)
   ;; (column-marker-2 100)
@@ -84,9 +83,10 @@
 (defun my/scheme-mode-hook ()
   "chikun"
   (my/lisp-mode-hook)
-  (require 'chicken-scheme)
-  (define-key scheme-mode-map (kbd "C-M-?") 'chicken-show-help)
-  (setup-chicken-scheme))
+  ;; (require 'chicken-scheme)
+  ;; (define-key scheme-mode-map (kbd "C-M-?") 'chicken-show-help)
+  ;; (setup-chicken-scheme)
+  )
 
 (defun my/makefile-mode-hook ()
   "fucking tabs"
