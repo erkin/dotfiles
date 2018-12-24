@@ -1,0 +1,28 @@
+06 08   video colors for month name
+15 01   video colors for weekday header
+07 00   video colors for normal calendar days
+03 00   video colors for sundays
+13 08   video colors for current day
+12 01   background color for yearly calendar (the space between months)
+03 00   video colors for special day descriptions
+05 08   video colors for indicator that a special description is for today
+
+FG BG
+
+black           00
+blue            01
+green           02
+cyan            03
+red             04
+violet          05
+orange          06
+light gray      07
+
+dark gray       08
+bright blue     09
+bright green    10
+bright cyan     11
+bright red      12
+bright violet   13
+yellow          14
+white           15

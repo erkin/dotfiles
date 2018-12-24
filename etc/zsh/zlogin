@@ -1,0 +1,3 @@
+calx --europe --use-color --thismonth
+g610-led -a 00
+g610-led -fx breathing logo ff 10
