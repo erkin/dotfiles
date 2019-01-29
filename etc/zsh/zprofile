@@ -252,6 +252,7 @@ RUST_SRC_PATH="$HOME/dev/repos/rust/src"
 CRAWL_DIR="$XDG_DATA_HOME/crawl/"
 
 # nethack
+HACKPAGER="$PAGER"
 NETHACKOPTIONS="@$XDG_CONFIG_HOME/nethack/nethackrc" # @ is mandatory
 
 unsetopt allexport
