@@ -193,10 +193,8 @@ alias vim='vi'
 # alias pico='e3pi'
 
 # pacman
-#alias p='powerpill'
-alias p='pacman'
-#alias sp='sudo powerpill'
-alias sp='sudo pacman'
+alias p='powerpill'
+alias sp='sudo powerpill'
 alias b='bauerbill'
 alias sb='bb-wrapper --aur --build-dir /tmp/pacbuild'
 
