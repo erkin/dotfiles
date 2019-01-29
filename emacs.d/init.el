@@ -47,8 +47,8 @@
 
 ;;; Font
 (add-to-list 'default-frame-alist '(font . "Fira Code Erkin-9"))
-(when (member "Symbola" (font-family-list))
-  (set-fontset-font t 'unicode "Symbola" nil 'prepend))
+(set-fontset-font t 'unicode "Unifont" nil 'prepend)
+(set-fontset-font t 'unicode "Symbola" nil 'append)
 
 ;;; Transparency
 (set-frame-parameter (selected-frame) 'alpha '(95 . 93))
