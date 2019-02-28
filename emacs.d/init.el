@@ -90,7 +90,6 @@
 (add-hook 'nxml-mode-hook #'my/nxml-mode-hook)
 (add-hook 'python-mode-hook #'my/python-mode-hook)
 (add-hook 'rust-mode-hook #'my/rust-mode-hook)
-(add-hook 'scheme-mode-hook #'my/scheme-mode-hook)
 (add-hook 'sgml-mode-hook #'my/sgml-mode-hook)
 (add-hook 'tex-mode-hook #'my/tex-mode-hook)
 (add-hook 'tuareg-mode-hook #'my/caml-mode-hook)
@@ -104,7 +103,7 @@
 ;;; Lisp hooks
 (dolist (hook '(lisp-mode-hook
                 clojure-mode-hook emacs-lisp-mode-hook
-                racket-mode-hook))
+                scheme-mode-hook racket-mode-hook))
   (add-hook hook #'my/lisp-mode-hook)) ; as above
 
 (eldoc-add-command 'paredit-backward-delete 'paredit-close-round)

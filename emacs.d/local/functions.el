@@ -80,13 +80,11 @@
   (page-break-lines-mode)
   (paredit-mode))
 
-(defun my/scheme-mode-hook ()
-  "chikun"
-  (my/lisp-mode-hook)
-  ;; (require 'chicken-scheme)
-  ;; (define-key scheme-mode-map (kbd "C-M-?") 'chicken-show-help)
-  ;; (setup-chicken-scheme)
-  )
+;; (defun my/scheme-mode-hook ()
+;;   "chikun"
+;;   (require 'chicken-scheme)
+;;   (define-key scheme-mode-map (kbd "C-M-?") 'chicken-show-help)
+;;   (setup-chicken-scheme))
 
 (defun my/makefile-mode-hook ()
   "fucking tabs"
