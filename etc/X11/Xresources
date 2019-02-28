@@ -32,6 +32,22 @@
 *color7:  #ffffff
 *color15: #ffffff
 
+
+!!
+!! xterm
+!!
+
+XTerm*faceName:	Unifont
+XTerm*faceSize:	9
+XTerm.vt100.geometry:	80x32
+XTerm.vt100.metaSendsEscape:	true
+XTerm*scrollBar:	false
+
+
+!!
+!! urxvt
+!!
+
 URxvt.background:      rgba:2300/2b00/2b00/d000
 !URxvt.background: #232B2B
 URxvt.foreground: #DDDDDD
@@ -54,11 +70,6 @@ URxvt.color13:    #E5B0FF
 URxvt.color5:     #AC7BDE
 URxvt.color7:     #CFCFCF
 URxvt.color15:    #FFFFFF
-
-
-!!
-!! urxvt
-!!
 
 URxvt.font:             xft:Fira Code Retina:size=10
 URxvt.boldfont:         xft:Fira Code Retina:bold:size=10
@@ -97,15 +108,6 @@ URxvt.matcher.button:   1
 
 
 !!
-!! dzen2
-!!
-
-! dzen2.font:       xft:Inconsolata:size=12:antialias=true
-! dzen2.foreground: #22EE11
-! dzen2.background: black
-
-
-!!
 !! xcursor
 !!
 
@@ -121,7 +123,7 @@ Xft.dpi:        102
 Xft.antialias:  true
 Xft.rgba:       rgb
 Xft.hinting:    true
-Xft.hintstyle:  hintfull
+Xft.hintstyle:  hintslight
 
 
 !!
@@ -148,13 +150,3 @@ xfig*antialias:         yes
 ! xfig*foreground:        white
 ! xfig*background:        black
 xfig*urlCommand:        /usr/bin/xdg-open %s
-
-
-!!
-!! rofi
-!!
-
-rofi.modi:		combi,run,ssh,keys,drun
-rofi.combi-modi:	run,drun,ssh
-rofi.theme:		Arc-Dark
-rofi.font:		Fira Code 11
