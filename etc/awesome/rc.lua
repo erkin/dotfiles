@@ -140,7 +140,7 @@ end
 
 menubar.utils.terminal = terminal
 
-mytextclock = wibox.widget.textclock()
+mytextclock = wibox.widget.textclock(" %y-%m-%d %w %H:%M ")
 
 taglist_font = "Noto Color Emoji"
 
@@ -622,7 +622,7 @@ awful.rules.rules = {
    { rule = { class = "Ripcord" },
      properties = { screen = 1, tag = "🙀" } },
    { rule = { class = "Audacious" }, -- for Winamp interface
-     properties = { titlebars_enabled = false } },
+     properties = { titlebars_enabled = false, ontop = true } },
 }
 
 client.connect_signal(
