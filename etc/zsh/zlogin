@@ -1,3 +1,8 @@
-calx --europe --use-color --thismonth
 g610-led -a 00
 g610-led -fx breathing logo ff 10
+
+calx --europe --nocolor --thismonth
+echo '\n'
+awk '/^model name/ { sub(/^model name[^:]*: /, "", $0); print "   ****", toupper($0), "****"; exit }' /proc/cpuinfo
+free -b | awk '/^Mem:/ { printf " %dK RAM SYSTEM  %d BASIC BYTES FREE\n\nREADY.\n", $2 / 1024, $4 }'
+echo '\n'

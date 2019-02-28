@@ -6,7 +6,7 @@ eval $(dircolors -b)
 ## General config
 
 # me
-NAME="Erkin Batu Altunbaş"
+NAME="Erkin B Altunbaş"
 EMAIL="$(base64 --decode <<< 'bWVAZXJraW4ucGFydHkK')"
 ORGANIZATION="TeamWau Cooperative"
 
@@ -205,6 +205,8 @@ STACK_ROOT="$XDG_DATA_HOME/stack"
 CABAL_CONFIG="$XDG_CONFIG_HOME/cabal/config"
 
 # Java
+# JAVA_HOME="$XDG_CONFIG_HOME/java"
+#_JAVA_OPTIONS="-Djava.util.prefs.userRoot=\"$JAVA_HOME\""
 _JAVA_OPTIONS="-Djava.util.prefs.userRoot=\"$XDG_CONFIG_HOME/java\""
 _JAVA_AWT_WM_NONREPARENTING=1
 JAVA_FONTS="/usr/share/fonts/TTF:$XDG_DATA_HOME/fonts"

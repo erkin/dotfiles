@@ -200,7 +200,8 @@ alias sb='bb-wrapper --aur --build-dir /tmp/pacbuild'
 
 # force proper homes
 alias claws-mail="claws-mail --alternate-config-dir $XDG_DATA_HOME/claws"
-alias csi_='csi -wq $XDG_CONFIG_HOME/chicken/csirc'
+alias csi='chicken-csi -wq $XDG_CONFIG_HOME/chicken/csirc'
+alias csc='chicken-csc'
 alias dc='rlwrap dc -f $XDG_CONFIG_HOME/dc/dcrc -'
 alias mbsync="mbsync -c $XDG_CONFIG_HOME/isync/mbsyncrc"
 alias startx="startx $XINITRC"
@@ -214,6 +215,7 @@ alias 2hu='ffmpeg -f x11grab -r 40 -s 1920x1080 -i :0.0 -f pulse -i default\
       $XDG_VIDEOS_DIR/screencast_$(date +%F_%H%M%S_%N).mkv'
 alias gitlog='git log --decorate=full --color=always --oneline --graph --pickaxe-all --full-diff'
 alias pastebin="curl -F 'c=@-' https://ptpb.pw"
+alias gopherbin="nc 0x1A4.1337.cx 9998"
 alias ppush='rclone sync --checksum --verbose --progress --track-renames --copy-links \
       --exclude "emacs.d/backup/**" --exclude "emacs.d/auto-save-list/**" \
       ~/opt/pcloud peec:/home'
