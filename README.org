@@ -38,6 +38,7 @@
    move one of the top-level dotfiles into a config directory.
 
    Until then, I'll write up a solution with [[https://github.com/Cloudef/rewritefs][rewritefs]] instead.
+   [[https://direnv.net/][direnv]] is another viable solution.
 
 *** emacs
     These files are sourced in [[file:emacs.d/init.el#L21][ =init.el= ]] but aren't included here:
@@ -63,11 +64,11 @@
      - [[https://github.com/zsh-users/zsh-autosuggestions][zsh-autosuggestions]]
      - [[https://github.com/MichaelAquilina/zsh-you-should-use][zsh-you-should-use]]
 
-     I don't use /oh-my-zsh/.
+     (I don't use /oh-my-zsh/.)
 
 *** Wallpapers
-    I'm very fond of tiling wallpapers. The archive I've accumulated over time
-    can be accessed [[https://my.pcloud.com/publink/show?code=kZjxlg7ZwE7QpxcmQFbTob5LKIdixbmXgDT7][here]].
+    I'm very fond of tiling wallpapers. The archive I've accumulated
+    over time can be accessed [[https://my.pcloud.com/publink/show?code=kZjxlg7ZwE7QpxcmQFbTob5LKIdixbmXgDT7][here]].
 
 ** FAQ
 *** What's [[file:etc/X11/xinitrc#L19][this]] XKB layout?
