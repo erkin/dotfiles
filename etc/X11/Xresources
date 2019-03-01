@@ -3,34 +3,34 @@
 !! colour
 !!
 
-*background: #131313
-*foreground: #ffffff
+*background:	#131313
+*foreground:	#ffffff
 
 ! Default
 ! 0: black
-*color0:  #121212
-*color8:  #121212
+*color0:	#121212
+*color8:	#121212
 ! 1: red
-*color1:  #ff7848
-*color9:  #ff4848
+*color1:	#ff7848
+*color9:	#ff4848
 ! 2: green
-*color2:  #1fcb4a
-*color10: #1fcb4a
+*color2:	#1fcb4a
+*color10:	#1fcb4a
 ! 3: yellow
-*color3:  #dfe32d
-*color11: #dfe32d
+*color3:	#dfe32d
+*color11:	#dfe32d
 ! 4: blue
-*color4:  #2966b8
-*color12: #2966b8
+*color4:	#2966b8
+*color12:	#2966b8
 ! 5: magenta
-*color5:  #f900f9
-*color13: #f900f9
+*color5:	#f900f9
+*color13:	#f900f9
 ! 6: cyan
-*color6:  #62d0ff
-*color14: #62d0ff
+*color6:	#62d0ff
+*color14:	#62d0ff
 ! 7: white
-*color7:  #ffffff
-*color15: #ffffff
+*color7:	#ffffff
+*color15:	#ffffff
 
 
 !!
@@ -39,114 +39,222 @@
 
 XTerm*faceName:	Unifont
 XTerm*faceSize:	9
+XTerm*scrollBar:	false
 XTerm.vt100.geometry:	80x32
 XTerm.vt100.metaSendsEscape:	true
-XTerm*scrollBar:	false
+XTerm.vt100.saveLines:	4096
 
 
 !!
 !! urxvt
 !!
 
-URxvt.background:      rgba:2300/2b00/2b00/d000
-!URxvt.background: #232B2B
-URxvt.foreground: #DDDDDD
-URxvt.colorBD:    #CFCFCF
-URxvt.colorUL:    #A0A0A0
-URxvt.colorIT:    #686868
-URxvt.color0:     #303030
-URxvt.color8:     #686868
-URxvt.color9:     #FFA7DA
-URxvt.color1:     #D370A3
-URxvt.color10:    #A3D572
-URxvt.color2:     #6D9E3F
-URxvt.color12:    #98CBFE
-URxvt.color4:     #6095C5
-URxvt.color11:    #EFBD8B
-URxvt.color3:     #B58858
-URxvt.color14:    #75DAA9
-URxvt.color6:     #3BA275
-URxvt.color13:    #E5B0FF
-URxvt.color5:     #AC7BDE
-URxvt.color7:     #CFCFCF
-URxvt.color15:    #FFFFFF
+URxvt.background:	rgba:2300/2b00/2b00/d000
+!URxvt.background:	#232B2B
+URxvt.foreground:	#DDDDDD
+URxvt.colorBD:	#CFCFCF
+URxvt.colorUL:	#A0A0A0
+URxvt.colorIT:	#686868
+URxvt.color0:	#303030
+URxvt.color8:	#686868
+URxvt.color9:	#FFA7DA
+URxvt.color1:	#D370A3
+URxvt.color10:	#A3D572
+URxvt.color2:	#6D9E3F
+URxvt.color12:	#98CBFE
+URxvt.color4:	#6095C5
+URxvt.color11:	#EFBD8B
+URxvt.color3:	#B58858
+URxvt.color14:	#75DAA9
+URxvt.color6:	#3BA275
+URxvt.color13:	#E5B0FF
+URxvt.color5:	#AC7BDE
+URxvt.color7:	#CFCFCF
+URxvt.color15:	#FFFFFF
 
-URxvt.font:             xft:Fira Code Retina:size=10
-URxvt.boldfont:         xft:Fira Code Retina:bold:size=10
-URxvt*scrollTtyOutput:      false
-URxvt*scrollWithBuffer:     true
-URxvt*scrollTtyKeypress:    true
-URxvt*scrollBar:        true
-URxvt*scrollBar_right: true
-URxvt.scrollstyle:     plain ! plain, next, xterm, rxvt
-URxvt*scrollColor:     #AAABBB
+URxvt.font:	xft:Fira Code Retina:size=10
+URxvt.boldfont:	xft:Fira Code Retina:bold:size=10
+URxvt*scrollTtyOutput:	false
+URxvt*scrollWithBuffer:	true
+URxvt*scrollTtyKeypress:	true
+URxvt*scrollBar:	true
+URxvt*scrollBar_right:	true
+URxvt.scrollstyle:	plain ! plain, next, xterm, rxvt
+URxvt*scrollColor:	#AAABBB
 
-URxvt*transparent:     false
-URxvt*shading:         75
-URxvt.depth:           32
-URxvt.buffered:        true
-URxvt.fadeColor:       red
-URxvt.fading:          2%
+URxvt*transparent:	false
+URxvt*shading:	75
+URxvt.depth:	32
+URxvt.buffered:	true
+URxvt.fadeColor:	red
+URxvt.fading:	2%
 
-URxvt*perl-lib:			/usr/lib/urxvt/perl
-URxvt.perl-ext-common:  default,matcher,clipboard,vtwheel
+URxvt*perl-lib:	/usr/lib/urxvt/perl
+URxvt.perl-ext-common:	default,matcher,clipboard,vtwheel
 !,selection-autotransform,keyboard-select
 
-URxvt.keysym.M-Escape:  perl:keyboard-select:activate
-URxvt.keysym.M-s:       perl:keyboard-select:search
-URxvt.keysym.M-c:       perl:clipboard:copy
-URxvt.keysym.M-v:       perl:clipboard:paste
-URxvt.keysym.M-C-v:     perl:clipboard:paste_escaped
-URxvt.keysym.M-u:       perl:url-select:select_next
+URxvt.keysym.M-Escape:	perl:keyboard-select:activate
+URxvt.keysym.M-s:	perl:keyboard-select:search
+URxvt.keysym.M-c:	perl:clipboard:copy
+URxvt.keysym.M-v:	perl:clipboard:paste
+URxvt.keysym.M-C-v:	perl:clipboard:paste_escaped
+URxvt.keysym.M-u:	perl:url-select:select_next
 
-URxvt.url-select.autocopy:  true
-URxvt.url-select.underline: true
-URxvt.url-select.launcher: /usr/bin/xdg-open
-URxvt.url-launcher:      /usr/bin/xdg-open
-URxvt.urllauncher:      /usr/bin/xdg-open
-URxvt.matcher.button:   1
+URxvt.url-select.autocopy:	true
+URxvt.url-select.underline:	true
+URxvt.url-select.launcher:	/usr/bin/xdg-open
+URxvt.url-launcher:	/usr/bin/xdg-open
+URxvt.urllauncher:	/usr/bin/xdg-open
+URxvt.matcher.button:	1
 
 
 !!
 !! xcursor
 !!
 
-Xcursor.theme: Hackneyed
-! Xcursor.size:  22
+Xcursor.theme:	Hackneyed
+! Xcursor.size:	22
 
 
 !!
 !! Xft
 !!
 
-Xft.dpi:        102
-Xft.antialias:  true
-Xft.rgba:       rgb
-Xft.hinting:    true
-Xft.hintstyle:  hintslight
+Xft.dpi:	102
+Xft.antialias:	true
+Xft.rgba:	rgb
+Xft.hinting:	true
+Xft.hintstyle:	hintslight
 
 
 !!
 !! emacs
 !!
 
-!emacs*Background:   DarkSlateGray
-!emacs*Foreground:   Wheat
-!emacs*pointerColor: Orchid
-!emacs*cursorColor:  Orchid
-emacs*bitmapIcon:   on
+emacs*bitmapIcon:	on
 emacs*UseXIM:	false
-!emacs*font:         fixed
-!emacs*font:         xft:Fira Code:antialias=true:style=Retina,Regular:size=11
-!emacs.geometry:     80x30
+emacs*font:	xft:Fira Code:antialias=true:style=Retina,Regular:size=11
+emacs.geometry:	80x30
 
 
 !!
 !! Xfig/Xpdf
 !!
 
-xfig*enableFreetype:    yes
-xfig*antialias:         yes
-! xfig*foreground:        white
-! xfig*background:        black
-xfig*urlCommand:        /usr/bin/xdg-open %s
+xfig*enableFreetype:	yes
+xfig*antialias:	yes
+! xfig*foreground:	white
+! xfig*background:	black
+xfig*urlCommand:	/usr/bin/xdg-open %s
+
+
+!!
+!! XCalc
+!!
+
+XCalc*Cursor:	pencil
+
+XCalc*font:	-*-unifont-*-*-*-*-*-120-*-*-*-*-*-*
+XCalc*geometry:	420x280
+
+XCalc*shapeStyle:	RoundedRectangle
+
+XCalc*hp.background: rgb:2/2/3
+
+XCalc*hp.bevel.borderColor: rgb:2/2/2
+XCalc*hp.bevel.background: rgb:b/c/9
+XCalc*hp.bevel.screen*background: rgb:b/c/8
+XCalc*hp.bevel.screen.borderColor: rgb:b/c/d
+XCalc*hp.bevel.screen*.foreground: rgb:2/2/2
+
+XCalc*hp.bevel.horizDistance:	16
+XCalc*hp.bevel.vertDistance:	8
+
+XCalc*Command.borderColor: rgb:2/2/3
+
+! 7894561230
+XCalc*hp.button7.background:	rgb:7/3/2
+XCalc*hp.button8.background:	rgb:7/3/2
+XCalc*hp.button9.background:	rgb:7/3/2
+
+XCalc*hp.button17.background:	rgb:7/3/2
+XCalc*hp.button18.background:	rgb:7/3/2
+XCalc*hp.button19.background:	rgb:7/3/2
+
+XCalc*hp.button27.background:	rgb:7/3/2
+XCalc*hp.button28.background:	rgb:7/3/2
+XCalc*hp.button29.background:	rgb:7/3/2
+
+XCalc*hp.button36.background:	rgb:7/3/2
+
+! exponent
+XCalc*hp.button16.label:	E+
+XCalc*hp.button16.background:	rgb:7/3/2
+! ,
+XCalc*hp.button37.label:	,
+XCalc*hp.button37.background:	rgb:7/3/2
+
+! / - +
+XCalc*hp.button10.background:	rgb:2/4/2
+XCalc*hp.button30.font:	-adobe-symbol-*-*-*-*-*-120-*-*-*-*-*-*
+XCalc*hp.button30.background:	rgb:2/4/2
+XCalc*hp.button39.font:	-adobe-symbol-*-*-*-*-*-120-*-*-*-*-*-*
+XCalc*hp.button39.background:	rgb:2/4/2
+
+! *
+XCalc*hp.button20.font:	-adobe-symbol-*-*-*-*-*-120-*-*-*-*-*-*
+XCalc*hp.button20.label:	\264
+XCalc*hp.button20.background:	rgb:2/4/2
+! sum
+XCalc*hp.button38.font:	-adobe-symbol-*-*-*-*-*-120-*-*-*-*-*-*
+XCalc*hp.button38.label:	\345
+XCalc*hp.button38.background:	rgb:2/4/2
+! change sign
+XCalc*hp.button6.font:	-adobe-symbol-*-*-*-*-*-120-*-*-*-*-*-*
+XCalc*hp.button6.label:	\261
+XCalc*hp.button6.background:	rgb:2/4/2
+
+! power/root/factorial
+XCalc*hp.button1.background:	rgb:5/5/2
+XCalc*hp.button2.background:	rgb:5/5/2
+XCalc*hp.button3.background:	rgb:5/5/2
+XCalc*hp.button4.background:	rgb:5/5/2
+XCalc*hp.button5.background:	rgb:5/5/2
+XCalc*hp.button11.background:	rgb:5/5/2
+
+! trigonometric
+XCalc*hp.button12.background:	rgb:5/2/5
+XCalc*hp.button13.background:	rgb:5/2/5
+XCalc*hp.button14.background:	rgb:5/2/5
+XCalc*hp.button15.background:	rgb:5/2/5
+! degree
+XCalc*hp.button32.font:	-adobe-symbol-*-*-*-*-*-120-*-*-*-*-*-*
+XCalc*hp.button32.label:	\260
+XCalc*hp.button32.background:	rgb:5/2/5
+! inverse
+XCalc*hp.button33.label:	arc
+XCalc*hp.button33.background:	rgb:5/2/5
+
+! stack
+XCalc*hp.button23.label:	roll
+XCalc*hp.button23.background:	rgb:4/2/8
+XCalc*hp.button24.label:	swap
+XCalc*hp.button24.background:	rgb:4/2/8
+! history
+XCalc*hp.button25.font:	-adobe-symbol-*-*-*-*-*-120-*-*-*-*-*-*
+XCalc*hp.button25.label:	\254
+XCalc*hp.button25.background:	rgb:4/2/8
+! store/recall
+XCalc*hp.button34.label:	STO
+XCalc*hp.button34.background:	rgb:4/2/8
+XCalc*hp.button35.label:	RCL
+XCalc*hp.button35.background:	rgb:4/2/8
+
+! ENTER
+XCalc*hp.button26.font:	-adobe-symbol-*-*-*-*-*-120-*-*-*-*-*-*
+XCalc*hp.button26.label:	\277
+XCalc*hp.button26.background:	rgb:2/3/6
+! ON
+XCalc*hp.button31.font:	-adobe-symbol-*-*-*-*-*-120-*-*-*-*-*-*
+XCalc*hp.button31.label:	\340
+XCalc*hp.button31.background:	rgb:9/4/8
