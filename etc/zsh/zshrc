@@ -54,14 +54,19 @@ then
 fi
 
 # all them options
+# chdir
 setopt autocd autopushd pushdignoredups pushdtohome pushdminus
+# completion
 setopt automenu completealiases completeinword hashlistall \
-       listtypes rcexpandparam
-setopt extendedglob markdirs multibyte # warncreateglobal warnnestedvar
-setopt banghist histexpiredupsfirst histignorespace histlexwords \
-       histreduceblanks
-setopt noclobber correct dvorak flowcontrol interactivecomments
-setopt emacs nohup prompt_subst
+       listtypes markdirs rcexpandparam
+# lower-level
+setopt extendedglob multibyte noclobber nohup promptsubst
+# history
+setopt banghist histignoredups histignorespace histlexwords \
+       histreduceblanks sharehistory
+# UI
+setopt correct dvorak emacs flowcontrol interactivecomments \
+       printexitvalue
 
 
 ## keys
@@ -199,7 +204,6 @@ alias b='bauerbill'
 alias sb='bb-wrapper --aur --build-dir /tmp/pacbuild'
 
 # force proper homes
-alias claws-mail="claws-mail --alternate-config-dir $XDG_DATA_HOME/claws"
 alias csi='chicken-csi -wq $XDG_CONFIG_HOME/chicken/csirc'
 alias csc='chicken-csc'
 alias dc='rlwrap dc -f $XDG_CONFIG_HOME/dc/dcrc -'
