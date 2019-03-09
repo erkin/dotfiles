@@ -133,7 +133,6 @@ Xft.hintstyle:	hintslight
 
 emacs*bitmapIcon:	on
 emacs*UseXIM:	false
-emacs*font:	xft:Fira Code:antialias=true:style=Retina,Regular:size=11
 emacs.geometry:	80x30
 
 
