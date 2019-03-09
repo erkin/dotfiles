@@ -28,7 +28,7 @@
 (global-set-key (kbd "C-c c") #'org-capture)
 
 
-;;; String stuff
+;;; String replacement
 (global-set-key (kbd "C-c C-r") #'replace-string)
 (global-set-key (kbd "C-M-^") #'map-query-replace-regexp)
 (global-set-key (kbd "H-1") #'replace-string)
@@ -76,14 +76,19 @@
 
 ;;; Miscellaneous keys
 (global-set-key (kbd "M-j") (lambda () (interactive) (join-line -1)))
-(global-set-key (kbd "C-'") #'hippie-expand)
+(global-set-key (kbd "M-/") #'hippie-expand)
+(global-set-key (kbd "M-z") #'zap-up-to-char)
 (global-set-key (kbd "M-?") #'mark-paragraph)
+
 (global-set-key (kbd "H-k") #'browse-kill-ring)
 (global-set-key (kbd "H-r") #'rectangle-mark-mode)
+
 (global-set-key (kbd "C-c k") #'browse-kill-ring)
 (global-set-key (kbd "C-c r") #'rectangle-mark-mode)
 (global-set-key (kbd "C-c t") #'toggle-transparency)
 (global-set-key (kbd "C-c y") #'clipboard-yank)
+
+(global-set-key (kbd "C-x C-b") #'ibuffer)
 
 ;;; Disabled but enabled
 (put #'scroll-left 'disabled nil)

@@ -8,7 +8,8 @@
 ;;; clipboard
 (setq select-enable-clipboard t
       select-enable-primary t
-      save-interprogram-paste-before-kill t)
+      save-interprogram-paste-before-kill t
+      mouse-yank-at-point t)
 
 ;;; Backup
 (setq backup-by-copying-when-linked t
@@ -52,15 +53,27 @@
                                      holiday-comestible-holidays
                                      holiday-misc-holidays))
 
-;;;; General catch-all config stuff
+;;; Initial mode
 (setq initial-scratch-message ";; scratchpad ;;\n"
-      initial-major-mode 'text-mode
-      show-paren-style 'expression
-      show-paren-delay 0
-      ;; debug-on-error t
-      ag-highlight-search t
+      initial-major-mode 'text-mode)
+
+;;; show-paren-mode
+(setq show-paren-style 'expression
+      show-paren-delay 0)
+
+;;; ediff mode
+(setq ediff-window-setup-function 'ediff-setup-windows-plain
+      ediff-split-window-function 'split-window-horizontally
+      ediff-diff-options "-w")
+
+;;;; General catch-all config stuff
+(setq ag-highlight-search t
       inhibit-compacting-font-caches t
-      use-dialog-box nil)
+      use-dialog-box nil
+      apropos-do-all t
+      load-prefer-newer t)
+
+;; (setq debug-on-error t)
 
 
 ;;;; Language specific config
@@ -68,7 +81,6 @@
 
 ;;; C
 (setq-default c-default-style "bsd"
-              indent-tabs-mode t
               tab-width 8
               c-basic-offset 8
               comment-style 'multi-line
