@@ -85,9 +85,9 @@ LESS_TERMCAP_se=$(printf "\e[0m")
 LESS_TERMCAP_so=$(printf "\e[1;44;33m")
 LESS_TERMCAP_ue=$(printf "\e[0m")
 LESS_TERMCAP_us=$(printf "\e[1;32m")
-LESSHISTFILE="$XDG_CONFIG_HOME/less/history"
-LESSKEY="$XDG_CONFIG_HOME/less/lesskey"
+LESSHISTFILE="$XDG_CACHE_HOME/less/history"
 LESSEDIT="$SUDO_EDITOR ?lm+%lm. %f"
+# LESSKEY="$XDG_CONFIG_HOME/less/lesskey"
 #LESSSECURE=0
 #LESSOPEN="| src-hilite-lesspipe.sh %s"
 #LESS_ADVANCED_PREPROCESSOR=1
@@ -113,7 +113,7 @@ MC_XDG_OPEN="$HOME/usr/bin/nohup-open"
 MPLAYER_HOME="$XDG_CONFIG_HOME/mplayer"
 
 # MySQL
-MYSQL_HISTFILE="$XDG_DATA_HOME/mysql/history"
+MYSQL_HISTFILE="$XDG_CACHE_HOME/mysql/history"
 
 # nnn
 NNN_USE_EDITOR=1
@@ -140,7 +140,7 @@ QT_QPA_PLATFORMTHEME="qt5ct"
 
 # readline
 INPUTRC="$XDG_CONFIG_HOME/readline/inputrc"
-RLWRAP_HOME="$XDG_CONFIG_HOME/readline/hist"
+RLWRAP_HOME="$XDG_CACHE_HOME/readline/hist"
 RLWRAP_EDITOR="emacsclient -c +%L:%C %F"
 
 # rxvt
@@ -200,6 +200,9 @@ CHICKEN_EGG_CACHE="$XDG_CACHE_HOME/chicken"
 # Clojure
 LEIN_HOME="$XDG_DATA_HOME/lein"
 
+# Forth
+GFORTHHIST="$XDG_CACHE_HOME/gforth/history"
+
 # Haskell
 STACK_ROOT="$XDG_DATA_HOME/stack"
 CABAL_CONFIG="$XDG_CONFIG_HOME/cabal/config"
@@ -218,7 +221,7 @@ OCAML_TOPLEVEL_PATH="$OPAM_SWITCH_PREFIX/lib/toplevel"
 CAML_LD_LIBRARY_PATH="$OPAM_SWITCH_PREFIX/lib/stublibs"
 
 # Octave
-OCTAVE_HISTFILE="$XDG_CONFIG_HOME/octave/octave_hist"
+OCTAVE_HISTFILE="$XDG_CACHE_HOME/octave/history"
 OCTAVE_SITE_INITFILE="$XDG_CONFIG_HOME/octave/octaverc"
 
 # Perl
@@ -252,7 +255,7 @@ RUST_SRC_PATH="$HOME/dev/repos/rust/src"
 ## Game-specific config
 
 # Dungeon Crawl
-CRAWL_DIR="$XDG_DATA_HOME/crawl/"
+CRAWL_DIR="$XDG_DATA_HOME/crawl/" # / is mandatory
 
 # nethack
 HACKPAGER="$PAGER"
