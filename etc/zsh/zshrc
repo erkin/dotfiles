@@ -149,8 +149,8 @@ alias usys="systemctl --user"
 alias journal="journalctl -elmx"
 
 # dir
-alias ls='ls --classify --color --group-directories-first --dereference-command-line-symlink-to-dir'
-alias no='exa --colour-scale --binary --classify --color=always --git --group-directories-first'
+alias ls='ls --classify --color=auto --group-directories-first --dereference-command-line-symlink-to-dir'
+alias no='exa --colour-scale --binary --classify --colour=auto --git --group-directories-first'
 #alias dir='no -Ahl'
 alias dir='no -@aghlF'
 alias ll='dir'
@@ -177,9 +177,9 @@ alias dmesg='dmesg -H'
 alias diff='diff --color'
 alias tree='tree -CF --dirsfirst'
 alias pactree='pactree -c'
-alias grep='grep --color --exclude-dir={.bzr,CVS,.git,.hg,.svn}'
-alias fgrep='grep -F --color --exclude-dir={.bzr,CVS,.git,.hg,.svn}'
-alias egrep='grep -E --color --exclude-dir={.bzr,CVS,.git,.hg,.svn}'
+alias grep='grep --color=auto --exclude-dir={.bzr,CVS,.git,.hg,.svn}'
+alias fgrep='grep -F --color=auto --exclude-dir={.bzr,CVS,.git,.hg,.svn}'
+alias egrep='grep -E --color=auto --exclude-dir={.bzr,CVS,.git,.hg,.svn}'
 alias pping='prettyping --nolegend'
 alias ncdu="ncdu --color dark -rr -x --exclude .git"
 
