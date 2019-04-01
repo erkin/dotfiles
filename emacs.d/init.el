@@ -59,7 +59,6 @@
 ;;; Bars
 (scroll-bar-mode -1)
 (tool-bar-mode -1)
-(scroll-bar-mode -1)
 (horizontal-scroll-bar-mode -1)
 ;;; Global major modes
 (column-number-mode)
