@@ -2,7 +2,7 @@
 ;;; Packages
 (require 'package)
 (add-to-list 'package-archives
-             '("melpa" . "https://melpa.milkbox.net/packages/") t)
+             '("melpa" . "https://melpa.org/packages/") t)
 (package-initialize)
 
 ;; ## added by OPAM user-setup for emacs / base ## 56ab50dc8996d2bb95e7856a6eddb17b ## you can edit, but keep this line
