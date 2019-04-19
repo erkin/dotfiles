@@ -15,8 +15,7 @@ MANPATH="$XDG_DATA_HOME/man:$OPAM_SWITCH_PREFIX/man:/usr/local/share/man:/usr/sh
 LOCAL_PATHS="$HOME/usr/bin:$OPAM_SWITCH_PREFIX/bin:$CARGO_HOME/bin:$XDG_DATA_HOME/perl5/bin"
 PERL_PATHS="/usr/bin/core_perl:/usr/bin/site_perl:/usr/bin/vendor_perl"
 
-# include colorgcc but not ccache
-PATH="$LOCAL_PATHS:$PERL_PATHS:/usr/lib/jvm/default/bin:/usr/lib/colorgcc/bin:/usr/local/sbin:/usr/local/bin:/usr/bin"
+PATH="$LOCAL_PATHS:$PERL_PATHS:/usr/lib/jvm/default/bin:/usr/lib/ccache/bin:/usr/local/sbin:/usr/local/bin:/usr/bin"
 COWPATH="/usr/share/cowsay/cows/:$XDG_DATA_HOME/cows"
 
 # site-functions (used internally)
