@@ -600,6 +600,7 @@ awful.rules.rules = {
            "xtightvncviewer"},
 
         name = {
+           "Emoji",
            "Event Tester",
         },
         role = {
@@ -693,9 +694,9 @@ beautiful.useless_gap = 0
 -- awful.spawn("xscreensaver -no-splash")
 -- awful.spawn("dropbox-cli start > /dev/null")
 
+run_firefox()
 run_discord()
 run_hexchat()
-run_firefox()
 run_rtorrent()
 
 
