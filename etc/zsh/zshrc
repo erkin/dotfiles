@@ -239,7 +239,7 @@ alias l="kitty +kitten clipboard --get-clipboard"
 alias gopherbin='nc 0x1A4.1337.cx 9998'
 # rip ptpb
 # alias pastebin="curl -F 'c=@-' https://ptpb.pw"
-alias pastebin="curl -F 'clibn=<-' https://clbin.com"
+alias pastebin="curl -F 'clbin=<-' https://clbin.com"
 alias filebin="curl -F 'file=@-' https://0x0.st"
 
 ## functions
