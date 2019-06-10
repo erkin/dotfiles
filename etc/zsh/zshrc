@@ -228,6 +228,7 @@ alias wp='feh --no-fehbg --force-aliasing --no-xinerama --bg-tile'
 alias rash='racket -l rash/repl'
 alias s='mosh' # --predict=experimental'
 alias calc='xcalc -rpn'
+alias ddinfo='pkill -x -USR1 dd'
 
 # kittens!
 alias c="kitty +kitten clipboard"
@@ -334,15 +335,6 @@ function zsh_stats
 	    | grep -v "./" | column -c3 -s " " -t | sort -nr | nl | sed ${@:-10}q
 }
 
-function nnn
-{
-    command nnn "$@"
-    if [ -f $NNN_TMPFILE ];
-    then
-	. $NNN_TMPFILE
-	rm $NNN_TMPFILE
-    fi
-}
 
 ## internal functions go here
 # window title

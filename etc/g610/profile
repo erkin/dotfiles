@@ -25,13 +25,16 @@ g arrows 40
 
 # home row
 k a 40
+k semicolon 40
+
 k s 40
+k l 40
+
 k d 40
+k k 40
+
 k f 40
 k j 40
-k k 40
-k l 40
-k semicolon 40
 
 # numpad
 k numenter 40

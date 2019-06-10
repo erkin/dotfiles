@@ -31,7 +31,7 @@
 ;;; Lazy loading
 ;; (autoload 'chicken-slime "chicken-slime" "SWANK backend for CHICKEN" t)
 (autoload 'mu4e "mu4e" "Mail client" t)
-(autoload 'merlin-mode "merlin" "OCaml Merlin" t nil)
+(autoload 'merlin-mode "merlin" "OCaml Merlin" t)
 
 
 ;;; Chrome and bells, jingles & gongs and all that jive
@@ -88,9 +88,11 @@
 (add-hook 'racer-mode-hook #'my/racer-mode-hook)
 
 (add-hook 'c-mode-hook #'my/makefile-mode-hook)
+(add-hook 'clojure-mode-hook #'my/clojure-mode-hook)
 (add-hook 'makefile-mode-hook #'my/makefile-mode-hook)
 (add-hook 'nxml-mode-hook #'my/nxml-mode-hook)
 (add-hook 'python-mode-hook #'my/python-mode-hook)
+(add-hook 'racket-mode-hook #'my/racket-mode-hook)
 (add-hook 'rust-mode-hook #'my/rust-mode-hook)
 (add-hook 'sgml-mode-hook #'my/sgml-mode-hook)
 (add-hook 'tex-mode-hook #'my/tex-mode-hook)

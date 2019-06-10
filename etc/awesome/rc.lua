@@ -612,16 +612,18 @@ awful.rules.rules = {
    { rule_any = { type = { "dialog" } },
      properties = { titlebars_enabled = true }
    },
-   { rule = { name = "rtorrent" },
+   { rule = { name = "rtorrent" }, -- 9
      properties = { screen = 1, tag = "😿" } },
-   { rule = { class = "Firefox" },
+   { rule = { class = "Firefox" }, -- 1
      properties = { screen = 1, tag = "🐱" } },
-   { rule = { class = "Hexchat" },
+   { rule = { class = "Hexchat" }, -- 1
      properties = { screen = 2, tag = "💖" } },
-   { rule = { class = "discord" },
+   { rule = { class = "discord" }, -- 2
      properties = { screen = 1, tag = "🙀" } },
-   { rule = { class = "Ripcord" },
+   { rule = { class = "Ripcord" }, -- 2
      properties = { screen = 1, tag = "🙀" } },
+   { rule = { class = "keepassxc" }, -- 8
+     properties = { screen = 1, tag = "😾" } },
    { rule = { class = "Audacious" }, -- for Winamp interface
      properties = { titlebars_enabled = false, ontop = true } },
 }
@@ -673,7 +675,7 @@ client.connect_signal(
             layout = wibox.layout.fixed.horizontal()
          },
          layout = wibox.layout.align.horizontal
-                                }
+      }
 end)
 
 client.connect_signal("mouse::enter",
@@ -693,6 +695,8 @@ beautiful.useless_gap = 0
 
 -- awful.spawn("xscreensaver -no-splash")
 -- awful.spawn("dropbox-cli start > /dev/null")
+
+awful.spawn("keepassxc")
 
 run_firefox()
 run_discord()

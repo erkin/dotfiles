@@ -49,9 +49,9 @@
 
 (defun my/racer-mode-hook ()
   "Hooks for racer-mode.el of Rust"
-  (eldoc-mode)
   (company-mode)
   (local-set-key [tab] #'company-indent-or-complete-common)
+  (eldoc-mode)
   (ac-racer-setup))
 
 
@@ -62,8 +62,9 @@
 
 (defun my/clojure-mode-hook ()
   "Cider and stuff"
-  (my/lisp-mode-hook)
-  (setq cider-auto-mode t))
+  (setq cider-auto-mode t)
+  (local-set-key (kbd "C-c C-j") #'cider-jack-in)
+  (eldoc-mode))
 
 (defun my/java-mode-hook ()
   "Exceptions for (cc-mode) etc for Java and Java-like languages"
@@ -75,10 +76,21 @@
 (defun my/lisp-mode-hook ( )
   "Collection of Lisp hooks"
   (setq indent-tabs-mode nil)
+  (local-set-key (kbd "{")   #'paredit-open-curly)
+  (local-set-key (kbd "}")   #'paredit-close-curly)
+  (local-set-key (kbd "M-(") #'paredit-wrap-round)
+  (local-set-key (kbd "M-[") #'paredit-wrap-square)
+  (local-set-key (kbd "M-{") #'paredit-wrap-curly)
   ;; (eldoc-mode)
   ;; (slime-mode)
   (page-break-lines-mode)
   (paredit-mode))
+
+(defun my/racket-mode-hook ()
+  "Racket"
+  (setq tab-always-indent 'complete)
+  (local-set-key (kbd "C-c r") #'racket-run))
+
 
 ;; (defun my/scheme-mode-hook ()
 ;;   "chikun"
@@ -164,3 +176,19 @@
     See `sort-regexp-fields'."
   (interactive "*P\nr")
   (sort-regexp-fields reverse "\\w+" "\\&" beg end))
+
+(defun reading-mode ()
+  (interactive)
+  (view-mode)
+  (let ()
+    (if (eq (frame-parameter (selected-frame) 'width) 70)
+        (progn
+          (set-frame-parameter (selected-frame) 'width 106)
+          (variable-pitch-mode 0)
+          (setq line-spacing nil)
+          (setq word-wrap nil))
+      (progn
+        (set-frame-parameter (selected-frame) 'width 70)
+        (variable-pitch-mode 1)
+        (setq line-spacing 0.4)
+        (setq word-wrap t)))))
