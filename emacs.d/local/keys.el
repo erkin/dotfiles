@@ -90,8 +90,10 @@
 
 (global-set-key (kbd "C-x C-b") #'ibuffer)
 
-;;; Disabled but enabled
-(put #'scroll-left 'disabled nil)
-(put #'scroll-right 'disabled nil)
-(put #'downcase-region 'disabled nil)
+(global-set-key (kbd "<f5>") #'switch-to-minibuffer)
+
+;;; Disabled but also enabled as well
+(put #'scroll-left 'disabled t)
+(put #'scroll-right 'disabled t)
 (put #'upcase-region 'disabled nil)
+(put #'downcase-region 'disabled nil)

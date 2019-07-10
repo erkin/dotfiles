@@ -150,6 +150,7 @@ alias journal="journalctl -elmx"
 # dir
 alias ls='ls --classify --color=auto --group-directories-first --dereference-command-line-symlink-to-dir'
 alias no='exa --colour-scale --binary --classify --colour=auto --git --group-directories-first'
+alias on='sl' # obviously
 #alias dir='no -Ahl'
 alias dir='no -@aghlF'
 alias ll='dir'
@@ -184,11 +185,11 @@ alias ncdu="ncdu --color dark -rr -x --exclude .git"
 
 # editors
 alias ekill='emacsclient -e "(kill-emacs)"'
-alias se='sudo -e'
-alias sedit='sudo emacs -Q -nw'
-alias visudo='sudo SUDO_EDITOR="emacs -Q -nw" visudo'
-alias vipw='sudo EDITOR="emacs -Q -nw" vipw'
-alias vigr='sudo EDITOR="emacs -Q -nw" vigr'
+alias se='SUDO_EDITOR="remacsclient -t" sudo -e'
+alias sedit='sudo remacs -Q'
+alias visudo='sudo --preserve-env=SUDO_EDITOR visudo'
+alias vipw='sudo --preserve-env=SUDO_EDITOR vipw'
+alias vigr='sudo --preserve-env=SUDO_EDITOR vigr'
 alias ed='rlwrap -pGreen ed -lvp\>\ '
 alias vi='e3vi'
 alias vim='e3vi'
@@ -196,7 +197,7 @@ alias nano='e3pi'
 alias pico='e3pi'
 
 # pacman
-alias p='powerpill'
+alias p='pacman'
 alias sp='sudo powerpill'
 alias b='bauerbill'
 alias sb='bb-wrapper --aur --build-dir /tmp/pacbuild'
@@ -204,6 +205,7 @@ alias sb='bb-wrapper --aur --build-dir /tmp/pacbuild'
 # force proper homes
 alias csi='chicken-csi -wq $XDG_CONFIG_HOME/chicken/csirc'
 alias csc='chicken-csc'
+alias cpan='cpan -s -j $XDG_CONFIG_HOME/cpan/Config.pm'
 alias dc='rlwrap dc -f $XDG_CONFIG_HOME/dc/dcrc -'
 alias mbsync="mbsync -c $XDG_CONFIG_HOME/isync/mbsyncrc"
 alias startx="startx $XINITRC"
@@ -270,9 +272,9 @@ function e
 {
     if [ -z ${DISPLAY+1} ]
     then # in a TTY
-        XMODIFIERS=@im=none emacsclient -t "$@"
+        XMODIFIERS=@im=none remacsclient -t "$@"
     else # on X
-        XMODIFIERS=@im=none emacsclient -c "$@" &> /dev/null &!
+        XMODIFIERS=@im=none remacsclient -c "$@" &> /dev/null &!
     fi
 }
 

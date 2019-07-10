@@ -610,10 +610,13 @@ awful.rules.rules = {
    }, properties = { floating = true }},
 
    { rule_any = { type = { "dialog" } },
-     properties = { titlebars_enabled = true }
-   },
+     properties = { titlebars_enabled = true } },
+
    { rule = { name = "rtorrent" }, -- 9
      properties = { screen = 1, tag = "😿" } },
+   { rule = { name = "Ripcord Voice Chat" },
+     properties = { floating = true } },
+
    { rule = { class = "Firefox" }, -- 1
      properties = { screen = 1, tag = "🐱" } },
    { rule = { class = "Hexchat" }, -- 1
@@ -624,6 +627,7 @@ awful.rules.rules = {
      properties = { screen = 1, tag = "🙀" } },
    { rule = { class = "keepassxc" }, -- 8
      properties = { screen = 1, tag = "😾" } },
+
    { rule = { class = "Audacious" }, -- for Winamp interface
      properties = { titlebars_enabled = false, ontop = true } },
 }

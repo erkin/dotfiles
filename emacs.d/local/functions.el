@@ -192,3 +192,10 @@
         (variable-pitch-mode 1)
         (setq line-spacing 0.4)
         (setq word-wrap t)))))
+
+(defun switch-to-minibuffer ()
+  "Switch to minibuffer window (if active)"
+  (interactive)
+  (when (active-minibuffer-window)
+    (select-frame-set-input-focus (window-frame (active-minibuffer-window)))
+    (select-window (active-minibuffer-window))))

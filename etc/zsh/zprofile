@@ -13,8 +13,9 @@ ORGANIZATION="TeamWau Cooperative"
 # editor
 EDITOR="emacsclient -c"
 ALTERNATE_EDITOR="emacs"
-SUDO_EDITOR="emacsclient -t"
-VISUAL="emacsclient -c"
+SUDO_EDITOR="remacs -Q"
+VISUAL="$EDITOR"
+SYSTEMD_EDITOR="$SUDO_EDITOR"
 
 # locale
 LANG="en_DK.UTF-8"
@@ -61,7 +62,7 @@ GCC_COLORS="error=01;31:warning=01;35:note=01;36:range1=32:range2=34:locus=01:\
 GREP_COLOR="1;32"
 
 # git
-GIT_EDITOR="$SUDO_EDITOR"
+GIT_EDITOR="$EDITOR"
 GIT_PAGER="$PAGER"
 
 # gpg
@@ -141,7 +142,7 @@ QT_QPA_PLATFORMTHEME="qt5ct"
 # readline
 INPUTRC="$XDG_CONFIG_HOME/readline/inputrc"
 RLWRAP_HOME="$XDG_CACHE_HOME/readline/hist"
-RLWRAP_EDITOR="emacsclient -c +%L:%C %F"
+RLWRAP_EDITOR="$EDITOR +%L:%C %F"
 
 # rxvt
 #RXVT_SOCKET="$XDG_RUNTIME_DIR/urxvtd"
@@ -224,10 +225,10 @@ OCTAVE_HISTFILE="$XDG_CACHE_HOME/octave/history"
 OCTAVE_SITE_INITFILE="$XDG_CONFIG_HOME/octave/octaverc"
 
 # Perl
-PERL5LIB="$XDG_DATA_HOME/perl5/lib/perl5:$OPAM_SWITCH_PREFIX/lib/perl5:$PERL5LIB"
-PERL_LOCAL_LIB_ROOT="$XDG_DATA_HOME/perl5:$PERL_LOCAL_LIB_ROOT"
-PERL_MB_OPT="--install_base \"$XDG_DATA_HOME/perl5\""
-PERL_MM_OPT="INSTALL_BASE=$XDG_DATA_HOME/perl5"
+PERL_LOCAL_LIB_ROOT="$XDG_DATA_HOME/perl5"
+PERL5LIB="$PERL_LOCAL_LIB_ROOT/lib/perl5"
+PERL_MB_OPT="--install_base \"$PERL_LOCAL_LIB_ROOT\""
+PERL_MM_OPT="INSTALL_BASE=$PERL_LOCAL_LIB_ROOT"
 
 # Python
 PYTHONSTARTUP="$XDG_CONFIG_HOME/python/startup.py"

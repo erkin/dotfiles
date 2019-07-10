@@ -47,9 +47,10 @@
 
 ;;; Font
 (add-to-list 'default-frame-alist '(font . "Fira Code Erkin-9"))
-(set-fontset-font t 'unicode "Unifont" nil 'prepend)
-(set-fontset-font t 'unicode "Symbola" nil 'append)
-
+;; No font handling for Remacs
+(unless (string-prefix-p "Remacs" (version))
+  (set-fontset-font t 'unicode "Unifont" nil 'prepend)
+  (set-fontset-font t 'unicode "Symbola" nil 'append))
 ;;; Transparency
 (set-frame-parameter (selected-frame) 'alpha '(95 . 93))
 (add-to-list 'default-frame-alist   '(alpha . (95 . 93)))
@@ -57,9 +58,11 @@
 
 ;;;; MODES
 ;;; Bars
-(scroll-bar-mode -1)
-(tool-bar-mode -1)
-(horizontal-scroll-bar-mode -1)
+;; Remacs doesn't support graphical bars.
+(unless (string-prefix-p "Remacs" (version))
+  (scroll-bar-mode -1)
+  (tool-bar-mode -1)
+  (horizontal-scroll-bar-mode -1))
 ;;; Global major modes
 (column-number-mode)
 (size-indication-mode)
@@ -67,7 +70,7 @@
 ;;; Custom
 (annoying-arrows-mode)
 (dired-async-mode)
-(display-battery-mode)
+;; (display-battery-mode)
 (global-anzu-mode)
 (global-undo-tree-mode)
 
