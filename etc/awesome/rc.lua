@@ -138,6 +138,15 @@ function run_discord()
    })
 end
 
+function run_keepassxc()
+   awful.spawn("keep",
+               {
+                  floating = false,
+                  tag = "😿",
+                  screen = 1,
+   })
+end
+
 menubar.utils.terminal = terminal
 
 mytextclock = wibox.widget.textclock(" %y-%m-%d %w %H:%M ")
@@ -617,6 +626,9 @@ awful.rules.rules = {
    { rule = { name = "Ripcord Voice Chat" },
      properties = { floating = true } },
 
+   { rule = { role = "conversation" }, -- for Pidgin & HexChat
+     properties = { floating = true } },
+
    { rule = { class = "Firefox" }, -- 1
      properties = { screen = 1, tag = "🐱" } },
    { rule = { class = "Hexchat" }, -- 1
@@ -627,7 +639,6 @@ awful.rules.rules = {
      properties = { screen = 1, tag = "🙀" } },
    { rule = { class = "keepassxc" }, -- 8
      properties = { screen = 1, tag = "😾" } },
-
    { rule = { class = "Audacious" }, -- for Winamp interface
      properties = { titlebars_enabled = false, ontop = true } },
 }
@@ -698,15 +709,12 @@ client.connect_signal("unfocus",
 beautiful.useless_gap = 0
 
 -- awful.spawn("xscreensaver -no-splash")
--- awful.spawn("dropbox-cli start > /dev/null")
-
-awful.spawn("keepassxc")
 
 run_firefox()
 run_discord()
 run_hexchat()
 run_rtorrent()
-
+run_keepassxc()
 
 -- Local Variables:
 -- coding: utf-8-unix
