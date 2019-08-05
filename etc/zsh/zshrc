@@ -151,8 +151,7 @@ alias journal="journalctl -elmx"
 alias ls='ls --classify --color=auto --group-directories-first --dereference-command-line-symlink-to-dir'
 alias no='exa --colour-scale --binary --classify --colour=auto --git --group-directories-first'
 alias on='sl' # obviously
-#alias dir='no -Ahl'
-alias dir='no -@aghlF'
+alias dir='no --long --extended --all --group --header'
 alias ll='dir'
 alias cwd="chdir"
 alias mc='/usr/lib/mc/mc-wrapper.sh'
@@ -277,6 +276,13 @@ function e
         XMODIFIERS=@im=none emacsclient -c "$@" &> /dev/null &!
     fi
 }
+
+# zless counterparts
+function bzless { bzcat -- $@ | less }
+function lz4less { lz4cat -- $@ | less }
+function zzless { zzcat $@ | less }
+function zzxorless { zzxorcat $@ | less }
+function preless { precat $@ | less }
 
 # emacs server daemon  
 function edae
