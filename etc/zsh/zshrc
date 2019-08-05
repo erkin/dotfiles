@@ -185,8 +185,8 @@ alias ncdu="ncdu --color dark -rr -x --exclude .git"
 
 # editors
 alias ekill='emacsclient -e "(kill-emacs)"'
-alias se='SUDO_EDITOR="remacsclient -t" sudo -e'
-alias sedit='sudo remacs -Q'
+alias se='SUDO_EDITOR="emacsclient -t" sudo -e'
+alias sedit='sudo emacs -Q'
 alias visudo='sudo --preserve-env=SUDO_EDITOR visudo'
 alias vipw='sudo --preserve-env=SUDO_EDITOR vipw'
 alias vigr='sudo --preserve-env=SUDO_EDITOR vigr'
@@ -272,9 +272,9 @@ function e
 {
     if [ -z ${DISPLAY+1} ]
     then # in a TTY
-        XMODIFIERS=@im=none remacsclient -t "$@"
+        XMODIFIERS=@im=none emacsclient -t "$@"
     else # on X
-        XMODIFIERS=@im=none remacsclient -c "$@" &> /dev/null &!
+        XMODIFIERS=@im=none emacsclient -c "$@" &> /dev/null &!
     fi
 }
 

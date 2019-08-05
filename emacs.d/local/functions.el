@@ -75,7 +75,6 @@
 
 (defun my/lisp-mode-hook ( )
   "Collection of Lisp hooks"
-  (setq indent-tabs-mode nil)
   (local-set-key (kbd "{")   #'paredit-open-curly)
   (local-set-key (kbd "}")   #'paredit-close-curly)
   (local-set-key (kbd "M-(") #'paredit-wrap-round)
@@ -88,7 +87,7 @@
 
 (defun my/racket-mode-hook ()
   "Racket"
-  (setq tab-always-indent 'complete)
+  ;; (setq tab-always-indent 'complete)
   (local-set-key (kbd "C-c r") #'racket-run))
 
 
@@ -115,14 +114,6 @@
   (setq indent-tabs-mode nil
         tab-width 4))
 
-(defun my/tex-mode-hook ()
-  "Bits and bobs for LaTeX"
-  (setq indent-tabs-mode nil))
-
-(defun my/haskell-mode-hook ()
-  "Nothing much here yet"
-  (setq indent-tabs-mode nil))
-
 (defun my/rust-mode-hook ()
   "Helpful modes for autocomplete, also style stuff"
   (setq indent-tabs-mode nil
@@ -130,10 +121,6 @@
   (local-set-key (kbd "C-c TAB") #'rust-format-buffer)
   (cargo-minor-mode)
   (racer-mode)) ; see above
-
-(defun my/sh-mode-hook ()
-  "heck"
-  (setq indent-tabs-mode nil))
 
 (defun my/sgml-mode-hook ()
   "HTML stuff"

@@ -1,5 +1,8 @@
 ;;;; Variables
 
+;; First of all;
+(setq indent-tabs-mode nil)
+
 ;;; Disable init nuisance
 (setq inhibit-startup-message t
       inhibit-startup-screen t

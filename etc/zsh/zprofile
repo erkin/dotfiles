@@ -13,7 +13,7 @@ ORGANIZATION="TeamWau Cooperative"
 # editor
 EDITOR="emacsclient -c"
 ALTERNATE_EDITOR="emacs"
-SUDO_EDITOR="remacs -Q"
+SUDO_EDITOR="emacs -Q"
 VISUAL="$EDITOR"
 SYSTEMD_EDITOR="$SUDO_EDITOR"
 

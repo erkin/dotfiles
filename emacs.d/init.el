@@ -98,7 +98,6 @@
 (add-hook 'racket-mode-hook #'my/racket-mode-hook)
 (add-hook 'rust-mode-hook #'my/rust-mode-hook)
 (add-hook 'sgml-mode-hook #'my/sgml-mode-hook)
-(add-hook 'tex-mode-hook #'my/tex-mode-hook)
 (add-hook 'tuareg-mode-hook #'my/caml-mode-hook)
 
 ;;; I hate Java.
