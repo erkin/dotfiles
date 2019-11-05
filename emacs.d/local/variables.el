@@ -11,8 +11,12 @@
 ;;; clipboard
 (setq select-enable-clipboard t
       select-enable-primary t
-      save-interprogram-paste-before-kill t
-      mouse-yank-at-point t)
+      save-interprogram-paste-before-kill t)
+
+;;; mouse
+(setq mouse-yank-at-point t
+      mouse-autoselect-window t
+      focus-follows-mouse t)
 
 ;;; Backup
 (setq backup-by-copying-when-linked t
@@ -36,9 +40,9 @@
       tramp-auto-save-directory "~/.emacs.d/backup/tramp/")
 
 ;;; mozc
-(setq default-input-method "japanese-mozc"
-      mozc-candidate-style 'overlay
-      fcitx-use-dbus t)
+;; (setq default-input-method "japanese-mozc"
+;;       mozc-candidate-style 'overlay
+;;       fcitx-use-dbus t)
 
 
 ;;;; Calendar
@@ -69,6 +73,10 @@
       ediff-split-window-function 'split-window-horizontally
       ediff-diff-options "-w")
 
+;;; Mosaic mode
+(setq mosaic-project-directory "~/dev/repos/mosaic-el/"
+      mosaic-use-jack-p nil)
+
 ;;;; General catch-all config stuff
 (setq ag-highlight-search t
       inhibit-compacting-font-caches t
@@ -81,6 +89,9 @@
 
 ;;;; Language specific config
 ;;; See also: functions.el
+
+;;; ASM
+(setq asm-comment-char 35) ;; '#'
 
 ;;; C
 (setq-default c-default-style "bsd"
@@ -95,6 +106,14 @@
       graphviz-dot-auto-indent-on-semi nil
       graphviz-dot-auto-indent-on-braces t)
 
+(setq TeX-view-program-selection
+      '(((output-dvi has-no-display-manager) "dvi2tty")
+	((output-dvi style-pstricks) "xdvi")
+	(output-dvi "xdvi")
+	(output-pdf "Zathura")
+	(output-ps "Zathura")
+	(output-html "firefox")))
+
 ;;; Scheme
 ;; (setq scheme-program-name "csi -wq /home/erkin/etc/chicken/csirc -:c")
 
@@ -106,5 +125,21 @@
 
 ;;; org-mode
 (setq org-log-done t
+      org-list-allow-alphabetical t
+      org-export-default-language "en-GB"
+      org-export-with-author nil
+      org-export-with-broken-links 'mark
+      org-export-with-creator nil
+      org-export-with-date nil
+      org-export-with-email nil
+      org-export-with-toc nil
+      org-export-with-todo-keywords nil
+      org-html-checkbox-type 'unicode
+      org-html-doctype "html5"
+      org-html-html5-fancy t
+      org-html-htmlize-output-type 'css
+      org-html-indent t
+      org-html-use-infojs nil
       org-html-validation-link nil
-      org-todo-keywords '((sequence "TODO(t)" "WAIT(w@/!)" "|" "DONE(d!)" "CANCELED(c@)")))
+      org-todo-keywords
+      '((sequence "TODO(t)" "WAIT(w@/!)" "|" "DONE(d!)" "CANCELLED(c@)")))

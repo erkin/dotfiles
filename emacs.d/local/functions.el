@@ -8,15 +8,6 @@
                                  (set-face-foreground 'mode-line fg))
                                orig-fg))))
 
-;;; pretty prompt
-(setq eshell-prompt-regexp "^[^#$\n]*[#$] "
-      eshell-prompt-function
-      (lambda nil
-        (concat
-	 (if (string= (eshell/pwd) (getenv "HOME"))
-	     "~" (eshell/basename (eshell/pwd))) " "
-             (if (= (user-uid) 0) "# " "% "))))
-
 
 ;;;; Hooks
 (defun my/mail-mode-hook ()
@@ -33,11 +24,12 @@
 (defun my/prog-mode-hook ()
   "Hooks for all prog modes in general"
   (rainbow-delimiters-mode)
+  (page-break-lines-mode)
   ;; (column-marker-1 80)
   ;; (column-marker-2 100)
   ;; (linum-mode)
-  (show-paren-mode)
-  (prettify-symbols-mode))
+  ;; (prettify-symbols-mode)
+  (show-paren-mode))
 
 (defun my/text-mode-hook ()
   "Hooks for viewing and writing plain text"
@@ -55,10 +47,6 @@
   (ac-racer-setup))
 
 
-(defun my/c-mode-hook ()
-  "C stuff"
-  ;; Most stuff you'd see here is already defined in variables.el
-  (page-break-lines-mode))
 
 (defun my/clojure-mode-hook ()
   "Cider and stuff"
@@ -70,8 +58,7 @@
   "Exceptions for (cc-mode) etc for Java and Java-like languages"
   (setq indent-tabs-mode t
         c-basic-offset 4
-        tab-width 4)
-  (page-break-lines-mode))
+        tab-width 4))
 
 (defun my/lisp-mode-hook ( )
   "Collection of Lisp hooks"
@@ -82,14 +69,12 @@
   (local-set-key (kbd "M-{") #'paredit-wrap-curly)
   ;; (eldoc-mode)
   ;; (slime-mode)
-  (page-break-lines-mode)
   (paredit-mode))
 
 (defun my/racket-mode-hook ()
   "Racket"
   ;; (setq tab-always-indent 'complete)
   (local-set-key (kbd "C-c r") #'racket-run))
-
 
 ;; (defun my/scheme-mode-hook ()
 ;;   "chikun"
@@ -101,7 +86,7 @@
   "fucking tabs"
   (setq indent-tabs-mode t))
 
-(defun my/caml-mode-hook ()
+(defun my/tuareg-mode-hook ()
   "Stuff for OCaml - doesn't work because tuareg sucks"
   (setq merlin-command 'opam)
   (merlin-mode)
@@ -123,14 +108,18 @@
   (racer-mode)) ; see above
 
 (defun my/sgml-mode-hook ()
-  "HTML stuff"
-  (setq comment-continue " ")
-  (setq indent-tabs-mode nil)
-  (page-break-lines-mode))
+  "stuff"
+  (setq comment-continue " "
+	indent-tabs-mode nil)
+)
 
 (defun my/nxml-mode-hook ()
   "fuck --!"
-  (setq comment-continue " ")
+  (setq comment-continue " "
+	indent-tabs-mode nil))
+
+(defun my/org-mode-hook ()
+  "h"
   (setq indent-tabs-mode nil))
 
 

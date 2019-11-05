@@ -5,18 +5,14 @@
              '("melpa" . "https://melpa.org/packages/") t)
 (package-initialize)
 
-;; ## added by OPAM user-setup for emacs / base ## 56ab50dc8996d2bb95e7856a6eddb17b ## you can edit, but keep this line
-(require 'opam-user-setup "~/.emacs.d/opam-user-setup.el")
-;; ## end of OPAM user-setup addition for emacs / base ## keep this line
-
 ;;; Import directories
-(let ((default-directory "~/.emacs.d/site-lisp/")) ; local
-  (normal-top-level-add-to-load-path '("." "themes")))
-(let ((default-directory "/usr/share/emacs/site-lisp/")) ; system
-  (normal-top-level-add-subdirs-to-load-path))
-(let ((opam-share (ignore-errors (car (process-lines "opam" "config" "var" "share")))))
-  (when (and opam-share (file-directory-p opam-share))
-    (add-to-list 'load-path (expand-file-name "emacs/site-lisp" opam-share))))
+(let ((default-directory "~/.emacs.d/site-lisp/"))
+  (normal-top-level-add-to-load-path'("." ; User-specific files
+				      "themes" ; Themes
+				      )))
+(let ((default-directory "/usr/share/emacs/site-lisp/"))
+  (normal-top-level-add-subdirs-to-load-path)) ; System-wide files
+(add-to-list 'load-path "~/dev/repos/mosaic-el/")
 
 ;;; Reduced clutter
 (load "~/.emacs.d/local/keys.elc")
@@ -29,9 +25,9 @@
 (load custom-file)
 
 ;;; Lazy loading
-;; (autoload 'chicken-slime "chicken-slime" "SWANK backend for CHICKEN" t)
+(autoload 'vterm "vterm" "libvterm-based terminal" t)
 (autoload 'mu4e "mu4e" "Mail client" t)
-(autoload 'merlin-mode "merlin" "OCaml Merlin" t)
+(autoload 'mosaic-begin "mosaic" "EmacsMosaic frontend for SchemeMosaic" t)
 
 
 ;;; Chrome and bells, jingles & gongs and all that jive
@@ -46,7 +42,7 @@
 (add-hook 'after-make-frame-hook #'powerline-moe-theme)
 
 ;;; Font
-(add-to-list 'default-frame-alist '(font . "Fira Code Erkin-9"))
+(add-to-list 'default-frame-alist '(font . "Iosevka Extended Light-10"))
 ;; No font handling for Remacs
 (unless (string-prefix-p "Remacs" (version))
   (set-fontset-font t 'unicode "Unifont" nil 'prepend)
@@ -61,12 +57,14 @@
 ;; Remacs doesn't support graphical bars.
 (unless (string-prefix-p "Remacs" (version))
   (scroll-bar-mode -1)
+  (horizontal-scroll-bar-mode -1)
   (tool-bar-mode -1)
-  (horizontal-scroll-bar-mode -1))
+  (menu-bar-mode -1))
 ;;; Global major modes
 (column-number-mode)
 (size-indication-mode)
 (which-function-mode)
+(delete-selection-mode)
 ;;; Custom
 (annoying-arrows-mode)
 (dired-async-mode)
@@ -82,35 +80,24 @@
 
 
 ;;;; HOOKS
-;;; My own hooks (in functions.el)
-(add-hook 'mail-mode-hook #'my/mail-mode-hook)
-(add-hook 'prog-mode-hook #'my/prog-mode-hook)
-(add-hook 'text-mode-hook #'my/text-mode-hook)
+;;; My own hooks (defined in functions.el)
+(defun add-my-hooks (hooks)
+  (dolist (hook hooks)
+    (add-hook (intern (concat (symbol-name hook) "-mode-hook"))
+	      (intern (concat "my/" (symbol-name hook) "-mode-hook")))))
 
-(add-hook 'compilation-mode-hook #'page-break-lines-mode)
-(add-hook 'racer-mode-hook #'my/racer-mode-hook)
-
-(add-hook 'c-mode-hook #'my/makefile-mode-hook)
-(add-hook 'clojure-mode-hook #'my/clojure-mode-hook)
-(add-hook 'makefile-mode-hook #'my/makefile-mode-hook)
-(add-hook 'nxml-mode-hook #'my/nxml-mode-hook)
-(add-hook 'python-mode-hook #'my/python-mode-hook)
-(add-hook 'racket-mode-hook #'my/racket-mode-hook)
-(add-hook 'rust-mode-hook #'my/rust-mode-hook)
-(add-hook 'sgml-mode-hook #'my/sgml-mode-hook)
-(add-hook 'tuareg-mode-hook #'my/caml-mode-hook)
-
-;;; I hate Java.
-(dolist (hook '(java-mode-hook
-                groovy-mode-hook kotlin-mode-hook
-                scala-mode-hook))
-  (add-hook hook #'my/java-mode-hook)) ; as above
+(add-my-hooks '(mail prog text))
+(add-my-hooks '(makefile nxml org sgml))
+(add-my-hooks '(clojure java python racket rust tuareg))
 
 ;;; Lisp hooks
 (dolist (hook '(lisp-mode-hook
                 clojure-mode-hook emacs-lisp-mode-hook
                 scheme-mode-hook racket-mode-hook))
   (add-hook hook #'my/lisp-mode-hook)) ; as above
+
+(add-hook 'racer-mode-hook #'my/racer-mode-hook)
+(add-hook 'compilation-mode-hook #'page-break-lines-mode)
 
 (eldoc-add-command 'paredit-backward-delete 'paredit-close-round)
 
@@ -119,5 +106,5 @@
 (add-to-list 'auto-mode-alist '("\\.conf$'" . conf-mode))
 (add-to-list 'auto-mode-alist '("PKGBUILD" . sh-mode))
 (add-to-list 'auto-mode-alist '("\\.install$" . conf-mode))
+(add-to-list 'auto-mode-alist '("\\.cell$" . cell-mode))
 (add-to-list 'auto-coding-alist '("\\.\\(nfo\\|NFO\\)\\'" . cp437-dos))
-(add-to-list 'auto-mode-alist '("\\.system$" . scheme-mode))

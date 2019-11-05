@@ -88,12 +88,15 @@
 (global-set-key (kbd "C-c t") #'toggle-transparency)
 (global-set-key (kbd "C-c y") #'clipboard-yank)
 
+(global-set-key (kbd "C-<return>") #'rectangle-mark-mode)
+
 (global-set-key (kbd "C-x C-b") #'ibuffer)
 
 (global-set-key (kbd "<f5>") #'switch-to-minibuffer)
 
 ;;; Disabled but also enabled as well
-(put #'scroll-left 'disabled t)
-(put #'scroll-right 'disabled t)
-(put #'upcase-region 'disabled nil)
-(put #'downcase-region 'disabled nil)
+(put 'scroll-left     'disabled t)
+(put 'scroll-right    'disabled t)
+(put 'upcase-region   'disabled nil)
+(put 'downcase-region 'disabled nil)
+(put 'set-goal-column 'disabled nil)
