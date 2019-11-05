@@ -231,6 +231,8 @@ alias s='mosh' # --predict=experimental'
 alias calc='xcalc -rpn'
 alias ddinfo='pkill -x -USR1 dd'
 
+alias catclock='xclock -mode cat -bg midnightblue -detailcolor gainsboro -tiecolor lightgreen -catcolor black -chime &'
+
 # kittens!
 alias c="kitty +kitten clipboard"
 alias d="kitty +kitten diff"
@@ -242,7 +244,7 @@ alias gopherbin='nc 0x1A4.1337.cx 9998'
 # rip ptpb
 # alias pastebin="curl -F 'c=@-' https://ptpb.pw"
 alias pastebin="curl -F 'clbin=<-' https://clbin.com"
-alias filebin="curl -F 'file=@-' https://0x0.st"
+alias filebin="curl -F 'file=@-' https://0x0.st" # or x0.at
 
 ## functions
 function rehost
