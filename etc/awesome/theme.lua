@@ -1,7 +1,7 @@
 -- -*- eval: (rainbow-mode) -*-
 theme = {}
 
-theme.font          = "Unifont 11"
+theme.font          = "Fira Code Erkin 10"
 
 theme.wallpaper = "/home/erkin/media/image/wall/happy-sad.png"
 

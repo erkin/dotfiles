@@ -38,7 +38,7 @@ local volume = lain.widget.pulsebar
 {
    ticks = true,
    ticks_size = 2,
-   notification_preset = { font = "Unifont 10" },
+   notification_preset = { font = "Fira Code Erkin 9" },
    -- settings = function()
    --    if volume_now.muted == "yes"
    --    then
@@ -641,6 +641,9 @@ awful.rules.rules = {
      properties = { screen = 1, tag = "😾" } },
    { rule = { class = "Audacious" }, -- for Winamp interface
      properties = { titlebars_enabled = false, ontop = true } },
+
+   { rule = { class = "xclock" },
+     properties = { titlebars_enabled = false, ontop = true, floating = true } }
 }
 
 client.connect_signal(
