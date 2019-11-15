@@ -87,7 +87,7 @@
 	      (intern (concat "my/" (symbol-name hook) "-mode-hook")))))
 
 (add-my-hooks '(mail prog text))
-(add-my-hooks '(makefile nxml org sgml))
+(add-my-hooks '(makefile nxml sgml))
 (add-my-hooks '(clojure java python racket rust tuareg))
 
 ;;; Lisp hooks

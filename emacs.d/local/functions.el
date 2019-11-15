@@ -29,7 +29,8 @@
   ;; (column-marker-2 100)
   ;; (linum-mode)
   ;; (prettify-symbols-mode)
-  (show-paren-mode))
+  (show-paren-mode)
+  (setq indent-tabs-mode nil))
 
 (defun my/text-mode-hook ()
   "Hooks for viewing and writing plain text"
@@ -96,31 +97,22 @@
 
 (defun my/python-mode-hook ()
   "Cleaning indentation for Python"
-  (setq indent-tabs-mode nil
-        tab-width 4))
+  (setq tab-width 4))
 
 (defun my/rust-mode-hook ()
   "Helpful modes for autocomplete, also style stuff"
-  (setq indent-tabs-mode nil
-        tab-width 4)
+  (setq tab-width 4)
   (local-set-key (kbd "C-c TAB") #'rust-format-buffer)
   (cargo-minor-mode)
   (racer-mode)) ; see above
 
 (defun my/sgml-mode-hook ()
   "stuff"
-  (setq comment-continue " "
-	indent-tabs-mode nil)
-)
+  (setq comment-continue " "))
 
 (defun my/nxml-mode-hook ()
   "fuck --!"
-  (setq comment-continue " "
-	indent-tabs-mode nil))
-
-(defun my/org-mode-hook ()
-  "h"
-  (setq indent-tabs-mode nil))
+  (setq comment-continue " "))
 
 
 ;;;; Functions
