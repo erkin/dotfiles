@@ -177,10 +177,15 @@ alias diff='diff --color'
 alias tree='tree -CF --dirsfirst'
 alias pactree='pactree -c'
 alias grep='grep --color=auto --exclude-dir={.bzr,CVS,.git,.hg,.svn}'
-alias fgrep='grep -F --color=auto --exclude-dir={.bzr,CVS,.git,.hg,.svn}'
-alias egrep='grep -E --color=auto --exclude-dir={.bzr,CVS,.git,.hg,.svn}'
 alias pping='prettyping --nolegend'
 alias ncdu="ncdu --color dark -rr -x --exclude .git"
+
+# search
+alias fgrep='grep -F'
+alias egrep='grep -E'
+alias gren='grep -n'
+alias fgren='grep -Fn'
+alias egren='grep -En'
 
 # editors
 alias ekill='emacsclient -e "(kill-emacs)"'

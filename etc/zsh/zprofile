@@ -3,6 +3,7 @@ setopt allexport
 
 eval $(dircolors -b)
 
+
 ## General config
 
 # me
@@ -32,6 +33,8 @@ NNTPSERVER="news.eternal-september.org"
 COLORTERM="truecolor"
 PAGER="less"
 SUDO="sudo"
+
+DO_NOT_TRACK=1
 
 
 ## Application-specific config
@@ -189,6 +192,7 @@ ZSH_AUTOSUGGEST_HIGHLIGHT_STYLE="fg=8"
 ZSH_AUTOSUGGEST_BUFFER_MAX_SIZE=20
 ZSH_AUTOSUGGEST_USE_ASYNC=1
 ZSH_HIGHLIGHT_HIGHLIGHTERS=(main brackets pattern cursor)
+
 
 ## Language-specific config
 
