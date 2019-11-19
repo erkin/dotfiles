@@ -18,6 +18,17 @@
       mouse-autoselect-window t
       focus-follows-mouse t)
 
+;;; Smooth scrolling
+(setq redisplay-dont-pause t
+      scroll-step 3
+      scroll-margin 5
+      scroll-conservatively 100
+      scroll-preserve-screen-position 1
+      mouse-wheel-scroll-amount '(3 ((shift) . 1))
+      mouse-wheel-progressive-speed t
+      fast-but-imprecise-scrolling nil
+      jit-lock-defer-time 0)
+
 ;;; Backup
 (setq backup-by-copying-when-linked t
       kept-new-versions 2

@@ -93,8 +93,8 @@
 ;;; Lisp hooks
 (dolist (hook '(lisp-mode-hook
                 clojure-mode-hook emacs-lisp-mode-hook
-                scheme-mode-hook racket-mode-hook))
-  (add-hook hook #'my/lisp-mode-hook)) ; as above
+                hy-mode-hook scheme-mode-hook racket-mode-hook))
+  (add-hook hook #'my/lisp-mode-hook))
 
 (add-hook 'racer-mode-hook #'my/racer-mode-hook)
 (add-hook 'compilation-mode-hook #'page-break-lines-mode)
