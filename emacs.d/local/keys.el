@@ -2,8 +2,8 @@
 
 ;;; Navigation
 (windmove-default-keybindings 'meta)
-(global-set-key (kbd "C-c p") #'backward-page)
-(global-set-key (kbd "C-c n") #'forward-page)
+(global-set-key (kbd "<C-prior>") #'backward-page)
+(global-set-key (kbd "<C-next>") #'forward-page)
 (global-set-key (kbd "M-p") #'backward-paragraph)
 (global-set-key (kbd "M-n") #'forward-paragraph)
 
@@ -55,7 +55,7 @@
 (require 'avy)
 (global-set-key (kbd "C-,") #'avy-goto-char)
 (global-set-key (kbd "C-.") #'avy-goto-char-2)
-(global-set-key (kbd "H-l") #'avy-goto-line)
+(global-set-key (kbd "C-'") #'avy-goto-line)
 
 ;;; Anzu
 (require 'anzu)
@@ -66,7 +66,7 @@
 
 ;;; Expand region
 (require 'expand-region)
-(global-set-key (kbd "H-p") #'er/expand-region)
+(global-set-key (kbd "C-@") #'er/expand-region)
 
 
 ;;; Mouse keys
@@ -76,9 +76,10 @@
 
 ;;; Miscellaneous keys
 (global-set-key (kbd "M-j") (lambda () (interactive) (join-line -1)))
-(global-set-key (kbd "M-/") #'hippie-expand)
 (global-set-key (kbd "M-z") #'zap-up-to-char)
 (global-set-key (kbd "M-?") #'mark-paragraph)
+(global-set-key (kbd "M-/") #'hippie-expand)
+(global-set-key (kbd "<C-tab>") #'company-complete)
 
 (global-set-key (kbd "H-k") #'browse-kill-ring)
 (global-set-key (kbd "H-r") #'rectangle-mark-mode)
@@ -95,8 +96,6 @@
 (global-set-key (kbd "<f5>") #'switch-to-minibuffer)
 
 ;;; Disabled but also enabled as well
-(put 'scroll-left     'disabled t)
-(put 'scroll-right    'disabled t)
 (put 'upcase-region   'disabled nil)
 (put 'downcase-region 'disabled nil)
 (put 'set-goal-column 'disabled nil)

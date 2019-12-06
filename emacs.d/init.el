@@ -54,11 +54,10 @@
 
 ;;;; MODES
 ;;; Bars
-;; Remacs doesn't support graphical bars.
-(unless (string-prefix-p "Remacs" (version))
-  (scroll-bar-mode -1)
-  (horizontal-scroll-bar-mode -1)
-  (tool-bar-mode -1)
+(scroll-bar-mode -1)
+(horizontal-scroll-bar-mode -1)
+(tool-bar-mode -1)
+(unless (eq window-system 'ns)
   (menu-bar-mode -1))
 ;;; Global major modes
 (column-number-mode)

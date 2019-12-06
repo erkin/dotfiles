@@ -1,7 +1,7 @@
 ;;;; Variables
 
 ;; First of all;
-(setq indent-tabs-mode nil)
+(setq-default indent-tabs-mode nil)
 
 ;;; Disable init nuisance
 (setq inhibit-startup-message t
@@ -19,8 +19,7 @@
       focus-follows-mouse t)
 
 ;;; Smooth scrolling
-(setq redisplay-dont-pause t
-      scroll-step 3
+(setq scroll-step 3
       scroll-margin 5
       scroll-conservatively 100
       scroll-preserve-screen-position 1
@@ -30,13 +29,15 @@
       jit-lock-defer-time 0)
 
 ;;; Backup
+(setq-default save-place t)
 (setq backup-by-copying-when-linked t
       kept-new-versions 2
       kept-old-versions 1
       version-control t
       delete-old-versions t
       vc-make-backup-files t
-      backup-directory-alist `(("." . "~/.emacs.d/backup/")))
+      backup-directory-alist `(("." . ,(concat user-emacs-directory "backup")))
+      save-place-file (concat user-emacs-directory "places"))
 
 ;;; w3m
 (setq w3m-coding-system 'utf-8
@@ -93,7 +94,10 @@
       inhibit-compacting-font-caches t
       use-dialog-box nil
       apropos-do-all t
-      load-prefer-newer t)
+      load-prefer-newer t
+      require-final-newline t
+      visible-bell t
+      uniquify-buffer-name-style 'forward)
 
 ;; (setq debug-on-error t)
 
@@ -107,6 +111,7 @@
 ;;; C
 (setq-default c-default-style "bsd"
               tab-width 8
+              c-tab-always-indent t
               c-basic-offset 8
               comment-style 'multi-line
               cperl-indent-level 4)
@@ -126,7 +131,22 @@
 	(output-html "firefox")))
 
 ;;; Scheme
-;; (setq scheme-program-name "csi -wq /home/erkin/etc/chicken/csirc -:c")
+(setq scheme-program-name "petite --eehistory ~/usr/share/chez/history"
+      geiser-active-implementations '(chez guile mit chicken)
+      geiser-default-implementation 'chez
+      geiser-chez-binary "petite"
+      geiser-chez-init-file "~/usr/share/chez/geiser"
+      geiser-implementations-alist
+      '(((regexp "\\.scm$") guile)
+        ((regexp "\\.scm$") chicken)
+        ((regexp "\\.sld$") chicken)
+        ((regexp "\\.scm$") mit)
+        ((regexp "\\.pkg$") mit)
+        ((regexp "\\.ss$")  chez)
+        ((regexp "\\.sc$")  chez)
+        ((regexp "\\.sls$") chez)
+        ((regexp "\\.sps$") chez)
+        ((regexp "\\.def$") chez)))
 
 ;;; Rust
 (setq rust-format-on-save t
