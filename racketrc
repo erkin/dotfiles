@@ -1,0 +1,3 @@
+;; -*- racket -*-
+(require xrepl)
+(print-vector-length #t)

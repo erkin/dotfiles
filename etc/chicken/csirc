@@ -1,4 +1,6 @@
 ;; -*- scheme -*-
-(import linenoise utf8)
-(import srfi-1 srfi-13 srfi-69)
+(import linenoise)
+(set-history-length! 800)
+(load-history-from-file "/home/erkin/etc/chicken/csi.history")
 (current-input-port (make-linenoise-port))
+;; (save-history-to-file "/home/erkin/etc/chicken/csi.history")
