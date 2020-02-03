@@ -1,3 +1,6 @@
 ;; -*- racket -*-
+(require readline/rep-start)
 (require xrepl)
 (print-vector-length #t)
+(print-as-expression #f)
+(print-graph #t)

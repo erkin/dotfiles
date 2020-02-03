@@ -1,0 +1,15 @@
+;; -*- scheme -*-
+(print-enable 'r7rs-symbols)
+(read-enable 'r7rs-symbols)
+(read-enable 'r6rs-hex-escapes)
+(read-enable 'hungry-eol-escapes)
+(read-set! keywords 'prefix)
+
+(set! %load-extensions (append '(".guile.sls" ".sls") %load-extensions))
+
+(add-to-load-path "/home/erkin/usr/share/guile")
+
+(use-modules (mine)
+             (ice-9 readline))
+
+(activate-readline)

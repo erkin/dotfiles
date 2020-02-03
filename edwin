@@ -1,0 +1,41 @@
+(unless (member 'console create-editor-args)
+  ((ref-command set-foreground-color) "green")
+  ((ref-command set-background-color) "black")
+  ((ref-command set-mouse-color) "yellow")
+  ((ref-command set-cursor-color) "red")
+  ((ref-command set-font)
+   "-xos4-terminus-medium-r-normal--20-200-72-72-c-100-iso10646-1")
+  ((ref-command set-frame-size) 90 40)
+  ((ref-command set-frame-position) 0 0))
+
+(set-variable! enable-recursive-minibuffers #t)
+(set-variable! select-buffer-create #f)
+(set-variable! buffer-menu-kill-on-quit #t)
+
+(set-variable! version-control #t)
+(set-variable! kept-new-versions 2)
+(set-variable! kept-old-versions 1)
+(set-variable! auto-save-interval 100)
+(set-variable! backup-by-copying #t)
+(set-variable! vc-make-backup-files #t)
+
+(set-variable! info-selection-key button1-down)
+(set-variable! enable-emacs-key-names #f)
+
+(add-event-receiver! (ref-variable text-mode-hook) turn-on-auto-fill)
+
+(set-variable! file-type-to-major-mode
+               (cons* '("sc"  . scheme)
+                      '("sch" . scheme)
+                      '("scm" . scheme)
+                      '("ss"  . scheme)
+                      '("sld" . scheme)
+                      '("sls" . scheme)
+                      '("sps" . scheme)
+                      '("pkg" . scheme)
+                      '("def" . scheme)
+                      (ref-variable file-type-to-major-mode)))
+;; Local Variables:
+;; mode: scheme
+;; geiser-scheme-implementation: mit
+;; End:
