@@ -1,23 +1,45 @@
 (defvar holiday-discordian-holydays
   '((holiday-fixed  1  5   "Mungday")
+    (holiday-fixed  1 23   "Chaomas")
+    (holiday-fixed  1 27   "Chaosloth")
     (holiday-fixed  2 19   "Chaoflux")
+    (holiday-fixed  3 14   "Mungeve")
+
     (holiday-fixed  2 29   "St Tib's Day")
+
     (holiday-fixed  3 19   "Mojoday")
+    (holiday-fixed  4  6   "Discomas")
+    (holiday-fixed  4 10   "Discosloth")
+    (holiday-fixed  5  3   "Discoflux")
+    (holiday-fixed  5 26   "Mojeve")
+
+    (holiday-fixed  5 31   "Syaday")
+    (holiday-fixed  6 18   "Confumas")
+    (holiday-fixed  6 22   "Confusloth")
+    (holiday-fixed  7 15   "Confuflux")
+    (holiday-fixed  8  7   "Syadeve")
+
+    (holiday-fixed  8 12   "Zaraday")
+    (holiday-fixed  8 30   "Buremas")
+    (holiday-fixed  9  3   "Buresloth")
+    (holiday-fixed  9 26   "Bureflux")
+    (holiday-fixed 10 19   "Zareve")
+
+    (holiday-fixed 10 24   "Maladay")
+    (holiday-fixed 11 11   "Afmas")
+    (holiday-fixed 11 15   "Afsloth")
+    (holiday-fixed 12  8   "Afflux")
+    (holiday-fixed 12 31   "Maleve")
+
+    (holiday-fixed  3 13   "Daytide")
     (holiday-fixed  3 25   "Jesus Day")
     (holiday-fixed  4  6   "Jake Day")
-    (holiday-fixed  5  3   "Discoflux")
     (holiday-fixed  5 21   "St Camping's Day")
     (holiday-fixed  5 23   "Jake Day Jr")
     (holiday-fixed  5 25   "Towel Day")
-    (holiday-fixed  5 31   "Syaday")
     (holiday-fixed  7  2   "Midyearsday")
     (holiday-fixed  7  5   "X-Day")
-    (holiday-fixed  7 15   "Confuflux")
-    (holiday-fixed  8  8   "\"Bob\"day")
-    (holiday-fixed  8 12   "Zaraday")
-    (holiday-fixed  9 26   "Bureflux")
-    (holiday-fixed 10 24   "Maladay")
-    (holiday-fixed 12  8   "Afflux")))
+    (holiday-fixed  8  8   "\"Bob\"day")))
 
 (defvar holiday-nerd-holidays
   '((holiday-fixed  1  1   "Public Domain Day")

@@ -28,6 +28,7 @@
 (autoload 'vterm "vterm" "libvterm-based terminal" t)
 (autoload 'mu4e "mu4e" "Mail client" t)
 (autoload 'mosaic-begin "mosaic" "EmacsMosaic frontend for SchemeMosaic" t)
+(autoload 'column-marker-1 "column-marker" "Column marker" t)
 
 
 ;;; Chrome and bells, jingles & gongs and all that jive
@@ -67,8 +68,9 @@
 ;;; Custom
 (annoying-arrows-mode)
 (dired-async-mode)
-;; (display-battery-mode)
+(save-place-mode)
 (global-anzu-mode)
+(global-eldoc-mode)
 (global-undo-tree-mode)
 
 ;;; Encoding and text
@@ -86,8 +88,8 @@
 	      (intern (concat "my/" (symbol-name hook) "-mode-hook")))))
 
 (add-my-hooks '(mail prog text))
-(add-my-hooks '(makefile nxml sgml))
-(add-my-hooks '(clojure java python racket rust tuareg))
+(add-my-hooks '(makefile nxml latex sgml))
+(add-my-hooks '(clojure java python racer racket rust tuareg))
 
 ;;; Lisp hooks
 (dolist (hook '(lisp-mode-hook
@@ -95,8 +97,8 @@
                 hy-mode-hook scheme-mode-hook racket-mode-hook))
   (add-hook hook #'my/lisp-mode-hook))
 
-(add-hook 'racer-mode-hook #'my/racer-mode-hook)
-(add-hook 'compilation-mode-hook #'page-break-lines-mode)
+(dolist (hook '(compilation-mode-hook help-mode-hook))
+  (add-hook hook #'page-break-lines-mode))
 
 (eldoc-add-command 'paredit-backward-delete 'paredit-close-round)
 
@@ -106,4 +108,5 @@
 (add-to-list 'auto-mode-alist '("PKGBUILD" . sh-mode))
 (add-to-list 'auto-mode-alist '("\\.install$" . conf-mode))
 (add-to-list 'auto-mode-alist '("\\.cell$" . cell-mode))
+(add-to-list 'auto-mode-alist '("\\.hy$" . hy-mode))
 (add-to-list 'auto-coding-alist '("\\.\\(nfo\\|NFO\\)\\'" . cp437-dos))

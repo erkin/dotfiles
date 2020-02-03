@@ -31,12 +31,14 @@
 ;;; String replacement
 (global-set-key (kbd "C-c C-r") #'replace-string)
 (global-set-key (kbd "C-M-^") #'map-query-replace-regexp)
+
 (global-set-key (kbd "H-1") #'replace-string)
 (global-set-key (kbd "H-2") #'replace-regexp)
 (global-set-key (kbd "H-3") #'query-replace)
 (global-set-key (kbd "H-4") #'query-replace-regexp)
 (global-set-key (kbd "H-5") #'map-query-replace-regexp)
 (global-set-key (kbd "H-6") #'replace-rectangle)
+;; (global-set-key (kbd "H-7") #'query-replace-regexp-eval)
 
 ;;; Multiple cursors
 (require 'multiple-cursors)

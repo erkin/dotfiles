@@ -25,8 +25,9 @@
   "Hooks for all prog modes in general"
   (rainbow-delimiters-mode)
   (page-break-lines-mode)
-  ;; (column-marker-1 80)
-  ;; (column-marker-2 100)
+  (column-marker-1 80)
+  (column-marker-2 100)
+  (yas-minor-mode)
   ;; (linum-mode)
   ;; (prettify-symbols-mode)
   (show-paren-mode)
@@ -44,16 +45,14 @@
   "Hooks for racer-mode.el of Rust"
   (company-mode)
   (local-set-key [tab] #'company-indent-or-complete-common)
-  (eldoc-mode)
   (ac-racer-setup))
 
 
 
 (defun my/clojure-mode-hook ()
   "Cider and stuff"
-  (setq cider-auto-mode t)
-  (local-set-key (kbd "C-c C-j") #'cider-jack-in)
-  (eldoc-mode))
+  (cider-mode)
+  (local-set-key (kbd "C-c C-j") #'cider-jack-in))
 
 (defun my/java-mode-hook ()
   "Exceptions for (cc-mode) etc for Java and Java-like languages"
@@ -68,7 +67,6 @@
   (local-set-key (kbd "M-(") #'paredit-wrap-round)
   (local-set-key (kbd "M-[") #'paredit-wrap-square)
   (local-set-key (kbd "M-{") #'paredit-wrap-curly)
-  ;; (eldoc-mode)
   ;; (slime-mode)
   (paredit-mode))
 
@@ -109,6 +107,10 @@
 (defun my/sgml-mode-hook ()
   "stuff"
   (setq comment-continue " "))
+
+(defun my/latex-mode-hook ()
+  "For LaTeX"
+  (latex-extra-mode))
 
 (defun my/nxml-mode-hook ()
   "fuck --!"

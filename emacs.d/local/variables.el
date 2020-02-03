@@ -29,7 +29,6 @@
       jit-lock-defer-time 0)
 
 ;;; Backup
-(setq-default save-place t)
 (setq backup-by-copying-when-linked t
       kept-new-versions 2
       kept-old-versions 1
@@ -117,11 +116,20 @@
               cperl-indent-level 4)
 (c-set-offset 'comment-intro 0)
 
+;;; Clojure
+(setq cider-auto-mode nil
+      cider-eldoc-display-for-symbol-at-point t
+      cider-eldoc-display-context-dependent-info t
+      cider-font-loc-dynamically '(macro core function var deprecated)
+      cider-prefer-local-resources t
+      nrepl-hide-special-buffers t)
+
 ;;; dot
 (setq graphviz-dot-auto-indent-on-newline nil
       graphviz-dot-auto-indent-on-semi nil
       graphviz-dot-auto-indent-on-braces t)
 
+;;; TeX
 (setq TeX-view-program-selection
       '(((output-dvi has-no-display-manager) "dvi2tty")
 	((output-dvi style-pstricks) "xdvi")
