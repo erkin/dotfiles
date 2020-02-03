@@ -30,6 +30,8 @@ zstyle :compinstall filename '$XDG_CONFIG_HOME/zsh/.zshrc'
 autoload -Uz compinit
 compinit
 
+kitty + complete setup zsh | source /dev/stdin
+
 # proper history lookup
 zle -N up-line-or-beginning-search
 zle -N down-line-or-beginning-search
@@ -202,9 +204,9 @@ alias pico='e3pi'
 
 # pacman
 alias p='pacman'
-alias sp='sudo powerpill'
-alias b='bauerbill'
-alias sb='bb-wrapper --aur --build-dir /tmp/pacbuild'
+alias sp='sudo pacman'
+# alias b='bauerbill'
+# alias sb='bb-wrapper --aur --build-dir /tmp/pacbuild'
 
 # force proper homes
 alias csi='chicken-csi -wq $XDG_CONFIG_HOME/chicken/csirc'
@@ -296,7 +298,7 @@ function edae
 {
     pushd ~ &> /dev/null
     XMODIFIERS=@im=none emacs --daemon
-    popd &> /dev/null
+    popd &> /dev/null || true
 }
 
 # tail ll
@@ -330,6 +332,12 @@ function scrsht
 function define
 {
     dict $@ | colorit | bat
+}
+
+# Temporary working folder
+function t
+{
+    cd $(mktemp -d /tmp/$1.XXXX)
 }
 
 # useless clock
@@ -378,7 +386,8 @@ then
     source "$ppath/zsh-autosuggestions/zsh-autosuggestions.plugin.zsh"
     source "$ppath/zsh-you-should-use/you-should-use.plugin.zsh"
 
-    source "$XDG_CONFIG_HOME/exercism/exercism_completion.zsh"
+    # source "$XDG_CONFIG_HOME/exercism/exercism_completion.zsh"
+    source "$XDG_CONFIG_HOME/broot/launcher/bash/br"
     # source "$XDG_DATA_HOME/opam/opam-init/complete.zsh"
     # source "$XDG_DATA_HOME/opam/opam-init/switch_eval.sh"
 fi

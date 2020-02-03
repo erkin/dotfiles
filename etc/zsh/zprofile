@@ -32,6 +32,7 @@ NNTPSERVER="news.eternal-september.org"
 
 COLORTERM="truecolor"
 PAGER="less"
+READNULLCMD="$PAGER"
 SUDO="sudo"
 
 DO_NOT_TRACK=1
@@ -74,11 +75,12 @@ GNUPGHOME="$XDG_CONFIG_HOME/gnupg"
 # gramps
 GRAMPSHOME="$XDG_DATA_HOME/gramps"
 
-# GTK+
+# GTK
 GTK_CSD=0
+GTK_IM_MODULE="fcitx"
 GTK_RC_FILES="$XDG_CONFIG_HOME/gtk-1.0/gtkrc"
 GTK2_RC_FILES="$XDG_CONFIG_HOME/gtk-2.0/gtkrc"
-GTK_IM_MODULE="fcitx"
+# GTK 3 respects the directory by default
 
 # less
 LESS="-FJMQSReis"
