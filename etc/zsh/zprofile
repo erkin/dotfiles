@@ -203,7 +203,8 @@ CARP_DIR="$HOME/dev/repos/Carp"
 CHICKEN_EGG_CACHE="$XDG_CACHE_HOME/chicken"
 
 # Clojure
-LEIN_HOME="$XDG_DATA_HOME/lein"
+LEIN_HOME="$XDG_CONFIG_HOME/lein"
+NREPL_CONFIG_DIR="$XDG_CONFIG_HOME/nrepl"
 
 # Forth
 GFORTHHIST="$XDG_CACHE_HOME/gforth/history"
