@@ -121,6 +121,14 @@ function run_hexchat()
                   screen = 2,
    })
 end
+function run_telegram()
+   awful.spawn("telegram-desktop",
+               {
+                  floating = false,
+                  tag = "🧡",
+                  screen = 2,
+   })
+end
 function run_firefox()
    awful.spawn("firefox",
                {
@@ -625,6 +633,9 @@ awful.rules.rules = {
      properties = { screen = 1, tag = "😿" } },
    { rule = { name = "Ripcord Voice Chat" },
      properties = { floating = true } },
+   { rule = { name = "Message Details" },
+     properties = { floating = true } },
+
 
    { rule = { role = "conversation" }, -- for Pidgin & HexChat
      properties = { floating = true } },
@@ -633,11 +644,13 @@ awful.rules.rules = {
      properties = { screen = 1, tag = "🐱" } },
    { rule = { class = "Hexchat" }, -- 1
      properties = { screen = 2, tag = "💖" } },
+   { rule = { class = "TelegramDesktop" }, -- 2
+     properties = { screen = 2, tag = "🧡" } },
    { rule = { class = "discord" }, -- 2
      properties = { screen = 1, tag = "🙀" } },
    { rule = { class = "Ripcord" }, -- 2
      properties = { screen = 1, tag = "🙀" } },
-   { rule = { class = "keepassxc" }, -- 8
+   { rule = { class = "KeePassXC" }, -- 8
      properties = { screen = 1, tag = "😾" } },
    { rule = { class = "Audacious" }, -- for Winamp interface
      properties = { titlebars_enabled = false, ontop = true } },
